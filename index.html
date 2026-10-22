@@ -77,36 +77,34 @@
           class="hero-art"
           aria-label="A preview of the founder office-hours software"
         >
+          <div class="hero-board live-hero">
+            <iframe
+              src="demo/index.html?view=board"
+              title="Live Quest Board with fictional demo posts"
+              tabindex="-1"
+              aria-hidden="true"
+              sandbox="allow-scripts allow-same-origin"
+            ></iframe>
+          </div>
           <button
-            class="hero-board media-open"
-            data-src="img/office-hours-board.webp"
-            data-caption="The live Quest Board, rendered from the production interface with fictional demo posts."
-            type="button"
-            aria-label="Enlarge the live Quest Board screenshot"
-          >
-            <img
-              src="img/office-hours-board.webp"
-              alt="The Quest Board interface with fictional posts about finding collaborators and testing products"
-              width="1690"
-              height="830"
-              fetchpriority="high"
-            /></button
-          ><button
             class="hero-phone media-open"
-            data-src="img/office-hours-quests.webp"
-            data-caption="The attendee interface after check-in. Original product components, fictional demo data."
+            data-src="img/office-hours-success.webp"
+            data-caption="The original check-in success screen. Fictional demo data."
             type="button"
-            aria-label="Enlarge the attendee interface screenshot"
+            aria-label="Enlarge the check-in success screen"
           >
             <img
-              src="img/office-hours-quests.webp"
-              alt="The mobile attendee interface with an anonymous question box and a public Quest Board form"
+              src="img/office-hours-success.webp"
+              alt="The check-in success screen with the NTUTEC cat mascot"
               width="390"
-              height="1501"
+              height="844"
             />
           </button>
           <p class="hero-art-caption">
             A room full of founders. One shared board.
+            <button class="motion-toggle" type="button" aria-pressed="false">
+              Pause motion
+            </button>
           </p>
         </div>
       </section>
@@ -185,7 +183,7 @@
                 data-view="checkin"
                 tabindex="-1"
               >
-                Check in</button
+                Arrive</button
               ><button
                 role="tab"
                 aria-selected="false"
@@ -194,7 +192,16 @@
                 data-view="quests"
                 tabindex="-1"
               >
-                Join in
+                Join in</button
+              ><button
+                role="tab"
+                aria-selected="false"
+                aria-controls="experience-panel"
+                id="tab-featured"
+                data-view="featured"
+                tabindex="-1"
+              >
+                Ask the room
               </button>
             </div>
           </div>
@@ -204,35 +211,47 @@
             role="tabpanel"
             aria-labelledby="tab-board"
           >
-            <button
-              class="experience-image media-open"
+            <div
+              class="experience-image demo-stage"
               id="experience-image"
-              data-src="img/office-hours-board.webp"
-              data-caption="The live Quest Board. Production interface rendered with fictional demo posts."
-              type="button"
-              aria-label="Enlarge the selected product screenshot"
+              data-mode="board"
             >
-              <img
-                id="gallery-image"
-                src="img/office-hours-board.webp"
-                alt="The public Quest Board, displaying fictional posts seeking collaborators and product testers"
-                width="1690"
-                height="830"
+              <iframe
+                id="experience-demo"
+                src="demo/index.html?view=board"
+                title="Interactive Quest Board demo with fictional data"
                 loading="lazy"
-              /><span class="zoom-cue" aria-hidden="true">↗</span>
-            </button>
+                sandbox="allow-scripts allow-same-origin"
+              ></iframe>
+            </div>
             <div class="experience-copy" aria-live="polite">
-              <p class="small-label" id="gallery-kicker">A shared surface</p>
+              <p class="small-label" id="gallery-kicker">A room in motion</p>
               <h4 id="gallery-title">Make it easier to find each other.</h4>
               <p id="gallery-description">
-                Founders post what they’re looking for from their phones. The
-                room sees a live board of potential collaborators, product
-                trials and shared resources.
+                Two streams of founder posts move in opposite directions. Pause
+                the board to read a request, or switch to an anonymous question.
               </p>
               <p class="image-note">
-                Actual product interface, rendered with fictional demo data.
-                Select an image to inspect it.
+                Try the original interface with fictional demo data. Nothing you
+                enter is saved or sent.
               </p>
+              <div class="demo-actions">
+                <button
+                  class="motion-toggle"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  Pause motion</button
+                ><button id="demo-restart" type="button">
+                  Restart this scene ↻</button
+                ><a
+                  id="demo-open"
+                  href="demo/index.html?view=board"
+                  target="_blank"
+                  rel="noopener"
+                  >Open demo ↗</a
+                >
+              </div>
             </div>
           </div>
         </div>

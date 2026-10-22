@@ -44,42 +44,133 @@
   }
   const views = {
     board: {
-      src: "img/office-hours-board.webp",
+      scene: "board",
       mode: "board",
-      kicker: "A shared surface",
+      kicker: "A room in motion",
       title: "Make it easier to find each other.",
       description:
-        "Founders post what they’re looking for from their phones. The room sees a live board of potential collaborators, product trials and shared resources.",
-      alt: "The public Quest Board, displaying fictional posts seeking collaborators and product testers",
-      caption:
-        "The live Quest Board. Production interface rendered with fictional demo posts.",
+        "Two streams of founder posts move in opposite directions. Read the requests, pause the board, or switch to an anonymous question.",
     },
     checkin: {
-      src: "img/office-hours-checkin.webp",
+      scene: "arrival",
       mode: "phone",
-      kicker: "A simple entrance",
-      title: "Arrive with a question.",
+      kicker: "From check-in to conversation",
+      title: "Pick a card. Find your people.",
       description:
-        "A QR code opens a mobile check-in. Returning visitors can be recognized across sessions, while the team tracks stages, needs and feedback with consent.",
-      alt: "The actual mobile check-in interface, asking for a name or email, with no attendee data shown",
-      caption:
-        "The mobile check-in interface, rendered in an isolated demo environment.",
+        "Try the three-step arrival: choose a field card, meet the check-in cat, then learn how to join the room. Use the buttons inside the phone to continue.",
     },
     quests: {
-      src: "img/office-hours-quests.webp",
-      mode: "quests",
+      scene: "quests",
+      mode: "phone",
       kicker: "Two ways to participate",
       title: "Find a partner. Ask for help.",
       description:
-        "The Quest Board is for public connections. The question box keeps a question anonymous to the room while letting the host know who needs support.",
-      alt: "The attendee interface showing the Guild Master’s Mailbox and Quest Board posting form",
-      caption:
-        "The actual attendee interface after check-in. Fictional demo data; the full form can be inspected here.",
+        "Explore the public Quest Board form and private question box. You can type and try the controls; this demo keeps everything in memory.",
+    },
+    featured: {
+      scene: "featured",
+      mode: "board",
+      kicker: "One question. The whole room.",
+      title: "Give a difficult question space.",
+      description:
+        "The host can replace the flowing board with a single anonymous question, giving the whole room a shared problem to work on.",
     },
   };
   const tabs = [...document.querySelectorAll("[data-view]")];
-  const galleryButton = document.getElementById("experience-image");
-  const galleryImage = document.getElementById("gallery-image");
+  const galleryStage = document.getElementById("experience-image");
+  const demo = document.getElementById("experience-demo");
+  let motionPaused = reducedMotion.matches;
+  const frameVisibility = new WeakMap();
+  function syncMotion() {
+    document.querySelectorAll(".motion-toggle").forEach((button) => {
+      button.textContent = motionPaused ? "Resume motion" : "Pause motion";
+      button.setAttribute("aria-pressed", String(motionPaused));
+    });
+    document.querySelectorAll("iframe").forEach((frame) =>
+      frame.contentWindow?.postMessage(
+        {
+          type: "portfolio-motion",
+          paused:
+            motionPaused ||
+            document.hidden ||
+            frameVisibility.get(frame) === false,
+        },
+        location.origin,
+      ),
+    );
+  }
+  document.querySelectorAll(".motion-toggle").forEach((button) =>
+    button.addEventListener("click", () => {
+      motionPaused = !motionPaused;
+      syncMotion();
+    }),
+  );
+  document
+    .querySelectorAll("iframe")
+    .forEach((frame) => frame.addEventListener("load", syncMotion));
+  reducedMotion.addEventListener("change", (event) => {
+    motionPaused = event.matches;
+    syncMotion();
+  });
+  syncMotion();
+  if ("IntersectionObserver" in window) {
+    const frameObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) =>
+        frameVisibility.set(entry.target, entry.isIntersecting),
+      );
+      syncMotion();
+    });
+    document
+      .querySelectorAll("iframe")
+      .forEach((frame) => frameObserver.observe(frame));
+  }
+  document.addEventListener("visibilitychange", syncMotion);
+  let demoPosts = [];
+  let demoQuestion = "";
+  function syncDemoState() {
+    document.querySelectorAll("iframe").forEach((frame) =>
+      frame.contentWindow?.postMessage(
+        {
+          type: "portfolio-demo-state",
+          posts: demoPosts,
+          question: demoQuestion,
+        },
+        location.origin,
+      ),
+    );
+  }
+  window.addEventListener("message", (event) => {
+    const frames = [...document.querySelectorAll("iframe")];
+    if (
+      event.origin !== location.origin ||
+      !frames.some((frame) => frame.contentWindow === event.source) ||
+      event.data?.type !== "portfolio-demo-post"
+    )
+      return;
+    const body =
+      typeof event.data.body === "string" ? event.data.body.slice(0, 300) : "";
+    if (!body.trim()) return;
+    if (event.data.kind === "mailbox") demoQuestion = body;
+    else if (event.data.kind === "exchange") {
+      demoPosts = [
+        {
+          id: `visitor-${Date.now()}`,
+          name: "Demo Visitor",
+          teamName: "Demo",
+          category: event.data.category || "resource",
+          body,
+          url: null,
+          createdAt: new Date().toISOString(),
+        },
+        ...demoPosts,
+      ].slice(0, 5);
+    }
+    syncDemoState();
+  });
+  document
+    .querySelectorAll("iframe")
+    .forEach((frame) => frame.addEventListener("load", syncDemoState));
+
   function selectView(button, focus = false) {
     const view = views[button.dataset.view];
     tabs.forEach((tab) => {
@@ -88,11 +179,10 @@
       tab.tabIndex = selected ? 0 : -1;
     });
     if (focus) button.focus();
-    galleryButton.dataset.mode = view.mode;
-    galleryButton.dataset.src = view.src;
-    galleryButton.dataset.caption = view.caption;
-    galleryImage.src = view.src;
-    galleryImage.alt = view.alt;
+    galleryStage.dataset.mode = view.mode;
+    demo.src = `demo/index.html?view=${view.scene}`;
+    demo.title = `Interactive ${view.scene} demo with fictional data`;
+    document.getElementById("demo-open").href = demo.src;
     document
       .getElementById("experience-panel")
       .setAttribute("aria-labelledby", button.id);
@@ -101,6 +191,9 @@
     document.getElementById("gallery-description").textContent =
       view.description;
   }
+  document.getElementById("demo-restart").addEventListener("click", () => {
+    demo.src = demo.src;
+  });
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => selectView(tab));
     tab.addEventListener("keydown", (event) => {

@@ -1,301 +1,529 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raven Hsu — Builds</title>
-<meta name="description" content="Raven Hsu runs NTU Garage, the NTUTEC founder program in Taiwan, and builds the software behind it with Claude Code.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --accent: #00bcb5;
-    --accent-ink: #00807b;
-    --ink: #161514;
-    --body: #4c4944;
-    --muted: #6d6963;
-    --faint: #8b8781;
-    --bg: #fbfbfa;
-    --card: #ffffff;
-    --border: #e3e1dc;
-    --warm: #d9922e;
-    --shot-bg: #f1f0ec;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --accent: #2fd3cc; --accent-ink: #5fe0da; --ink: #f2f1ee; --body: #cfccc6; --muted: #a9a59e;
-      --faint: #8b8781; --bg: #121211; --card: #1b1b1a; --border: #2e2d2a; --shot-bg: #222220;
-    }
-  }
-  :root[data-theme="dark"] {
-    --accent: #2fd3cc; --accent-ink: #5fe0da; --ink: #f2f1ee; --body: #cfccc6; --muted: #a9a59e;
-    --faint: #8b8781; --bg: #121211; --card: #1b1b1a; --border: #2e2d2a; --shot-bg: #222220;
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font-family: Inter, "Helvetica Neue", Arial, "PingFang TC", "Noto Sans TC", sans-serif;
-    font-size: 16px; line-height: 1.65;
-  }
-  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { color: var(--ink); }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-  @media (min-width: 720px) { .wrap { padding: 0 40px; } }
-  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
-
-  header.site { border-bottom: 1px solid var(--border); }
-  header.site .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; gap: 16px; }
-  .brand { font-weight: 900; letter-spacing: .06em; font-size: 18px; color: var(--ink); text-decoration: none; }
-  nav.links { display: flex; gap: 20px; font-size: 14px; letter-spacing: .04em; }
-  nav.links a { color: var(--muted); text-decoration: none; }
-  nav.links a:hover { color: var(--ink); }
-
-  .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
-  .eyebrow { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-ink); font-weight: 500; margin: 0 0 16px; }
-  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.1; font-weight: 900; margin: 0 0 24px; letter-spacing: -.01em; max-width: 16ch; }
-  .lede { font-size: 18px; font-weight: 300; color: var(--body); max-width: 60ch; margin: 0; }
-  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 36px; max-width: 560px; }
-  .stat { border: 1px solid var(--border); background: var(--card); padding: 14px 16px; }
-  .stat b { display: block; font-size: 26px; font-weight: 900; line-height: 1.1; }
-  .stat span { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
-
-  section.builds { padding: 48px 0 16px; }
-  .section-label { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px; }
-  article.build { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 32px 0; border-top: 1px solid var(--border); }
-  @media (min-width: 860px) { article.build { grid-template-columns: 1fr 1.15fr; gap: 40px; } }
-  .meta { font-size: 12px; color: var(--faint); letter-spacing: .04em; margin: 0 0 8px; }
-  article h2 { font-size: 26px; line-height: 1.25; font-weight: 700; margin: 0 0 12px; }
-  article p { margin: 0 0 12px; color: var(--body); }
-  ul.facts { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  ul.facts li { font-size: 12.5px; border: 1px solid var(--border); padding: 4px 10px; color: var(--muted); background: var(--card); }
-  .lesson { border-left: 3px solid var(--warm); padding: 2px 0 2px 14px; margin: 16px 0 14px; color: var(--ink); }
-  .cta { display: inline-block; margin-top: 8px; font-weight: 500; }
-
-  figure { margin: 0; }
-  .shot { background: var(--shot-bg); border: 1px solid var(--border); overflow: hidden; }
-  .shot img { display: block; width: 100%; height: auto; }
-  .shot + .shot { margin-top: 12px; }
-  figcaption { font-size: 12.5px; color: var(--faint); margin-top: 8px; }
-  .placeholder {
-    aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; padding: 16px;
-    background: repeating-linear-gradient(135deg, var(--shot-bg) 0 12px, transparent 12px 24px);
-    border: 1px dashed var(--faint); color: var(--muted); font-size: 14px;
-  }
-  .timeline { list-style: none; margin: 14px 0 0; padding: 0; border-left: 2px solid var(--accent); }
-  .timeline li { padding: 4px 0 4px 14px; font-size: 14.5px; color: var(--body); }
-  .timeline .mono { color: var(--ink); font-size: 13px; margin-right: 6px; }
-  table.result { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--card); border: 1px solid var(--border); }
-  table.result th, table.result td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-  table.result th { font-weight: 500; color: var(--muted); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-  table.result tr:last-child td { border-bottom: 0; }
-  .worse { color: #c0392b; font-weight: 700; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .worse { color: #ff7b6b; } }
-  :root[data-theme="dark"] .worse { color: #ff7b6b; }
-
-  section.how { padding: 40px 0 56px; border-top: 1px solid var(--border); }
-  .how-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-  @media (min-width: 720px) { .how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .how-item { background: var(--card); border: 1px solid var(--border); padding: 18px 20px; }
-  .how-item h3 { margin: 0 0 6px; font-size: 16px; }
-  .how-item p { margin: 0; font-size: 14.5px; color: var(--body); }
-
-  section.earlier { padding: 40px 0 56px; border-top: 1px solid var(--border); }
-  .earlier-list { list-style: none; margin: 0; padding: 0; }
-  .earlier-list li { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 14px 0; border-top: 1px solid var(--border); font-size: 15px; color: var(--body); }
-  .earlier-list li:first-child { border-top: 0; padding-top: 0; }
-  .earlier-list .mono { font-size: 13px; color: var(--faint); }
-  .earlier-list strong { color: var(--ink); font-weight: 500; }
-  @media (min-width: 720px) { .earlier-list li { grid-template-columns: 96px 1fr; gap: 16px; } }
-
-  .earlier-media { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 28px; }
-  @media (min-width: 720px) { .earlier-media { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
-  .earlier-media .shot img { aspect-ratio: 16 / 9; object-fit: cover; }
-
-  footer { border-top: 1px solid var(--border); padding: 28px 0 40px; font-size: 13px; color: var(--faint); }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-
-  .cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
-  .cats img { width: 100%; height: auto; display: block; border: 1px solid var(--border); }
-  .status { display: inline-block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; margin-left: 8px; vertical-align: middle; border: 1px solid var(--accent); color: var(--accent-ink); }
-  .status.design { border-color: var(--warm); color: var(--warm); }
-
-  .flow { display: grid; grid-template-columns: 1fr; gap: 12px; background: var(--shot-bg); border: 1px solid var(--border); padding: 14px; }
-  @media (min-width: 560px) { .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .flow-head { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
-  .flow-box { background: var(--card); border: 1px solid var(--border); padding: 8px 10px; font-size: 13px; line-height: 1.45; color: var(--ink); margin-bottom: 8px; }
-  .flow-box:last-child { margin-bottom: 0; }
-  .flow-box span { display: block; color: var(--muted); }
-  .flow-box.anon { border-color: var(--accent); }
-  .flow-cap { margin-bottom: 16px; }
-  .timeline + p { margin-top: 18px; }
-</style>
-</head>
-<body>
-
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="#">RAVEN HSU</a>
-    <nav class="links" aria-label="Profiles">
-      <a href="https://www.linkedin.com/in/raven-hsu-701963207/">LinkedIn</a>
-      <a href="https://github.com/ravenhsu1995">GitHub</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Raven Hsu · NTUTEC · Taipei</p>
-      <h1>I run NTU Garage, a founder program in Taiwan, and build the software behind it.</h1>
-      <p class="lede">I studied sociology and behavioral science. At NTUTEC, National Taiwan University's entrepreneurship center, I lead NTU Garage, our program for early-stage founders, and designed its 2026 program for 20 teams. Since April 2026 I've built its operations software with Claude Code. In September I opened free office hours so we could meet founders before they apply, and built their check-in.</p>
-      <div class="stats">
-        <div class="stat"><b>20</b><span>NTU Garage teams in 2026</span></div>
-        <div class="stat"><b>63</b><span>people checked in at our open office hours</span></div>
-        <div class="stat"><b>13</b><span>of 65 registrants for 2027 came to office hours first</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="builds">
-    <div class="wrap">
-      <p class="section-label">Builds</p>
-
-      <article class="build" id="garage">
-        <div>
-          <p class="meta mono">Apr 2026 – now · Next.js · Supabase · Vercel · Vitest</p>
-          <h2>NTU Garage operations dashboard + office-hours tools <span class="status">Running</span></h2>
-          <p>Our team uses it to track NTU Garage's coaching progress, consultation records and next steps, and to run registration, follow-up, KPIs and rosters: 15 courses and group consultations so far, for 42 teams and 68 people across Garage and our accelerator. Nobody assigned it; I started it myself, and I'm its only developer.</p>
-          <p>In September I opened <strong>創創相談室</strong>, free monthly founder office hours, so we could meet founders before they apply. For the first time in NTUTEC's 13 years, our space was open to anyone: no company, deck or NTU affiliation needed. 60 signed up for the first session, from a high-school student to a PhD researcher, and 38 came. At the second, in October, 7 of the 32 attendees were returning; 63 people have checked in across both.</p>
-          <p><strong>How its check-in came together:</strong></p>
-          <ul class="timeline">
-            <li><span class="mono">23:39</span>The night before: first commit, with QR check-in and a live back-office board</li>
-            <li><span class="mono">01:01</span>A confirmation step so nobody checks in as the wrong person</li>
-            <li><span class="mono">13:53</span>Event day: prompt to pick up one of 15 topic cards by project field</li>
-            <li><span class="mono">18:50</span>Event day: a feedback form linked to each check-in</li>
-            <li><span class="mono">Next day</span>36 more commits: cross-session profiles (with consent) of visitors' stage, field, problems, feedback, return visits and NTU Garage eligibility</li>
-          </ul>
-          <p><strong>Session 2 (Oct 19):</strong></p>
-          <ul class="timeline">
-            <li><span class="mono">Morning</span>A live board where attendees post what they're looking for (a co-founder, product testers) to the big screen, plus a question box the host brings to the room</li>
-            <li><span class="mono">Design</span>I kept requests for help off the public board. They go to the question box: the big screen shows only the question, while the host's back office shows who asked</li>
-            <li><span class="mono">14:00</span>In use at the session: 11 of the 32 attendees posted, 12 times in all</li>
-            <li><span class="mono">Oct 21</span>Matched attendees against our 2027 interest registrations, by email and then by name, because people sometimes use a different email on each form; name-only matches are flagged for staff to confirm. 13 of the 65 people who registered came to office hours first</li>
-          </ul>
-          <ul class="facts"><li>436 commits</li><li>18 test files</li><li>CI</li></ul>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Raven Hsu | Programs, people, and useful software</title>
+    <meta
+      name="description"
+      content="Raven Hsu designs founder programs and builds the software behind them. Selected work at NTU Garage, behavioral science experiments, and earlier ventures."
+    />
+    <meta property="og:title" content="Raven Hsu | Make room for ideas." />
+    <meta
+      property="og:description"
+      content="Founder programs and useful software, grounded in sociology and behavioral science."
+    />
+    <meta
+      property="og:image"
+      content="https://ravenhsu1995.github.io/img/office-hours-board.webp"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://ravenhsu1995.github.io/" />
+    <link
+      rel="preload"
+      href="fonts/manrope.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      try {
+        const t = localStorage.getItem("raven-theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#" aria-label="Raven Hsu home">RAVEN HSU</a>
+      <nav aria-label="Profiles">
+        <a
+          href="https://www.linkedin.com/in/raven-hsu-701963207/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn <span aria-hidden="true">↗</span></a
+        ><a
+          href="https://github.com/ravenhsu1995"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub <span aria-hidden="true">↗</span></a
+        ><button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch color theme"
+        >
+          Dark
+        </button>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Make room for <span>ideas.</span></h1>
+          <p>
+            I design founder programs and build the software behind them,
+            grounded in sociology and behavioral science.
+          </p>
+          <a class="text-link hero-link" href="#garage"
+            >Explore my work <span aria-hidden="true">↘</span></a
+          >
         </div>
-        <figure>
-          <div class="flow" role="img" aria-label="Diagram of session 2's live board. On the attendee's phone: check in, then post to the live board or ask the question box. On the big screen: board posts with name, team and a QR code for any link, plus the one question the host picks, shown with no name. In the host's back office: every post with its author, and controls to put a question on screen or hide a post.">
+        <div
+          class="hero-art"
+          aria-label="A preview of the founder office-hours software"
+        >
+          <button
+            class="hero-board media-open"
+            data-src="img/office-hours-board.webp"
+            data-caption="The live Quest Board, rendered from the production interface with fictional demo posts."
+            type="button"
+            aria-label="Enlarge the live Quest Board screenshot"
+          >
+            <img
+              src="img/office-hours-board.webp"
+              alt="The Quest Board interface with fictional posts about finding collaborators and testing products"
+              width="1690"
+              height="830"
+              fetchpriority="high"
+            /></button
+          ><button
+            class="hero-phone media-open"
+            data-src="img/office-hours-quests.webp"
+            data-caption="The attendee interface after check-in. Original product components, fictional demo data."
+            type="button"
+            aria-label="Enlarge the attendee interface screenshot"
+          >
+            <img
+              src="img/office-hours-quests.webp"
+              alt="The mobile attendee interface with an anonymous question box and a public Quest Board form"
+              width="390"
+              height="1501"
+            />
+          </button>
+          <p class="hero-art-caption">
+            A room full of founders. One shared board.
+          </p>
+        </div>
+      </section>
+      <div class="intro-strip wrap reveal">
+        <p>
+          I’m Raven. At National Taiwan University’s entrepreneurship center, I
+          lead NTU Garage and turn problems I see firsthand into programs and
+          tools.
+        </p>
+        <a class="quiet-link" href="#earlier"
+          >A little more about me <span aria-hidden="true">↗</span></a
+        >
+      </div>
+      <section class="case wrap" id="garage" aria-labelledby="garage-title">
+        <div class="case-heading reveal">
+          <p class="section-label">Selected work</p>
+          <h2 id="garage-title">
+            A place to start.<br />A system to keep going.
+          </h2>
+          <p class="section-intro">
+            NTU Garage combines the founder program I designed with the software
+            I built to run it.
+          </p>
+        </div>
+        <div class="case-overview reveal">
+          <div class="overview-copy">
+            <h3>Design the program. Build what it needs.</h3>
+            <p>
+              After interviewing experienced startup practitioners, I adopted
+              OKRs for the 2026 program: individual goals, four validation
+              workshops, and recurring consultations by field.
+            </p>
+            <p>
+              I independently built an operations dashboard to track coaching
+              progress, consultation records and next steps, alongside
+              registration, attendance and follow-up.
+            </p>
+          </div>
+          <dl class="program-facts">
             <div>
-              <p class="flow-head mono">1 · Phone</p>
-              <div class="flow-box">Check in, then pick a quest</div>
-              <div class="flow-box">Live board<span>What I'm looking for: a co-founder, product testers…</span></div>
-              <div class="flow-box anon">Question box<span>What I'm stuck on</span></div>
+              <dt>20</dt>
+              <dd>teams in the 2026 Garage program</dd>
             </div>
             <div>
-              <p class="flow-head mono">2 · Big screen</p>
-              <div class="flow-box">Board posts<span>with name, team and a QR code for any link</span></div>
-              <div class="flow-box anon">The question the host picks<span>shown with no name</span></div>
+              <dt>15</dt>
+              <dd>courses and group consultations managed</dd>
             </div>
             <div>
-              <p class="flow-head mono">3 · Host view</p>
-              <div class="flow-box">Every post, with its author</div>
-              <div class="flow-box">Put a question on screen, or hide a post</div>
+              <dt>42</dt>
+              <dd>teams represented across Garage and the accelerator</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="experience reveal" data-gallery>
+          <div class="experience-top">
+            <h3>Inside the open founder office hours</h3>
+            <div
+              class="gallery-tabs"
+              role="tablist"
+              aria-label="Explore the office-hours interface"
+            >
+              <button
+                role="tab"
+                aria-selected="true"
+                aria-controls="experience-panel"
+                id="tab-board"
+                data-view="board"
+                tabindex="0"
+              >
+                The room</button
+              ><button
+                role="tab"
+                aria-selected="false"
+                aria-controls="experience-panel"
+                id="tab-checkin"
+                data-view="checkin"
+                tabindex="-1"
+              >
+                Check in</button
+              ><button
+                role="tab"
+                aria-selected="false"
+                aria-controls="experience-panel"
+                id="tab-quests"
+                data-view="quests"
+                tabindex="-1"
+              >
+                Join in
+              </button>
             </div>
           </div>
-          <figcaption class="flow-cap">How session 2's live board works. This is a diagram, not a screenshot: the real screens show attendees' names.</figcaption>
-          <div class="cats">
-            <img src="img/cat-saas.jpg" alt="Topic card for app and SaaS projects">
-            <img src="img/cat-exploring.jpg" alt="Topic card for people still exploring an idea">
-            <img src="img/cat-ai.jpg" alt="Topic card for AI and automation projects">
+          <div
+            class="experience-panel"
+            id="experience-panel"
+            role="tabpanel"
+            aria-labelledby="tab-board"
+          >
+            <button
+              class="experience-image media-open"
+              id="experience-image"
+              data-src="img/office-hours-board.webp"
+              data-caption="The live Quest Board. Production interface rendered with fictional demo posts."
+              type="button"
+              aria-label="Enlarge the selected product screenshot"
+            >
+              <img
+                id="gallery-image"
+                src="img/office-hours-board.webp"
+                alt="The public Quest Board, displaying fictional posts seeking collaborators and product testers"
+                width="1690"
+                height="830"
+                loading="lazy"
+              /><span class="zoom-cue" aria-hidden="true">↗</span>
+            </button>
+            <div class="experience-copy" aria-live="polite">
+              <p class="small-label" id="gallery-kicker">A shared surface</p>
+              <h4 id="gallery-title">Make it easier to find each other.</h4>
+              <p id="gallery-description">
+                Founders post what they’re looking for from their phones. The
+                room sees a live board of potential collaborators, product
+                trials and shared resources.
+              </p>
+              <p class="image-note">
+                Actual product interface, rendered with fictional demo data.
+                Select an image to inspect it.
+              </p>
+            </div>
           </div>
-          <figcaption>Three of the 15 topic cards I designed so attendees could spot people working in the same field.</figcaption>
-        </figure>
-      </article>
-
-      <article class="build" id="besci">
-        <div>
-          <p class="meta mono">May – Jul 2026 · MCP · Gemini Flash · Claude Haiku</p>
-          <h2>BeSci Wiki <span class="status design">Shut down</span></h2>
-          <p>A behavioral science knowledge base any AI could query through an MCP server. Gemini Flash extracted claims from papers and reports, each traced to its source quote. Claude Haiku ran auto-review at a measured $0.05 per document. Codex cross-reviewed the work, including 3 rounds on the 25-document hand-labeled test set.</p>
-          <ul class="facts"><li>638 claims · 38 sources</li><li>70 human-verified</li><li>216 tests</li></ul>
-          <p class="lesson">When one fix sent its evaluation score from 0 to 0.94, I checked its coverage: the hand-labeled test set covered only 12 of the 79 terms it scored. I narrowed what the metric claimed to measure and stopped a re-extraction at 18 of 25 documents. At 6.5 weeks I shut the project down. I had built its infrastructure before testing its premise, that consulting firms' published insights could be mapped objectively back to research. I should have started by hand-mapping three articles.</p>
-                  </div>
-        <figure>
-          <div class="shot"><img src="img/besci-home.png" alt="BeSci Wiki home: 58 concepts, 38 sources, 638 claims, with claim status counts"></div>
-          <div class="shot"><img src="img/besci-claims.png" alt="A BeSci Wiki concept page: each claim shows its condition, the original quote and page number, and its source"></div>
-          <figcaption>Interface in Chinese; source content in English. Most claims are still drafts, as the status counts show.</figcaption>
-        </figure>
-      </article>
-      <article class="build" id="satellite">
-        <div>
-          <p class="meta mono">Aug 25 – 26, 2026 · Colab · XGBoost · Sentinel-2 · $0 infrastructure</p>
-          <h2>Satellite imagery vs. house prices <span class="status design">Negative result</span></h2>
-          <p>After BeSci, I set the bar before running anything. The question: does adding Sentinel-2 satellite indices (NDVI, NDBI) to an XGBoost model lower its error on Taiwan house prices? I fixed three success criteria in the plan first.</p>
-          <p class="lesson">It met 1 of 3. Imagery made the error worse, not better, and I wrote it up as a negative result.</p>
-          <ul class="facts"><li>1,621 test rows</li><li>1 of 3 criteria met</li><li>9 commits · 5 notebooks</li></ul>
-          <p><a href="https://github.com/ravenhsu1995/TW_Housets">Code and full write-up on GitHub</a></p>
         </div>
-        <figure>
-          <table class="result">
-            <thead><tr><th>Model</th><th>MAPE (lower is better)</th></tr></thead>
-            <tbody>
-              <tr><td>Without imagery</td><td class="mono">13.15% ± 0.32</td></tr>
-              <tr><td>With imagery</td><td class="mono worse">13.73% ± 0.40</td></tr>
-              <tr><td>Difference</td><td class="mono">−0.58 pp (95% CI −0.75 to −0.19)</td></tr>
-              <tr><td>Significance</td><td class="mono">p = 0.0016</td></tr>
-            </tbody>
-          </table>
-          <figcaption>A negative difference means imagery made predictions worse.</figcaption>
-        </figure>
-      </article>
-    </div>
-  </section>
-
-  <section class="how">
-    <div class="wrap">
-      <p class="section-label">How I work</p>
-      <div class="how-grid">
-        <div class="how-item"><h3>Open the door first</h3><p>Help that starts only after selection goes to those already ahead; sociology calls it the Matthew effect. So our office hours let anyone in, and we meet founders before they apply.</p></div>
-        <div class="how-item"><h3>Test the method before adopting it</h3><p>Before using OKRs for the 2026 cohort, I interviewed experienced startup practitioners to check the approach. Each team now sets its own goals at the start, then works through four validation workshops and recurring group consultations by field.</p></div>
-        <div class="how-item"><h3>Ask the people it's for</h3><p>In 2016 I co-founded Forget About Age, an intergenerational program. Before our two-day camp in June 2017, we ran a World Café with the senior-university members it was for. In the survey I ran afterward, they rated our student helpers 4.95/5 and the drama sessions we had pitched as our signature last, so the next format we planned centered on trained student hosts.</p></div>
-        <div class="how-item"><h3>Build it with agents, and kill it if it's wrong</h3><p>I build with Claude Code. 6 of my 10 repos have an AGENTS.md or CLAUDE.md with rules for the agents. The dashboard's AGENTS.md fences them off (no schema changes, no new endpoints, no new UI libraries) and requires a browser check of every UI change: screenshots in light and dark mode, KPI text read back, console errors scanned. The dashboard and BeSci both have CI. When I realized BeSci's mistake was an untested premise, I shut it down and wrote up why. On the next project I set the bar before running anything.</p></div>
+        <div class="decisions-grid reveal">
+          <div>
+            <h3>Open the door before the application.</h3>
+            <p>
+              I proposed and launched free monthly office hours to expand our
+              prospective-team pool and help founders prepare to apply. I led
+              the strategy, resource coordination, outreach, software and
+              on-site experience.
+            </p>
+            <p>No company, pitch deck or university affiliation required.</p>
+          </div>
+          <div class="decision-detail">
+            <p class="small-label">A deliberate design decision</p>
+            <h3>Public connections. Private attribution.</h3>
+            <p>
+              Networking posts go on the public board. Requests for help go to a
+              separate question box: anonymous on the big screen, identified to
+              the host.
+            </p>
+            <p>
+              I added game-style interactions for the second session to
+              encourage participation. Their effect on future return visits is
+              still a question to test.
+            </p>
+          </div>
+        </div>
+        <div class="outcomes reveal" aria-label="Office-hours outcomes">
+          <div>
+            <strong>63</strong>
+            <p>people used check-in across two sessions</p>
+          </div>
+          <div>
+            <strong>11<span>/32</span></strong>
+            <p>attendees posted at the second session</p>
+          </div>
+          <div>
+            <strong>13<span>/65</span></strong>
+            <p>
+              people on the 2027 interest list attended office hours before
+              registering
+            </p>
+          </div>
+        </div>
+        <details class="case-details reveal">
+          <summary>
+            More about the build <span aria-hidden="true">+</span>
+          </summary>
+          <div class="details-body">
+            <p>
+              Built with Next.js, Supabase and Vercel, using Claude Code. I’m
+              the only developer. The repository includes 18 test files, CI and
+              written agent guardrails requiring browser checks after interface
+              changes.
+            </p>
+            <p>
+              The first check-in version was committed the night before the
+              first session. I added cross-session profiles afterward, then the
+              live board and question box for session two. Seven of the 32
+              people at the second session had attended the first.
+            </p>
+            <p>
+              Coaching and attendee records stay private. The product
+              screenshots here use fictional data in an isolated environment.
+            </p>
+          </div>
+        </details>
+      </section>
+      <section class="experiments wrap" aria-labelledby="experiments-title">
+        <div class="section-heading reveal">
+          <h2 id="experiments-title">
+            Some things earn another iteration.<br />Some don’t.
+          </h2>
+          <p>
+            I build with AI, check the evidence, and change course when the
+            result calls for it.
+          </p>
+        </div>
+        <article class="besci-case reveal" id="besci">
+          <div class="besci-media">
+            <button
+              class="media-open"
+              data-src="img/besci-claims.webp"
+              data-caption="BeSci Wiki: claims linked to their source passages. Most claims remained drafts."
+              type="button"
+              aria-label="Enlarge the BeSci claims interface"
+            >
+              <img
+                src="img/besci-claims.webp"
+                alt="The actual BeSci Wiki interface, with claims, source passages and verification status"
+                width="1800"
+                height="1051"
+                loading="lazy"
+              />
+            </button>
+          </div>
+          <div class="besci-copy">
+            <p class="project-date">May - July 2026</p>
+            <h3>BeSci Wiki</h3>
+            <p>
+              An AI-queryable behavioral-science knowledge base. It reached 638
+              claims from 38 sources, with 70 claims checked by hand.
+            </p>
+            <p>
+              When an evaluation score jumped to 0.94, I checked the test set.
+              It covered only 12 of the 79 target terms. I narrowed what the
+              metric claimed to measure and stopped the re-extraction.
+            </p>
+            <details class="compact-details">
+              <summary>Why I stopped <span aria-hidden="true">+</span></summary>
+              <p>
+                At six and a half weeks, I shut the project down. I had built
+                infrastructure before testing whether consulting reports could
+                be reliably mapped back to academic research. I should have
+                started by hand-mapping three articles.
+              </p>
+            </details>
+          </div>
+        </article>
+        <article class="satellite-case reveal" id="satellite">
+          <div class="satellite-copy">
+            <p class="project-date">August 2026</p>
+            <h3>A better test.<br />A negative result.</h3>
+            <p>
+              Next, I set three success criteria before testing satellite
+              imagery in a Taiwan house-price model. Adding imagery made
+              prediction error worse.
+            </p>
+            <p>
+              The experiment met one of three criteria. I published the result.
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/ravenhsu1995/TW_Housets"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Read the code and findings <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="result-explorer">
+            <div
+              class="result-toggle"
+              role="group"
+              aria-label="Compare model error"
+            >
+              <button type="button" aria-pressed="true" data-model="baseline">
+                Without imagery</button
+              ><button type="button" aria-pressed="false" data-model="imagery">
+                With imagery
+              </button>
+            </div>
+            <div class="result-value" aria-live="polite">
+              <strong id="model-value">13.15<span>%</span></strong>
+              <p>mean absolute percentage error</p>
+            </div>
+            <p class="result-reading" id="model-reading">
+              The baseline model. Lower error is better.
+            </p>
+            <p class="result-note">
+              1,621 test rows. Adding imagery increased MAPE by 0.58 percentage
+              points; p = 0.0016.
+            </p>
+          </div>
+        </article>
+      </section>
+      <section
+        class="earlier wrap"
+        id="earlier"
+        aria-labelledby="earlier-title"
+      >
+        <div class="section-heading reveal">
+          <h2 id="earlier-title">The work started<br />before the software.</h2>
+          <p>
+            My background is in sociology, behavioral science, and making ideas
+            work with real people.
+          </p>
+        </div>
+        <div class="earlier-grid reveal">
+          <article class="earlier-venture">
+            <button
+              class="media-open photo"
+              data-src="img/durham-venture-school.webp"
+              data-caption="Durham Venture School, 2022. Original cohort photograph from my archive."
+              type="button"
+              aria-label="Enlarge the Durham Venture School photograph"
+            >
+              <img
+                src="img/durham-venture-school.webp"
+                alt="The Durham Venture School cohort together outside the university building"
+                width="1800"
+                height="1350"
+                loading="lazy"
+              />
+            </button>
+            <div class="earlier-copy">
+              <p class="project-date">Durham, 2022</p>
+              <h3>Research into a venture concept.</h3>
+              <p>
+                At Durham Venture School, I developed E:CO with one teammate: a
+                nature-connection app concept informed by my MSc research and
+                six user interviews.
+              </p>
+              <button
+                class="text-link media-open"
+                data-src="img/eco-concept.jpg"
+                data-caption="E:CO concept screens from our final pitch, November 2022. A design concept, not a launched app."
+                type="button"
+              >
+                See the concept screens <span aria-hidden="true">↗</span>
+              </button>
+              <details class="compact-details">
+                <summary>
+                  The program and outcome <span aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  A full-time founder program with a £1,000 monthly stipend. We
+                  pitched at the end of phase one and did not advance. My MSc
+                  Behavioural Science at Durham was awarded Merit.
+                </p>
+              </details>
+            </div>
+          </article>
+          <article class="earlier-faa">
+            <button
+              class="media-open photo"
+              data-src="img/faa-worldcafe.jpg"
+              data-caption="The World Café used to design our intergenerational camp with senior-university members, April 2017."
+              type="button"
+              aria-label="Enlarge the World Café workshop photograph"
+            >
+              <img
+                src="img/faa-worldcafe.jpg"
+                alt="A World Café workshop with participant ideas collected on large paper posters"
+                width="1200"
+                height="675"
+                loading="lazy"
+              />
+            </button>
+            <div class="earlier-copy">
+              <p class="project-date">Taiwan, 2016 - 2018</p>
+              <h3>Forget About Age</h3>
+              <p>
+                I co-founded an intergenerational program with a 15-person team.
+                NSYSU’s senior university paid for a two-day camp for 21
+                members, designed with them through a World Café.
+              </p>
+              <details class="compact-details">
+                <summary>
+                  What the users taught us <span aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  In the survey I ran, 19 of 20 would come again. Student
+                  helpers scored highest at 4.95 out of 5; our signature drama
+                  sessions scored lowest. Our next planned format was shorter
+                  and centered on trained student hosts.
+                </p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="closing wrap reveal" aria-labelledby="closing-title">
+        <p>Observe closely. Build something useful. Check what happens.</p>
+        <h2 id="closing-title">That’s how<br />I like to work.</h2>
+        <a
+          class="text-link"
+          href="https://www.linkedin.com/in/raven-hsu-701963207/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Let’s connect on LinkedIn <span aria-hidden="true">↗</span></a
+        >
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <span>Raven Hsu</span><span>Programs, people, and useful software.</span
+      ><a href="#">Back to top ↑</a>
+    </footer>
+    <dialog class="image-dialog" id="image-dialog" aria-label="Image viewer">
+      <div class="dialog-toolbar">
+        <p id="dialog-caption"></p>
+        <button
+          type="button"
+          class="dialog-close"
+          aria-label="Close image viewer"
+        >
+          Close <span aria-hidden="true">×</span>
+        </button>
       </div>
-    </div>
-  </section>
-  <section class="earlier">
-    <div class="wrap">
-      <p class="section-label">Earlier</p>
-      <ul class="earlier-list">
-        <li><span class="mono">2022</span><div><strong>Durham Venture School, UK.</strong> A full-time founder program at Durham University's Venture Lab, with a £1,000/month stipend. With one teammate I developed E:CO, a nature-connection app concept, from my MSc research and 6 user interviews. We did not advance to phase 2.</div></li>
-        <li><span class="mono">2021–22</span><div><strong>MSc Behavioural Science (Merit), Durham University.</strong> Dissertation: an experience-sampling study of ecotherapy and student mental health (12 students, 14 diary entries each), analysed with multilevel models in R.</div></li>
-        <li><span class="mono">2016–18</span><div><strong>Forget About Age, Taiwan.</strong> Co-founder &amp; CEO of an intergenerational program pairing college students with older adults. 1st place (team), 2016 National College Students Public Affairs Proposal Competition.</div></li>
-      </ul>
-      <div class="earlier-media">
-        <figure>
-          <div class="shot"><img src="img/eco-concept.jpg" alt="Two E:CO app concept screens: a daily task list with a reminder, and a photo of autumn leaves submitted to complete a task" loading="lazy"></div>
-          <figcaption>E:CO concept screens from our final pitch: a daily nature task, completed by sending a photo. Durham, Nov 2022.</figcaption>
-        </figure>
-        <figure>
-          <div class="shot"><img src="img/faa-worldcafe.jpg" alt="Sticky notes on brown-paper posters headed 旅遊偏好 (travel preferences) and 傳承 (passing on), with a presenter seen from behind" loading="lazy"></div>
-          <figcaption>Our World Café with senior-university members: their travel preferences (旅遊偏好) and what they wanted to pass on (傳承). April 2017.</figcaption>
-        </figure>
-        <figure>
-          <div class="shot"><img src="img/faa-nsysu-banner.jpg" alt="NSYSU homepage banner showing our team holding certificates, headlined 老年長照新點子 中山大學創意提案奪冠" loading="lazy"></div>
-          <figcaption>NSYSU's homepage after our team won 1st place in the national proposal competition (my screenshot, Nov 22, 2016).</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>Raven Hsu · Taipei</span>
-    <span>The dashboard holds employer data and BeSci holds copyrighted papers, so both repos are private. I'm happy to walk you through any of these.</span>
-  </div>
-</footer>
-
-</body>
+      <div class="dialog-image-wrap"><img id="dialog-image" alt="" /></div>
+    </dialog>
+  </body>
 </html>

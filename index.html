@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raven Hsu — Builds</title>
-<meta name="description" content="Raven Hsu builds the tools behind NTU Garage, the NTUTEC founder program she leads in Taiwan, with Claude Code.">
+<meta name="description" content="Raven Hsu runs NTU Garage, the NTUTEC founder program in Taiwan, and builds the software behind it with Claude Code.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -120,6 +120,16 @@
   .cats img { width: 100%; height: auto; display: block; border: 1px solid var(--border); }
   .status { display: inline-block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; margin-left: 8px; vertical-align: middle; border: 1px solid var(--accent); color: var(--accent-ink); }
   .status.design { border-color: var(--warm); color: var(--warm); }
+
+  .flow { display: grid; grid-template-columns: 1fr; gap: 12px; background: var(--shot-bg); border: 1px solid var(--border); padding: 14px; }
+  @media (min-width: 560px) { .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .flow-head { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  .flow-box { background: var(--card); border: 1px solid var(--border); padding: 8px 10px; font-size: 13px; line-height: 1.45; color: var(--ink); margin-bottom: 8px; }
+  .flow-box:last-child { margin-bottom: 0; }
+  .flow-box span { display: block; color: var(--muted); }
+  .flow-box.anon { border-color: var(--accent); }
+  .flow-cap { margin-bottom: 16px; }
+  .timeline + p { margin-top: 18px; }
 </style>
 </head>
 <body>
@@ -138,8 +148,8 @@
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow">Raven Hsu · NTUTEC · Taipei</p>
-      <h1>I build the tools behind NTU Garage, the founder program I run in Taiwan.</h1>
-      <p class="lede">I studied sociology and behavioral science. At NTUTEC, National Taiwan University's entrepreneurship center, I lead NTU Garage, our program for early-stage founders. Since April 2026 I've built its operations dashboard with Claude Code. In September I added a check-in for our open office hours, aimed at one problem: our help reached founders only after we selected them.</p>
+      <h1>I run NTU Garage, a founder program in Taiwan, and build the software behind it.</h1>
+      <p class="lede">I studied sociology and behavioral science. At NTUTEC, National Taiwan University's entrepreneurship center, I lead NTU Garage, our program for early-stage founders, and designed its 2026 program for 20 teams. Since April 2026 I've built its operations software with Claude Code. In September I opened free office hours so we could meet founders before they apply, and built their check-in.</p>
       <div class="stats">
         <div class="stat"><b>20</b><span>NTU Garage teams in 2026</span></div>
         <div class="stat"><b>63</b><span>people checked in at our open office hours</span></div>
@@ -155,26 +165,46 @@
       <article class="build" id="garage">
         <div>
           <p class="meta mono">Apr 2026 – now · Next.js · Supabase · Vercel · Vitest</p>
-          <h2>NTU Garage dashboard + office-hours check-in <span class="status">Running</span></h2>
-          <p>Manages our program's courses and consultations: registration, follow-up, KPIs and team rosters. Nobody assigned it; I started it myself. So far it has managed 15 courses and group consultations for 42 teams and 68 people across NTU Garage and our accelerator.</p>
-          <p>In September I launched <strong>創創相談室</strong> (open founder office hours). For the first time in NTUTEC's 13 years, our space was open to anyone, free: no company, deck or NTU affiliation needed. 60 signed up for the first session, from a high-school student to a PhD researcher, and 38 came. At the second, in October, 7 of the 32 attendees were returning; 63 people have checked in across both.</p>
+          <h2>NTU Garage operations dashboard + office-hours tools <span class="status">Running</span></h2>
+          <p>Our team uses it to track NTU Garage's coaching progress, consultation records and next steps, and to run registration, follow-up, KPIs and rosters: 15 courses and group consultations so far, for 42 teams and 68 people across Garage and our accelerator. Nobody assigned it; I started it myself, and I'm its only developer.</p>
+          <p>In September I opened <strong>創創相談室</strong>, free monthly founder office hours, so we could meet founders before they apply. For the first time in NTUTEC's 13 years, our space was open to anyone: no company, deck or NTU affiliation needed. 60 signed up for the first session, from a high-school student to a PhD researcher, and 38 came. At the second, in October, 7 of the 32 attendees were returning; 63 people have checked in across both.</p>
           <p><strong>How its check-in came together:</strong></p>
           <ul class="timeline">
             <li><span class="mono">23:39</span>The night before: first commit, with QR check-in and a live back-office board</li>
             <li><span class="mono">01:01</span>A confirmation step so nobody checks in as the wrong person</li>
             <li><span class="mono">13:53</span>Event day: prompt to pick up one of 15 topic cards by project field</li>
             <li><span class="mono">18:50</span>Event day: a feedback form linked to each check-in</li>
-                        <li><span class="mono">Next day</span>36 more commits: cross-session profiles (with consent) of visitors' stage, field, problems, feedback, return visits and NTU Garage eligibility</li>
+            <li><span class="mono">Next day</span>36 more commits: cross-session profiles (with consent) of visitors' stage, field, problems, feedback, return visits and NTU Garage eligibility</li>
           </ul>
           <p><strong>Session 2 (Oct 19):</strong></p>
           <ul class="timeline">
-            <li><span class="mono">Morning</span>A live board where attendees post what they're looking for (a co-founder, product testers) to the big screen, plus an anonymous question box the host brings to the room</li>
+            <li><span class="mono">Morning</span>A live board where attendees post what they're looking for (a co-founder, product testers) to the big screen, plus a question box the host brings to the room</li>
+            <li><span class="mono">Design</span>I kept requests for help off the public board. They go to the question box: the big screen shows only the question, while the host's back office shows who asked</li>
             <li><span class="mono">14:00</span>In use at the session: 11 of the 32 attendees posted, 12 times in all</li>
-            <li><span class="mono">Oct 21</span>Attendees matched against our 2027 interest registrations: 13 of the 65 people who registered came to office hours first</li>
+            <li><span class="mono">Oct 21</span>Matched attendees against our 2027 interest registrations, by email and then by name, because people sometimes use a different email on each form; name-only matches are flagged for staff to confirm. 13 of the 65 people who registered came to office hours first</li>
           </ul>
           <ul class="facts"><li>436 commits</li><li>18 test files</li><li>CI</li></ul>
         </div>
         <figure>
+          <div class="flow" role="img" aria-label="Diagram of session 2's live board. On the attendee's phone: check in, then post to the live board or ask the question box. On the big screen: board posts with name, team and a QR code for any link, plus the one question the host picks, shown with no name. In the host's back office: every post with its author, and controls to put a question on screen or hide a post.">
+            <div>
+              <p class="flow-head mono">1 · Phone</p>
+              <div class="flow-box">Check in, then pick a quest</div>
+              <div class="flow-box">Live board<span>What I'm looking for: a co-founder, product testers…</span></div>
+              <div class="flow-box anon">Question box<span>What I'm stuck on</span></div>
+            </div>
+            <div>
+              <p class="flow-head mono">2 · Big screen</p>
+              <div class="flow-box">Board posts<span>with name, team and a QR code for any link</span></div>
+              <div class="flow-box anon">The question the host picks<span>shown with no name</span></div>
+            </div>
+            <div>
+              <p class="flow-head mono">3 · Host view</p>
+              <div class="flow-box">Every post, with its author</div>
+              <div class="flow-box">Put a question on screen, or hide a post</div>
+            </div>
+          </div>
+          <figcaption class="flow-cap">How session 2's live board works. This is a diagram, not a screenshot: the real screens show attendees' names.</figcaption>
           <div class="cats">
             <img src="img/cat-saas.jpg" alt="Topic card for app and SaaS projects">
             <img src="img/cat-exploring.jpg" alt="Topic card for people still exploring an idea">
@@ -190,7 +220,7 @@
           <h2>BeSci Wiki <span class="status design">Shut down</span></h2>
           <p>A behavioral science knowledge base any AI could query through an MCP server. Gemini Flash extracted claims from papers and reports, each traced to its source quote. Claude Haiku ran auto-review at a measured $0.05 per document. Codex cross-reviewed the work, including 3 rounds on the 25-document hand-labeled test set.</p>
           <ul class="facts"><li>638 claims · 38 sources</li><li>70 human-verified</li><li>216 tests</li></ul>
-          <p class="lesson">When I found my evaluation metrics were inflated, I stopped a re-extraction run at 18 of 25 documents. At 6.5 weeks I shut it down. I had never cheaply tested its premise, that consulting firms' published insights could be mapped objectively back to academic research. I should have started by hand-mapping three articles before building the infrastructure.</p>
+          <p class="lesson">When one fix sent its evaluation score from 0 to 0.94, I checked its coverage: the hand-labeled test set covered only 12 of the 79 terms it scored. I narrowed what the metric claimed to measure and stopped a re-extraction at 18 of 25 documents. At 6.5 weeks I shut the project down. I had built its infrastructure before testing its premise, that consulting firms' published insights could be mapped objectively back to research. I should have started by hand-mapping three articles.</p>
                   </div>
         <figure>
           <div class="shot"><img src="img/besci-home.png" alt="BeSci Wiki home: 58 concepts, 38 sources, 638 claims, with claim status counts"></div>
@@ -227,10 +257,10 @@
     <div class="wrap">
       <p class="section-label">How I work</p>
       <div class="how-grid">
-        <div class="how-item"><h3>Open the door first</h3><p>Merton's Matthew effect says advantage follows advantage. The founders who need help most often haven't applied yet, so our open office hours let anyone in and meet them early.</p></div>
-        <div class="how-item"><h3>Measure what founders actually do</h3><p>In my "Garage 2.0" proposal I argued that we were judging 0→1 teams by accelerator metrics, and that our in-or-out gate meant students who weren't ready simply left.</p></div>
-        <div class="how-item"><h3>Ask the people it's for</h3><p>In 2016 I co-founded Forget About Age, an intergenerational program. Before our two-day camp in June 2017, we ran a World Café with the senior-university members it was for. Afterward, their survey rated our student helpers 4.95/5, while the drama sessions we had pitched as our signature came last.</p></div>
-        <div class="how-item"><h3>Build it with agents, and kill it if it's wrong</h3><p>I build with Claude Code. 5 of my 7 main repos have an AGENTS.md or CLAUDE.md with rules for the agents. The dashboard's AGENTS.md fences them off (no schema changes, no new endpoints, no new UI libraries) and requires a browser check of every UI change: screenshots in light and dark mode, KPI text read back, console errors scanned. The dashboard and BeSci both have CI. When I realized BeSci's mistake was an untested premise, I shut it down and wrote up why. On the next project I set the bar before running anything.</p></div>
+        <div class="how-item"><h3>Open the door first</h3><p>Help that starts only after selection goes to those already ahead; sociology calls it the Matthew effect. So our office hours let anyone in, and we meet founders before they apply.</p></div>
+        <div class="how-item"><h3>Test the method before adopting it</h3><p>Before using OKRs for the 2026 cohort, I interviewed experienced startup practitioners to check the approach. Each team now sets its own goals at the start, then works through four validation workshops and recurring group consultations by field.</p></div>
+        <div class="how-item"><h3>Ask the people it's for</h3><p>In 2016 I co-founded Forget About Age, an intergenerational program. Before our two-day camp in June 2017, we ran a World Café with the senior-university members it was for. In the survey I ran afterward, they rated our student helpers 4.95/5 and the drama sessions we had pitched as our signature last, so the next format we planned centered on trained student hosts.</p></div>
+        <div class="how-item"><h3>Build it with agents, and kill it if it's wrong</h3><p>I build with Claude Code. 6 of my 10 repos have an AGENTS.md or CLAUDE.md with rules for the agents. The dashboard's AGENTS.md fences them off (no schema changes, no new endpoints, no new UI libraries) and requires a browser check of every UI change: screenshots in light and dark mode, KPI text read back, console errors scanned. The dashboard and BeSci both have CI. When I realized BeSci's mistake was an untested premise, I shut it down and wrote up why. On the next project I set the bar before running anything.</p></div>
       </div>
     </div>
   </section>

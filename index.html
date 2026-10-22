@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raven Hsu — Builds</title>
+<meta name="description" content="Raven Hsu builds the tools behind NTU Garage, the NTUTEC founder program she leads in Taiwan, with Claude Code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #00bcb5;
+    --accent-ink: #00807b;
+    --ink: #161514;
+    --body: #4c4944;
+    --muted: #6d6963;
+    --faint: #8b8781;
+    --bg: #fbfbfa;
+    --card: #ffffff;
+    --border: #e3e1dc;
+    --warm: #d9922e;
+    --shot-bg: #f1f0ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --accent: #2fd3cc; --accent-ink: #5fe0da; --ink: #f2f1ee; --body: #cfccc6; --muted: #a9a59e;
+      --faint: #8b8781; --bg: #121211; --card: #1b1b1a; --border: #2e2d2a; --shot-bg: #222220;
+    }
+  }
+  :root[data-theme="dark"] {
+    --accent: #2fd3cc; --accent-ink: #5fe0da; --ink: #f2f1ee; --body: #cfccc6; --muted: #a9a59e;
+    --faint: #8b8781; --bg: #121211; --card: #1b1b1a; --border: #2e2d2a; --shot-bg: #222220;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: Inter, "Helvetica Neue", Arial, "PingFang TC", "Noto Sans TC", sans-serif;
+    font-size: 16px; line-height: 1.65;
+  }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 40px; } }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+
+  header.site { border-bottom: 1px solid var(--border); }
+  header.site .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; gap: 16px; }
+  .brand { font-weight: 900; letter-spacing: .06em; font-size: 18px; color: var(--ink); text-decoration: none; }
+  nav.links { display: flex; gap: 20px; font-size: 14px; letter-spacing: .04em; }
+  nav.links a { color: var(--muted); text-decoration: none; }
+  nav.links a:hover { color: var(--ink); }
+
+  .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+  .eyebrow { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-ink); font-weight: 500; margin: 0 0 16px; }
+  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.1; font-weight: 900; margin: 0 0 24px; letter-spacing: -.01em; max-width: 16ch; }
+  .lede { font-size: 18px; font-weight: 300; color: var(--body); max-width: 60ch; margin: 0; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 36px; max-width: 560px; }
+  .stat { border: 1px solid var(--border); background: var(--card); padding: 14px 16px; }
+  .stat b { display: block; font-size: 26px; font-weight: 900; line-height: 1.1; }
+  .stat span { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+
+  section.builds { padding: 48px 0 16px; }
+  .section-label { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px; }
+  article.build { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 32px 0; border-top: 1px solid var(--border); }
+  @media (min-width: 860px) { article.build { grid-template-columns: 1fr 1.15fr; gap: 40px; } }
+  .meta { font-size: 12px; color: var(--faint); letter-spacing: .04em; margin: 0 0 8px; }
+  article h2 { font-size: 26px; line-height: 1.25; font-weight: 700; margin: 0 0 12px; }
+  article p { margin: 0 0 12px; color: var(--body); }
+  ul.facts { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  ul.facts li { font-size: 12.5px; border: 1px solid var(--border); padding: 4px 10px; color: var(--muted); background: var(--card); }
+  .lesson { border-left: 3px solid var(--warm); padding: 2px 0 2px 14px; margin: 16px 0 14px; color: var(--ink); }
+  .cta { display: inline-block; margin-top: 8px; font-weight: 500; }
+
+  figure { margin: 0; }
+  .shot { background: var(--shot-bg); border: 1px solid var(--border); overflow: hidden; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot + .shot { margin-top: 12px; }
+  figcaption { font-size: 12.5px; color: var(--faint); margin-top: 8px; }
+  .placeholder {
+    aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; padding: 16px;
+    background: repeating-linear-gradient(135deg, var(--shot-bg) 0 12px, transparent 12px 24px);
+    border: 1px dashed var(--faint); color: var(--muted); font-size: 14px;
+  }
+  .timeline { list-style: none; margin: 14px 0 0; padding: 0; border-left: 2px solid var(--accent); }
+  .timeline li { padding: 4px 0 4px 14px; font-size: 14.5px; color: var(--body); }
+  .timeline .mono { color: var(--ink); font-size: 13px; margin-right: 6px; }
+  table.result { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--card); border: 1px solid var(--border); }
+  table.result th, table.result td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  table.result th { font-weight: 500; color: var(--muted); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  table.result tr:last-child td { border-bottom: 0; }
+  .worse { color: #c0392b; font-weight: 700; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .worse { color: #ff7b6b; } }
+  :root[data-theme="dark"] .worse { color: #ff7b6b; }
+
+  section.how { padding: 40px 0 56px; border-top: 1px solid var(--border); }
+  .how-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 720px) { .how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .how-item { background: var(--card); border: 1px solid var(--border); padding: 18px 20px; }
+  .how-item h3 { margin: 0 0 6px; font-size: 16px; }
+  .how-item p { margin: 0; font-size: 14.5px; color: var(--body); }
+
+  section.earlier { padding: 40px 0 56px; border-top: 1px solid var(--border); }
+  .earlier-list { list-style: none; margin: 0; padding: 0; }
+  .earlier-list li { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 14px 0; border-top: 1px solid var(--border); font-size: 15px; color: var(--body); }
+  .earlier-list li:first-child { border-top: 0; padding-top: 0; }
+  .earlier-list .mono { font-size: 13px; color: var(--faint); }
+  .earlier-list strong { color: var(--ink); font-weight: 500; }
+  @media (min-width: 720px) { .earlier-list li { grid-template-columns: 96px 1fr; gap: 16px; } }
+
+  .earlier-media { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 28px; }
+  @media (min-width: 720px) { .earlier-media { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
+  .earlier-media .shot img { aspect-ratio: 16 / 9; object-fit: cover; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0 40px; font-size: 13px; color: var(--faint); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  .cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+  .cats img { width: 100%; height: auto; display: block; border: 1px solid var(--border); }
+  .status { display: inline-block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; margin-left: 8px; vertical-align: middle; border: 1px solid var(--accent); color: var(--accent-ink); }
+  .status.design { border-color: var(--warm); color: var(--warm); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#">RAVEN HSU</a>
+    <nav class="links" aria-label="Profiles">
+      <a href="https://www.linkedin.com/in/raven-hsu-701963207/">LinkedIn</a>
+      <a href="https://github.com/ravenhsu1995">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Raven Hsu · NTUTEC · Taipei</p>
+      <h1>I build the tools behind NTU Garage, the founder program I run in Taiwan.</h1>
+      <p class="lede">I studied sociology and behavioral science. At NTUTEC, National Taiwan University's entrepreneurship center, I lead NTU Garage, our program for early-stage founders. Since April 2026 I've built its operations dashboard with Claude Code. In September I added a check-in for our open office hours, aimed at one problem: our help reached founders only after we selected them.</p>
+      <div class="stats">
+        <div class="stat"><b>20</b><span>NTU Garage teams in 2026</span></div>
+        <div class="stat"><b>63</b><span>people checked in at our open office hours</span></div>
+        <div class="stat"><b>13</b><span>of 65 registrants for 2027 came to office hours first</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="builds">
+    <div class="wrap">
+      <p class="section-label">Builds</p>
+
+      <article class="build" id="garage">
+        <div>
+          <p class="meta mono">Apr 2026 – now · Next.js · Supabase · Vercel · Vitest</p>
+          <h2>NTU Garage dashboard + office-hours check-in <span class="status">Running</span></h2>
+          <p>Manages our program's courses and consultations: registration, follow-up, KPIs and team rosters. Nobody assigned it; I started it myself. So far it has managed 15 courses and group consultations for 42 teams and 68 people across NTU Garage and our accelerator.</p>
+          <p>In September I launched <strong>創創相談室</strong> (open founder office hours). For the first time in NTUTEC's 13 years, our space was open to anyone, free: no company, deck or NTU affiliation needed. 60 signed up for the first session, from a high-school student to a PhD researcher, and 38 came. At the second, in October, 7 of the 32 attendees were returning; 63 people have checked in across both.</p>
+          <p><strong>How its check-in came together:</strong></p>
+          <ul class="timeline">
+            <li><span class="mono">23:39</span>The night before: first commit, with QR check-in and a live back-office board</li>
+            <li><span class="mono">01:01</span>A confirmation step so nobody checks in as the wrong person</li>
+            <li><span class="mono">13:53</span>Event day: prompt to pick up one of 15 topic cards by project field</li>
+            <li><span class="mono">18:50</span>Event day: a feedback form linked to each check-in</li>
+                        <li><span class="mono">Next day</span>36 more commits: cross-session profiles (with consent) of visitors' stage, field, problems, feedback, return visits and NTU Garage eligibility</li>
+          </ul>
+          <p><strong>Session 2 (Oct 19):</strong></p>
+          <ul class="timeline">
+            <li><span class="mono">Morning</span>A live board where attendees post what they're looking for (a co-founder, product testers) to the big screen, plus an anonymous question box the host brings to the room</li>
+            <li><span class="mono">14:00</span>In use at the session: 11 of the 32 attendees posted, 12 times in all</li>
+            <li><span class="mono">Oct 21</span>Attendees matched against our 2027 interest registrations: 13 of the 65 people who registered came to office hours first</li>
+          </ul>
+          <ul class="facts"><li>436 commits</li><li>18 test files</li><li>CI</li></ul>
+        </div>
+        <figure>
+          <div class="cats">
+            <img src="img/cat-saas.jpg" alt="Topic card for app and SaaS projects">
+            <img src="img/cat-exploring.jpg" alt="Topic card for people still exploring an idea">
+            <img src="img/cat-ai.jpg" alt="Topic card for AI and automation projects">
+          </div>
+          <figcaption>Three of the 15 topic cards I designed so attendees could spot people working in the same field.</figcaption>
+        </figure>
+      </article>
+
+      <article class="build" id="besci">
+        <div>
+          <p class="meta mono">May – Jul 2026 · MCP · Gemini Flash · Claude Haiku</p>
+          <h2>BeSci Wiki <span class="status design">Shut down</span></h2>
+          <p>A behavioral science knowledge base any AI could query through an MCP server. Gemini Flash extracted claims from papers and reports, each traced to its source quote. Claude Haiku ran auto-review at a measured $0.05 per document. Codex cross-reviewed the work, including 3 rounds on the 25-document hand-labeled test set.</p>
+          <ul class="facts"><li>638 claims · 38 sources</li><li>70 human-verified</li><li>216 tests</li></ul>
+          <p class="lesson">When I found my evaluation metrics were inflated, I stopped a re-extraction run at 18 of 25 documents. At 6.5 weeks I shut it down. I had never cheaply tested its premise, that consulting firms' published insights could be mapped objectively back to academic research. I should have started by hand-mapping three articles before building the infrastructure.</p>
+                  </div>
+        <figure>
+          <div class="shot"><img src="img/besci-home.png" alt="BeSci Wiki home: 58 concepts, 38 sources, 638 claims, with claim status counts"></div>
+          <div class="shot"><img src="img/besci-claims.png" alt="A BeSci Wiki concept page: each claim shows its condition, the original quote and page number, and its source"></div>
+          <figcaption>Interface in Chinese; source content in English. Most claims are still drafts, as the status counts show.</figcaption>
+        </figure>
+      </article>
+      <article class="build" id="satellite">
+        <div>
+          <p class="meta mono">Aug 25 – 26, 2026 · Colab · XGBoost · Sentinel-2 · $0 infrastructure</p>
+          <h2>Satellite imagery vs. house prices <span class="status design">Negative result</span></h2>
+          <p>After BeSci, I set the bar before running anything. The question: does adding Sentinel-2 satellite indices (NDVI, NDBI) to an XGBoost model lower its error on Taiwan house prices? I fixed three success criteria in the plan first.</p>
+          <p class="lesson">It met 1 of 3. Imagery made the error worse, not better, and I wrote it up as a negative result.</p>
+          <ul class="facts"><li>1,621 test rows</li><li>1 of 3 criteria met</li><li>9 commits · 5 notebooks</li></ul>
+          <p><a href="https://github.com/ravenhsu1995/TW_Housets">Code and full write-up on GitHub</a></p>
+        </div>
+        <figure>
+          <table class="result">
+            <thead><tr><th>Model</th><th>MAPE (lower is better)</th></tr></thead>
+            <tbody>
+              <tr><td>Without imagery</td><td class="mono">13.15% ± 0.32</td></tr>
+              <tr><td>With imagery</td><td class="mono worse">13.73% ± 0.40</td></tr>
+              <tr><td>Difference</td><td class="mono">−0.58 pp (95% CI −0.75 to −0.19)</td></tr>
+              <tr><td>Significance</td><td class="mono">p = 0.0016</td></tr>
+            </tbody>
+          </table>
+          <figcaption>A negative difference means imagery made predictions worse.</figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <p class="section-label">How I work</p>
+      <div class="how-grid">
+        <div class="how-item"><h3>Open the door first</h3><p>Merton's Matthew effect says advantage follows advantage. The founders who need help most often haven't applied yet, so our open office hours let anyone in and meet them early.</p></div>
+        <div class="how-item"><h3>Measure what founders actually do</h3><p>In my "Garage 2.0" proposal I argued that we were judging 0→1 teams by accelerator metrics, and that our in-or-out gate meant students who weren't ready simply left.</p></div>
+        <div class="how-item"><h3>Ask the people it's for</h3><p>In 2016 I co-founded Forget About Age, an intergenerational program. Before our two-day camp in June 2017, we ran a World Café with the senior-university members it was for. Afterward, their survey rated our student helpers 4.95/5, while the drama sessions we had pitched as our signature came last.</p></div>
+        <div class="how-item"><h3>Build it with agents, and kill it if it's wrong</h3><p>I build with Claude Code. 5 of my 7 main repos have an AGENTS.md or CLAUDE.md with rules for the agents. The dashboard's AGENTS.md fences them off (no schema changes, no new endpoints, no new UI libraries) and requires a browser check of every UI change: screenshots in light and dark mode, KPI text read back, console errors scanned. The dashboard and BeSci both have CI. When I realized BeSci's mistake was an untested premise, I shut it down and wrote up why. On the next project I set the bar before running anything.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="earlier">
+    <div class="wrap">
+      <p class="section-label">Earlier</p>
+      <ul class="earlier-list">
+        <li><span class="mono">2022</span><div><strong>Durham Venture School, UK.</strong> A full-time founder program at Durham University's Venture Lab, with a £1,000/month stipend. With one teammate I developed E:CO, a nature-connection app concept, from my MSc research and 6 user interviews. We did not advance to phase 2.</div></li>
+        <li><span class="mono">2021–22</span><div><strong>MSc Behavioural Science (Merit), Durham University.</strong> Dissertation: an experience-sampling study of ecotherapy and student mental health (12 students, 14 diary entries each), analysed with multilevel models in R.</div></li>
+        <li><span class="mono">2016–18</span><div><strong>Forget About Age, Taiwan.</strong> Co-founder &amp; CEO of an intergenerational program pairing college students with older adults. 1st place (team), 2016 National College Students Public Affairs Proposal Competition.</div></li>
+      </ul>
+      <div class="earlier-media">
+        <figure>
+          <div class="shot"><img src="img/eco-concept.jpg" alt="Two E:CO app concept screens: a daily task list with a reminder, and a photo of autumn leaves submitted to complete a task" loading="lazy"></div>
+          <figcaption>E:CO concept screens from our final pitch: a daily nature task, completed by sending a photo. Durham, Nov 2022.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="img/faa-worldcafe.jpg" alt="Sticky notes on brown-paper posters headed 旅遊偏好 (travel preferences) and 傳承 (passing on), with a presenter seen from behind" loading="lazy"></div>
+          <figcaption>Our World Café with senior-university members: their travel preferences (旅遊偏好) and what they wanted to pass on (傳承). April 2017.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="img/faa-nsysu-banner.jpg" alt="NSYSU homepage banner showing our team holding certificates, headlined 老年長照新點子 中山大學創意提案奪冠" loading="lazy"></div>
+          <figcaption>NSYSU's homepage after our team won 1st place in the national proposal competition (my screenshot, Nov 22, 2016).</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Raven Hsu · Taipei</span>
+    <span>The dashboard holds employer data and BeSci holds copyrighted papers, so both repos are private. I'm happy to walk you through any of these.</span>
+  </div>
+</footer>
+
+</body>
+</html>

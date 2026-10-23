@@ -27,14 +27,14 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261023-media" />
+    <link rel="stylesheet" href="style.css?v=20261023-studio" />
     <script>
       try {
         const t = localStorage.getItem("raven-theme");
         if (t) document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>
-    <script src="app.js?v=20261023-media" defer></script>
+    <script src="app.js?v=20261023-studio" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -63,19 +63,23 @@
     </header>
     <main id="main">
       <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <h1 id="hero-title">Make room for <span>ideas.</span></h1>
+        <div class="hero-topline">
+          <p>Raven Hsu<br />Programs, people &amp; useful software</p>
+          <a href="#work">Selected work ↙</a>
+        </div>
+        <h1 id="hero-title">Curiosity,<br /><span>put to work.</span></h1>
+        <div class="hero-bottom">
           <p>
-            I design founder programs and build the software behind them,
-            grounded in sociology and behavioral science.
+            I turn questions about people into<br />programs you can join and
+            tools you can use.
           </p>
-          <a class="text-link hero-link" href="#garage"
-            >Explore my work <span aria-hidden="true">↘</span></a
+          <a class="hero-enter" href="#garage" aria-label="Explore NTU Garage"
+            >↘</a
           >
         </div>
         <div
           class="hero-art"
-          aria-label="A preview of the founder office-hours software"
+          aria-label="Live preview of the founder office-hours software"
         >
           <div class="hero-board live-hero">
             <iframe
@@ -101,11 +105,62 @@
             />
           </button>
           <p class="hero-art-caption">
-            A room full of founders. One shared board.
-            <button class="motion-toggle" type="button" aria-pressed="false">
+            <span>NTU Garage / A room full of possibilities</span
+            ><button class="motion-toggle" type="button" aria-pressed="false">
               Pause motion
             </button>
           </p>
+        </div>
+      </section>
+      <section class="work-index wrap" id="work" aria-label="Selected projects">
+        <div class="work-index-top">
+          <h2>Questions.<br />Made tangible.</h2>
+          <p>
+            A selection of programs, products<br />and experiments I took into
+            the world.
+          </p>
+        </div>
+        <div class="work-index-body">
+          <div class="project-preview">
+            <img
+              id="project-preview-image"
+              src="img/office-hours-board.webp"
+              alt="NTU Garage live founder board"
+              width="1690"
+              height="886"
+            />
+            <p id="project-preview-caption">
+              From arriving alone to finding your people.
+            </p>
+          </div>
+          <nav class="project-list" aria-label="Jump to a project">
+            <a href="#garage" data-project="garage"
+              ><span
+                >NTU Garage<small>Founder programs &amp; software</small></span
+              ><span aria-hidden="true">↗</span></a
+            >
+            <a href="#besci" data-project="besci"
+              ><span
+                >BeSci Wiki<small
+                  >Knowledge systems &amp; a hard lesson</small
+                ></span
+              ><span aria-hidden="true">↗</span></a
+            >
+            <a href="#satellite" data-project="satellite"
+              ><span
+                >Satellite imagery<small
+                  >A hypothesis put to the test</small
+                ></span
+              ><span aria-hidden="true">↗</span></a
+            >
+            <a href="#earlier" data-project="earlier"
+              ><span
+                >Before the code<small
+                  >Venture School &amp; Forget About Age</small
+                ></span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </nav>
         </div>
       </section>
       <div class="intro-strip wrap reveal">
@@ -122,41 +177,12 @@
         <div class="case-heading reveal">
           <p class="section-label">Selected work</p>
           <h2 id="garage-title">
-            A place to start.<br />A system to keep going.
+            A room to meet.<br /><span>Room to begin.</span>
           </h2>
           <p class="section-intro">
             NTU Garage combines the founder program I designed with the software
             I built to run it.
           </p>
-        </div>
-        <div class="case-overview reveal">
-          <div class="overview-copy">
-            <h3>Design the program. Build what it needs.</h3>
-            <p>
-              After interviewing experienced startup practitioners, I adopted
-              OKRs for the 2026 program: individual goals, four validation
-              workshops, and recurring consultations by field.
-            </p>
-            <p>
-              I independently built an operations dashboard to track coaching
-              progress, consultation records and next steps, alongside
-              registration, attendance and follow-up.
-            </p>
-          </div>
-          <dl class="program-facts">
-            <div>
-              <dt>20</dt>
-              <dd>teams in the 2026 Garage program</dd>
-            </div>
-            <div>
-              <dt>15</dt>
-              <dd>courses and group consultations managed</dd>
-            </div>
-            <div>
-              <dt>42</dt>
-              <dd>teams represented across Garage and the accelerator</dd>
-            </div>
-          </dl>
         </div>
         <div class="experience reveal" data-gallery>
           <div class="experience-top">
@@ -255,6 +281,35 @@
             </div>
           </div>
         </div>
+        <div class="case-overview reveal">
+          <div class="overview-copy">
+            <h3>Design the program. Build what it needs.</h3>
+            <p>
+              After interviewing experienced startup practitioners, I adopted
+              OKRs for the 2026 program: individual goals, four validation
+              workshops, and recurring consultations by field.
+            </p>
+            <p>
+              I independently built an operations dashboard to track coaching
+              progress, consultation records and next steps, alongside
+              registration, attendance and follow-up.
+            </p>
+          </div>
+          <dl class="program-facts">
+            <div>
+              <dt>20</dt>
+              <dd>teams in the 2026 Garage program</dd>
+            </div>
+            <div>
+              <dt>15</dt>
+              <dd>courses and group consultations managed</dd>
+            </div>
+            <div>
+              <dt>42</dt>
+              <dd>teams represented across Garage and the accelerator</dd>
+            </div>
+          </dl>
+        </div>
         <div class="decisions-grid reveal">
           <div>
             <h3>Open the door before the application.</h3>
@@ -325,7 +380,7 @@
       <section class="experiments wrap" aria-labelledby="experiments-title">
         <div class="section-heading reveal">
           <h2 id="experiments-title">
-            Some things earn another iteration.<br />Some don’t.
+            Build it.<br /><span>Question it.</span>
           </h2>
           <p>
             I build with AI, check the evidence, and change course when the
@@ -571,7 +626,9 @@
       </section>
       <section class="closing wrap reveal" aria-labelledby="closing-title">
         <p>Observe closely. Build something useful. Check what happens.</p>
-        <h2 id="closing-title">That’s how<br />I like to work.</h2>
+        <h2 id="closing-title">
+          Always curious.<br /><span>Let’s talk.</span>
+        </h2>
         <a
           class="text-link"
           href="https://www.linkedin.com/in/raven-hsu-701963207/"

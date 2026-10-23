@@ -27,14 +27,21 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261023-final" />
+    <link
+      rel="preload"
+      href="fonts/instrument-serif-italic.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css?v=20261023-rooms" />
     <script>
       try {
         const t = localStorage.getItem("raven-theme");
         if (t) document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>
-    <script src="app.js?v=20261023-final" defer></script>
+    <script src="app.js?v=20261023-rooms" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -64,53 +71,84 @@
     </header>
     <main id="main">
       <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="hero-topline">
-          <p>Raven Hsu<br />Programs, people &amp; useful software</p>
-          <a href="#work">Selected work ↙</a>
-        </div>
-        <h1 id="hero-title">Make room<br /><span>for ideas.</span></h1>
-        <div class="hero-bottom">
-          <p>
-            I turn questions about people into<br />programs you can join and
-            tools you can use.
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Programs, people &amp; useful software</p>
+          <h1 id="hero-title">Make room<br /><span>for ideas.</span></h1>
+          <p class="hero-description">
+            I’m Raven. I design founder programs and build the software behind
+            them, grounded in sociology and behavioral science.
           </p>
-          <a class="hero-enter" href="#garage" aria-label="Explore NTU Garage"
-            >↘</a
+          <a class="hero-cta" href="#garage"
+            >Step inside the work <span aria-hidden="true">↗</span></a
           >
         </div>
-        <div
-          class="hero-art"
-          aria-label="Live preview of the founder office-hours software"
-        >
-          <a
-            class="hero-board live-hero"
-            href="#garage"
-            aria-label="Try the founder office-hours experience"
-          >
-            <iframe
-              src="demo/index.html?view=board"
-              title="Live Quest Board with fictional demo posts"
-              tabindex="-1"
-              aria-hidden="true"
-              sandbox="allow-scripts allow-same-origin"
-            ></iframe>
-          </a>
-          <button
-            class="hero-phone media-open"
-            data-src="img/office-hours-success.webp"
-            data-caption="The original check-in success screen. Fictional demo data."
-            type="button"
-            aria-label="Enlarge the check-in success screen"
-          >
-            <img
-              src="img/office-hours-success.webp"
-              alt="The check-in success screen with the NTUTEC cat mascot"
-              width="390"
-              height="844"
-            />
-          </button>
-          <p class="hero-art-caption">
-            <span>NTU Garage / A room full of possibilities</span
+        <div class="room" aria-label="An interactive space for selected work">
+          <div class="room-canvas" id="room-canvas" style="--room-space: 1">
+            <a
+              class="hero-board room-piece room-board"
+              href="#garage"
+              aria-label="Try the founder office-hours experience"
+            >
+              <iframe
+                src="demo/index.html?view=board"
+                title="Live Quest Board with fictional demo posts"
+                tabindex="-1"
+                aria-hidden="true"
+                sandbox="allow-scripts allow-same-origin"
+              ></iframe>
+              <span class="room-piece-label"
+                >NTU Garage <span aria-hidden="true">↗</span></span
+              >
+            </a>
+            <a class="room-piece room-besci" href="#besci"
+              ><img
+                src="img/besci-concept.webp"
+                alt="BeSci Wiki concept with source-linked claims"
+                width="1280"
+                height="720"
+              /><span class="room-piece-label"
+                >BeSci Wiki <span aria-hidden="true">↗</span></span
+              ></a
+            >
+            <a class="room-piece room-people" href="#earlier"
+              ><img
+                src="img/durham-venture-school.webp"
+                alt="The Durham Venture School cohort"
+                width="1800"
+                height="1350"
+              /><span class="room-piece-label"
+                >Before the code <span aria-hidden="true">↗</span></span
+              ></a
+            >
+            <button
+              class="hero-phone room-piece media-open"
+              data-src="img/office-hours-success.webp"
+              data-caption="The original check-in success screen. Fictional demo data."
+              type="button"
+              aria-label="Enlarge the check-in success screen"
+            >
+              <img
+                src="img/office-hours-success.webp"
+                alt="The check-in success screen with the NTUTEC cat mascot"
+                width="390"
+                height="844"
+              />
+            </button>
+          </div>
+          <div class="room-controls">
+            <label for="room-space">Make room</label
+            ><input
+              id="room-space"
+              type="range"
+              min="0"
+              max="100"
+              value="100"
+              aria-label="Spread the project artifacts"
+              aria-valuetext="Fully spread"
+            /><button id="room-reset" type="button">Reset ↺</button>
+          </div>
+          <p class="room-note">
+            <span>Slide to make space. Select a piece to explore.</span
             ><button class="motion-toggle" type="button" aria-pressed="false">
               Pause motion
             </button>
@@ -119,7 +157,7 @@
       </section>
       <section class="work-index wrap" id="work" aria-label="Selected projects">
         <div class="work-index-top">
-          <h2>Questions.<br />Made tangible.</h2>
+          <h2>Selected<br /><span>work.</span></h2>
           <p>
             A selection of programs, products<br />and experiments I took into
             the world.
@@ -517,6 +555,22 @@
               <strong id="model-value">13.15<span>%</span></strong>
               <p>mean absolute percentage error</p>
             </div>
+            <div
+              class="model-chart"
+              aria-label="Baseline MAPE 13.15 percent; with imagery 13.73 percent. Lower is better."
+            >
+              <div class="model-chart-row" data-chart="baseline">
+                <span>Baseline</span>
+                <div><i style="--bar-width: 93.93%"></i></div>
+                <b>13.15%</b>
+              </div>
+              <div class="model-chart-row" data-chart="imagery">
+                <span>+ Imagery</span>
+                <div><i style="--bar-width: 98.07%"></i></div>
+                <b>13.73%</b>
+              </div>
+              <p>0 <span>14% error</span></p>
+            </div>
             <p class="result-reading" id="model-reading">
               The baseline model. Lower error is better.
             </p>
@@ -637,9 +691,7 @@
       </section>
       <section class="closing wrap reveal" aria-labelledby="closing-title">
         <p>Observe closely. Build something useful. Check what happens.</p>
-        <h2 id="closing-title">
-          Always curious.<br /><span>Let’s talk.</span>
-        </h2>
+        <h2 id="closing-title">Let’s make<br /><span>room.</span></h2>
         <a
           class="text-link"
           href="https://www.linkedin.com/in/raven-hsu-701963207/"

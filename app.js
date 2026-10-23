@@ -237,6 +237,8 @@
           item.setAttribute("aria-pressed", String(item === button)),
         );
       const imagery = button.dataset.model === "imagery";
+      button.closest(".result-explorer").dataset.selected =
+        button.dataset.model;
       document.getElementById("model-value").innerHTML = imagery
         ? "13.73<span>%</span>"
         : "13.15<span>%</span>";
@@ -339,7 +341,7 @@
       frame.style.transform = scaled
         ? `scale(${stage.clientWidth / width})`
         : "";
-      frame.style.transformOrigin = stage === heroStage ? "top left" : "center";
+      frame.style.transformOrigin = scaled ? "top left" : "center";
     });
   }
   if ("ResizeObserver" in window) {
@@ -409,5 +411,43 @@
     }
     link.addEventListener("pointerenter", preview);
     link.addEventListener("focus", preview);
+  });
+})();
+
+// Give the artifacts room without requiring dragging for navigation.
+(() => {
+  const canvas = document.getElementById("room-canvas");
+  const slider = document.getElementById("room-space");
+  let frame;
+  let openingFrame;
+  function arrange() {
+    cancelAnimationFrame(openingFrame);
+    canvas.classList.remove("is-opening");
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      canvas.style.setProperty("--room-space", Number(slider.value) / 100);
+      slider.setAttribute("aria-valuetext", `${slider.value}% spread`);
+    });
+  }
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    canvas.style.setProperty("--room-space", "0");
+    canvas.classList.add("is-opening");
+    openingFrame = requestAnimationFrame(() => {
+      openingFrame = requestAnimationFrame(() =>
+        canvas.style.setProperty("--room-space", "1"),
+      );
+    });
+    canvas
+      .querySelector(".room-board")
+      .addEventListener(
+        "transitionend",
+        () => canvas.classList.remove("is-opening"),
+        { once: true },
+      );
+  }
+  slider.addEventListener("input", arrange);
+  document.getElementById("room-reset").addEventListener("click", () => {
+    slider.value = "100";
+    arrange();
   });
 })();

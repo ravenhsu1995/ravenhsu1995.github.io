@@ -9,7 +9,7 @@
   --ink: #191a18;
   --muted: #61625a;
   --line: #c6c7bc;
-  --accent: #2549ec;
+  --accent: #12594c;
   --panel: #e7e6de;
   --onaccent: #f3f1e9;
   color-scheme: light;
@@ -19,7 +19,7 @@
   --ink: #f0f0e5;
   --muted: #b3b6a9;
   --line: #484c42;
-  --accent: #8ca2ff;
+  --accent: #9acdb8;
   --panel: #242820;
   --onaccent: #151713;
   color-scheme: dark;
@@ -30,7 +30,7 @@
     --ink: #f0f0e5;
     --muted: #b3b6a9;
     --line: #484c42;
-    --accent: #8ca2ff;
+    --accent: #9acdb8;
     --panel: #242820;
     --onaccent: #151713;
     color-scheme: dark;
@@ -1441,6 +1441,9 @@ details[open] > summary span {
 }
 /* The live artifact shares the first composition with the headline. */
 @media (min-width: 1100px) {
+  .hero h1 {
+    font-size: clamp(110px, 11.5vw, 190px);
+  }
   .hero {
     padding-bottom: 40px;
   }

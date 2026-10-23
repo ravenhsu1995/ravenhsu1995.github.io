@@ -191,6 +191,7 @@
     });
     if (focus) button.focus();
     galleryStage.dataset.mode = view.mode;
+    fitEmbeddedFrames();
     demo.src = `demo/index.html?view=${view.scene}`;
     demo.title = `Interactive ${view.scene} demo with fictional data`;
     document.getElementById("demo-open").href = demo.src;
@@ -321,6 +322,33 @@
     document.body.style.overflow = "";
     lastTrigger?.focus();
   });
+  // Preserve the original desktop board composition at every narrow width.
+  const narrowLayout = window.matchMedia("(max-width: 600px)");
+  function fitEmbeddedFrames() {
+    const heroStage = document.querySelector(".hero-board");
+    const pairs = [
+      [heroStage, heroStage.querySelector("iframe"), 900, 1.4],
+      [galleryStage, demo, 1000, 1.15],
+    ];
+    pairs.forEach(([stage, frame, width, ratio]) => {
+      const scaled =
+        narrowLayout.matches &&
+        (stage === heroStage || stage.dataset.mode === "board");
+      frame.style.width = scaled ? `${width}px` : "";
+      frame.style.height = scaled ? `${width / ratio}px` : "";
+      frame.style.transform = scaled
+        ? `scale(${stage.clientWidth / width})`
+        : "";
+      frame.style.transformOrigin = stage === heroStage ? "top left" : "center";
+    });
+  }
+  if ("ResizeObserver" in window) {
+    const frameSizer = new ResizeObserver(fitEmbeddedFrames);
+    frameSizer.observe(document.querySelector(".hero-board"));
+    frameSizer.observe(galleryStage);
+  }
+  narrowLayout.addEventListener("change", fitEmbeddedFrames);
+  fitEmbeddedFrames();
   document.querySelectorAll("img").forEach((image) =>
     image.addEventListener(
       "error",

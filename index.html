@@ -34,14 +34,18 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261023-rooms" />
+    <link rel="stylesheet" href="style.css?v=20261024" />
     <script>
       try {
-        const t = localStorage.getItem("raven-theme");
-        if (t) document.documentElement.dataset.theme = t;
-      } catch (e) {}
+        const theme = localStorage.getItem("raven-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch {
+        // Use the system theme when storage is unavailable.
+      }
     </script>
-    <script src="app.js?v=20261023-rooms" defer></script>
+    <script type="module" src="js/main.js?v=20261024"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

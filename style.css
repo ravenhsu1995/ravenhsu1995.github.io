@@ -1475,3 +1475,19 @@ details[open] > summary span {
     margin-bottom: 0;
   }
 }
+/* A full-width chapter change separates building from evaluating. */
+.experiments > .section-heading {
+  background: var(--accent);
+  color: var(--onaccent);
+  padding-block: 65px;
+  box-shadow: 0 0 0 100vmax var(--accent);
+  clip-path: inset(0 -100vmax);
+}
+.experiments > .section-heading h2 span {
+  color: inherit;
+}
+@media (max-width: 600px) {
+  .experiments > .section-heading {
+    padding-block: 40px;
+  }
+}

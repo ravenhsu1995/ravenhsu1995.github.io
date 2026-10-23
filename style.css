@@ -124,6 +124,13 @@ p + p {
   justify-content: space-between;
   border-bottom: 1px solid var(--ink);
 }
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 calc((100vw - 100%) / -2);
+  z-index: -1;
+  background: var(--paper);
+}
 .wordmark {
   white-space: nowrap;
   flex-shrink: 0;

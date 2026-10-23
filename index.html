@@ -27,20 +27,21 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261023-room" />
+    <link rel="stylesheet" href="style.css?v=20261023-refined" />
     <script>
       try {
         const t = localStorage.getItem("raven-theme");
         if (t) document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>
-    <script src="app.js?v=20261023-room" defer></script>
+    <script src="app.js?v=20261023-refined" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header wrap">
       <a class="wordmark" href="#" aria-label="Raven Hsu home">RAVEN HSU</a>
-      <nav aria-label="Profiles">
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
         <a
           href="https://www.linkedin.com/in/raven-hsu-701963207/"
           target="_blank"
@@ -81,7 +82,11 @@
           class="hero-art"
           aria-label="Live preview of the founder office-hours software"
         >
-          <div class="hero-board live-hero">
+          <a
+            class="hero-board live-hero"
+            href="#garage"
+            aria-label="Try the founder office-hours experience"
+          >
             <iframe
               src="demo/index.html?view=board"
               title="Live Quest Board with fictional demo posts"
@@ -89,7 +94,7 @@
               aria-hidden="true"
               sandbox="allow-scripts allow-same-origin"
             ></iframe>
-          </div>
+          </a>
           <button
             class="hero-phone media-open"
             data-src="img/office-hours-success.webp"
@@ -277,6 +282,12 @@
                   rel="noopener"
                   >Open demo ↗</a
                 >
+              </div>
+              <div class="demo-feedback" id="demo-feedback" hidden>
+                <p role="status" id="demo-feedback-text"></p>
+                <button type="button" id="demo-followup">
+                  See it in the room ↗
+                </button>
               </div>
             </div>
           </div>

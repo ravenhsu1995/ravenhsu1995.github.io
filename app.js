@@ -165,6 +165,17 @@
         ...demoPosts,
       ].slice(0, 5);
     }
+    if (event.data.kind === "exchange" || event.data.kind === "mailbox") {
+      const feedback = document.getElementById("demo-feedback");
+      const followup = document.getElementById("demo-followup");
+      feedback.hidden = false;
+      followup.dataset.target =
+        event.data.kind === "mailbox" ? "featured" : "board";
+      document.getElementById("demo-feedback-text").textContent =
+        event.data.kind === "mailbox"
+          ? "Your demo question is ready to appear anonymously."
+          : "Your demo post is now part of the shared board.";
+    }
     syncDemoState();
   });
   document
@@ -191,6 +202,14 @@
     document.getElementById("gallery-description").textContent =
       view.description;
   }
+  document
+    .getElementById("demo-followup")
+    .addEventListener("click", (event) => {
+      const target = event.currentTarget.dataset.target;
+      const tab = tabs.find((item) => item.dataset.view === target);
+      if (tab) selectView(tab, true);
+      document.getElementById("demo-feedback").hidden = true;
+    });
   document.getElementById("demo-restart").addEventListener("click", () => {
     demo.src = demo.src;
   });

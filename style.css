@@ -5,34 +5,36 @@
   font-display: swap;
 }
 :root {
-  --paper: #f3f1e9;
-  --ink: #191a18;
-  --muted: #61625a;
-  --line: #c6c7bc;
-  --accent: #12594c;
-  --panel: #e7e6de;
-  --onaccent: #f3f1e9;
+  --paper: #f7f8f6;
+  --ink: #1e2421;
+  --muted: #59615c;
+  --line: #cbd2cd;
+  --accent: #286a5c;
+  --panel: #edf0ed;
+  --onaccent: #f7f8f6;
+  --stage: #1e2421;
+  --onstage: #f7f8f6;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --paper: #171916;
-  --ink: #f0f0e5;
-  --muted: #b3b6a9;
-  --line: #484c42;
-  --accent: #9acdb8;
-  --panel: #242820;
-  --onaccent: #151713;
+  --paper: #151b18;
+  --ink: #eef2ef;
+  --muted: #acb8b0;
+  --line: #3d4a42;
+  --accent: #a2cbbb;
+  --panel: #202a24;
+  --onaccent: #15221b;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #171916;
-    --ink: #f0f0e5;
-    --muted: #b3b6a9;
-    --line: #484c42;
-    --accent: #9acdb8;
-    --panel: #242820;
-    --onaccent: #151713;
+    --paper: #151b18;
+    --ink: #eef2ef;
+    --muted: #acb8b0;
+    --line: #3d4a42;
+    --accent: #a2cbbb;
+    --panel: #202a24;
+    --onaccent: #15221b;
     color-scheme: dark;
   }
 }
@@ -41,7 +43,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+  scroll-padding-top: 104px;
 }
 body {
   margin: 0;
@@ -112,6 +114,10 @@ p + p {
   top: 10px;
 }
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--paper);
   height: 88px;
   display: flex;
   align-items: center;
@@ -119,6 +125,8 @@ p + p {
   border-bottom: 1px solid var(--ink);
 }
 .wordmark {
+  white-space: nowrap;
+  flex-shrink: 0;
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -131,6 +139,7 @@ p + p {
   font-weight: 650;
 }
 .site-header nav a {
+  white-space: nowrap;
   position: relative;
 }
 .site-header nav a:after {
@@ -214,8 +223,9 @@ p + p {
   padding-bottom: 43px;
 }
 .hero-board {
+  display: block;
   aspect-ratio: 1.9;
-  background: #c5d5c7;
+  background: var(--panel);
   overflow: hidden;
   transform: rotate(-2deg);
   border: 1px solid var(--ink);
@@ -282,7 +292,7 @@ p + p {
 }
 .project-preview {
   align-self: center;
-  transform: rotate(-3deg);
+  transform: none;
 }
 .project-preview img {
   width: 100%;
@@ -425,8 +435,8 @@ p + p {
   border-color: var(--ink);
 }
 .experience-panel {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--stage);
+  color: var(--onstage);
   padding: 30px;
 }
 .demo-stage {
@@ -435,7 +445,7 @@ p + p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #c6d5c7;
+  background: var(--panel);
   overflow: hidden;
 }
 .demo-stage iframe {
@@ -446,7 +456,7 @@ p + p {
 }
 .demo-stage[data-mode="phone"] {
   aspect-ratio: 1.9;
-  background: #dedfd3;
+  background: var(--panel);
   background-image: repeating-linear-gradient(
     90deg,
     transparent 0,
@@ -459,7 +469,7 @@ p + p {
   height: 650px;
   max-width: 100%;
   max-height: 100%;
-  border-inline: 1px solid #191a18;
+  border-inline: 1px solid #1e2421;
 }
 .experience-copy {
   display: grid;
@@ -680,8 +690,9 @@ details[open] > summary span {
   padding-block: 15px;
 }
 .besci-media {
-  background: var(--panel);
-  padding: 25px 25px 17px;
+  background: transparent;
+  border-top: 1px solid var(--line);
+  padding: 25px 0 17px;
 }
 .screenshot-tabs {
   margin-bottom: 20px;
@@ -747,8 +758,8 @@ details[open] > summary span {
   margin-top: 25px;
 }
 .result-explorer {
-  background: var(--accent);
-  color: var(--onaccent);
+  background: var(--stage);
+  color: var(--onstage);
   padding: 35px;
   display: flex;
   flex-direction: column;
@@ -759,9 +770,9 @@ details[open] > summary span {
   font-size: 11px;
 }
 .result-toggle [aria-pressed="true"] {
-  background: var(--onaccent);
-  color: var(--accent);
-  border-color: var(--onaccent);
+  background: #f7f8f6;
+  color: #1e2421;
+  border-color: #f7f8f6;
 }
 .result-value strong {
   display: block;
@@ -1056,7 +1067,7 @@ details[open] > summary span {
 }
 @media (max-width: 600px) {
   html {
-    scroll-padding-top: 20px;
+    scroll-padding-top: 88px;
   }
   .wrap {
     width: calc(100% - 36px);
@@ -1068,7 +1079,7 @@ details[open] > summary span {
     font-size: 19px;
   }
   .site-header nav {
-    gap: 15px;
+    gap: 10px;
     font-size: 11px;
   }
   .theme-toggle {
@@ -1158,7 +1169,7 @@ details[open] > summary span {
   .project-preview {
     width: 85%;
     align-self: end;
-    transform: rotate(3deg);
+    transform: none;
   }
   .project-preview img {
     aspect-ratio: 16/9;
@@ -1457,13 +1468,13 @@ details[open] > summary span {
     z-index: 2;
   }
   .hero-board {
-    transform: rotate(4deg);
+    transform: rotate(2deg);
   }
   .hero-phone {
     width: 21%;
     left: -12%;
     bottom: 8%;
-    transform: rotate(-8deg);
+    transform: rotate(-6deg);
   }
   .hero-art-caption {
     position: absolute;
@@ -1480,10 +1491,10 @@ details[open] > summary span {
 }
 /* A full-width chapter change separates building from evaluating. */
 .experiments > .section-heading {
-  background: var(--accent);
-  color: var(--onaccent);
+  background: var(--stage);
+  color: var(--onstage);
   padding-block: 65px;
-  box-shadow: 0 0 0 100vmax var(--accent);
+  box-shadow: 0 0 0 100vmax var(--stage);
   clip-path: inset(0 -100vmax);
 }
 .experiments > .section-heading h2 span {
@@ -1493,4 +1504,41 @@ details[open] > summary span {
   .experiments > .section-heading {
     padding-block: 40px;
   }
+}
+
+.demo-feedback {
+  grid-column: 1 / -1;
+  border-top: 1px solid #ffffff40;
+  padding-top: 18px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+}
+.demo-feedback[hidden] {
+  display: none;
+}
+.demo-feedback button {
+  padding: 8px 14px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .demo-feedback {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .site-header nav a[href*="linkedin.com"] {
+    display: none;
+  }
+}
+.experience-panel :focus-visible,
+.result-explorer :focus-visible {
+  outline-color: var(--onstage);
 }

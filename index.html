@@ -27,14 +27,14 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261022-motion" />
+    <link rel="stylesheet" href="style.css?v=20261023-media" />
     <script>
       try {
         const t = localStorage.getItem("raven-theme");
         if (t) document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>
-    <script src="app.js?v=20261022-motion" defer></script>
+    <script src="app.js?v=20261023-media" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -333,44 +333,86 @@
           </p>
         </div>
         <article class="besci-case reveal" id="besci">
-          <div class="besci-media">
+          <div class="besci-copy">
+            <div class="besci-intro">
+              <p class="project-date">May - July 2026</p>
+              <h3>BeSci Wiki</h3>
+              <p>
+                An AI-queryable behavioral-science knowledge base. It reached
+                638 claims from 38 sources, with 70 claims checked by hand.
+              </p>
+            </div>
+            <div class="besci-learning">
+              <p>
+                When an evaluation score jumped to 0.94, I checked the test set.
+                It covered only 12 of the 79 target terms. I narrowed what the
+                metric claimed to measure and stopped the re-extraction.
+              </p>
+              <details class="compact-details">
+                <summary>
+                  Why I stopped <span aria-hidden="true">+</span>
+                </summary>
+                <p>
+                  At six and a half weeks, I shut the project down. I had built
+                  infrastructure before testing whether consulting reports could
+                  be reliably mapped back to academic research. I should have
+                  started by hand-mapping three articles.
+                </p>
+              </details>
+            </div>
+          </div>
+          <div class="besci-media screenshot-gallery">
+            <div
+              class="screenshot-tabs"
+              role="group"
+              aria-label="Explore BeSci Wiki screenshots"
+            >
+              <button
+                type="button"
+                data-besci-view="overview"
+                aria-pressed="true"
+              >
+                Overview
+              </button>
+              <button
+                type="button"
+                data-besci-view="concept"
+                aria-pressed="false"
+              >
+                Concept &amp; claims
+              </button>
+              <button
+                type="button"
+                data-besci-view="source"
+                aria-pressed="false"
+              >
+                Source &amp; evidence
+              </button>
+            </div>
             <button
-              class="media-open"
-              data-src="img/besci-claims.webp"
-              data-caption="BeSci Wiki: claims linked to their source passages. Most claims remained drafts."
+              class="media-open screenshot-open"
+              id="besci-screenshot"
+              data-src="img/besci-overview.webp"
+              data-caption="BeSci Wiki overview: 638 claims, 38 sources, and explicit review states. Only 70 claims were human-verified."
               type="button"
-              aria-label="Enlarge the BeSci claims interface"
+              aria-label="Enlarge the BeSci Wiki overview"
             >
               <img
-                src="img/besci-claims.webp"
-                alt="The actual BeSci Wiki interface, with claims, source passages and verification status"
-                width="1800"
-                height="1051"
+                id="besci-image"
+                src="img/besci-overview.webp"
+                alt="BeSci Wiki overview showing the full navigation, corpus totals and review-state breakdown"
+                width="1280"
+                height="720"
                 loading="lazy"
               />
+              <span class="screenshot-zoom" aria-hidden="true"
+                >View full image ↗</span
+              >
             </button>
-          </div>
-          <div class="besci-copy">
-            <p class="project-date">May - July 2026</p>
-            <h3>BeSci Wiki</h3>
-            <p>
-              An AI-queryable behavioral-science knowledge base. It reached 638
-              claims from 38 sources, with 70 claims checked by hand.
+            <p class="screenshot-caption" id="besci-caption" aria-live="polite">
+              The corpus at a glance. Review states distinguish human-verified
+              claims from drafts.
             </p>
-            <p>
-              When an evaluation score jumped to 0.94, I checked the test set.
-              It covered only 12 of the 79 target terms. I narrowed what the
-              metric claimed to measure and stopped the re-extraction.
-            </p>
-            <details class="compact-details">
-              <summary>Why I stopped <span aria-hidden="true">+</span></summary>
-              <p>
-                At six and a half weeks, I shut the project down. I had built
-                infrastructure before testing whether consulting reports could
-                be reliably mapped back to academic research. I should have
-                started by hand-mapping three articles.
-              </p>
-            </details>
           </div>
         </article>
         <article class="satellite-case reveal" id="satellite">
@@ -456,14 +498,26 @@
                 nature-connection app concept informed by my MSc research and
                 six user interviews.
               </p>
-              <button
-                class="text-link media-open"
-                data-src="img/eco-concept.jpg"
-                data-caption="E:CO concept screens from our final pitch, November 2022. A design concept, not a launched app."
-                type="button"
-              >
-                See the concept screens <span aria-hidden="true">↗</span>
-              </button>
+              <figure class="concept-artifact">
+                <button
+                  class="media-open concept-preview"
+                  data-src="img/eco-concept.jpg"
+                  data-caption="E:CO concept screens from our final pitch, November 2022. A design concept, not a launched app."
+                  type="button"
+                  aria-label="Enlarge the E:CO concept screens"
+                >
+                  <img
+                    src="img/eco-concept.jpg"
+                    alt="E:CO concept screens showing a daily nature-connection task and a photo task"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                  />
+                </button>
+                <figcaption>
+                  E:CO concept screens, 2022. A concept, not a launched app.
+                </figcaption>
+              </figure>
               <details class="compact-details">
                 <summary>
                   The program and outcome <span aria-hidden="true">+</span>
@@ -534,7 +588,13 @@
     <dialog class="image-dialog" id="image-dialog" aria-label="Image viewer">
       <div class="dialog-toolbar">
         <p id="dialog-caption"></p>
-        <button
+        <a
+          id="dialog-original"
+          href="img/besci-overview.webp"
+          target="_blank"
+          rel="noopener"
+          >Open original ↗</a
+        ><button
           type="button"
           class="dialog-close"
           aria-label="Close image viewer"

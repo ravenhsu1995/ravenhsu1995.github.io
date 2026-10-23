@@ -1514,3 +1514,158 @@ button.text-link {
     margin-left: 8px;
   }
 }
+/* Preserve complete interfaces and the original aspect ratio of evidence assets. */
+.besci-case {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 28px;
+}
+.besci-copy {
+  order: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 58px;
+}
+.besci-media.screenshot-gallery {
+  order: 1;
+  padding: 0;
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
+}
+.screenshot-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+.screenshot-tabs button {
+  padding: 9px 14px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--body);
+}
+.screenshot-tabs button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.besci-media > .screenshot-open {
+  position: relative;
+  display: block;
+  aspect-ratio: auto;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #f8f9fa;
+}
+.besci-media .screenshot-open img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.screenshot-zoom {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  padding: 5px 9px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.screenshot-caption {
+  font-size: 12px;
+  max-width: 85ch;
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+.photo img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+.concept-artifact {
+  margin: 22px 0;
+}
+.concept-preview {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: zoom-in;
+  background: transparent;
+}
+.concept-preview img {
+  width: 100%;
+  height: auto;
+}
+.concept-artifact figcaption {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.hero-phone {
+  aspect-ratio: 390/844;
+  width: 30%;
+}
+.hero-phone img {
+  object-fit: contain;
+}
+.dialog-toolbar #dialog-original {
+  font-size: 11px;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .besci-copy {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .screenshot-tabs button {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .screenshot-caption {
+    font-size: 11px;
+  }
+  .screenshot-zoom {
+    right: 7px;
+    bottom: 7px;
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+  .dialog-toolbar {
+    flex-wrap: wrap;
+  }
+  .dialog-toolbar p {
+    flex-basis: 100%;
+  }
+  .dialog-toolbar #dialog-original {
+    margin-left: 0;
+  }
+  .dialog-toolbar .dialog-close {
+    margin-left: auto;
+  }
+}
+.image-dialog:not(.is-portrait) .dialog-image-wrap img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(94dvh - 110px);
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .image-dialog:not(.is-portrait) .dialog-image-wrap img {
+    max-height: calc(96dvh - 145px);
+  }
+}

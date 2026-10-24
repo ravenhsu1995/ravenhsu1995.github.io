@@ -34,7 +34,7 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261024" />
+    <link rel="stylesheet" href="style.css?v=20261024-travel" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -45,7 +45,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261024"></script>
+    <script type="module" src="js/main.js?v=20261024-travel"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -114,19 +114,20 @@
                 >BeSci Wiki <span aria-hidden="true">↗</span></span
               ></a
             >
-            <a class="room-piece room-people" href="#earlier"
+            <a class="room-piece room-travel" href="#travel-fox"
               ><img
-                src="img/durham-venture-school.webp"
-                alt="The Durham Venture School cohort"
-                width="1800"
-                height="1350"
+                src="img/travel-fox-home.webp"
+                alt="Travel Fox homepage and public Kansai trip"
+                width="480"
+                height="760"
               /><span class="room-piece-label"
-                >Before the code <span aria-hidden="true">↗</span></span
+                >Travel Fox <span aria-hidden="true">↗</span></span
               ></a
             >
             <button
               class="hero-phone room-piece media-open"
               data-src="img/office-hours-success.webp"
+              data-layout="portrait"
               data-caption="The original check-in success screen. Fictional demo data."
               type="button"
               aria-label="Enlarge the check-in success screen"
@@ -186,17 +187,14 @@
                 >NTU Garage<small>Founder programs &amp; software</small></span
               ><span aria-hidden="true">↗</span></a
             >
+            <a href="#travel-fox" data-project="travel"
+              ><span>Travel Fox<small>A trip planner friends use</small></span
+              ><span aria-hidden="true">↗</span></a
+            >
             <a href="#besci" data-project="besci"
               ><span
                 >BeSci Wiki<small
-                  >Knowledge systems &amp; a hard lesson</small
-                ></span
-              ><span aria-hidden="true">↗</span></a
-            >
-            <a href="#satellite" data-project="satellite"
-              ><span
-                >Satellite imagery<small
-                  >A hypothesis put to the test</small
+                  >Knowledge systems &amp; what followed</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
@@ -343,9 +341,11 @@
               workshops, and recurring consultations by field.
             </p>
             <p>
-              I independently built an operations dashboard to track coaching
-              progress, consultation records and next steps, alongside
-              registration, attendance and follow-up.
+              I initiated and independently built the dashboard. Before it,
+              records lived in Google Forms and Excel sheets, and we matched
+              rosters by hand. Now the team shares live progress, consultation
+              records and next steps, with registration, follow-up and KPIs in
+              the same system.
             </p>
           </div>
           <dl class="program-facts">
@@ -359,7 +359,7 @@
             </div>
             <div>
               <dt>42</dt>
-              <dd>teams represented across Garage and the accelerator</dd>
+              <dd>teams and 68 people across Garage and the accelerator</dd>
             </div>
           </dl>
         </div>
@@ -396,7 +396,7 @@
           </div>
           <div>
             <strong>11<span>/32</span></strong>
-            <p>attendees posted at the second session</p>
+            <p>attendees contributed 12 posts at the second session</p>
           </div>
           <div>
             <strong>13<span>/65</span></strong>
@@ -413,9 +413,9 @@
           <div class="details-body">
             <p>
               Built with Next.js, Supabase and Vercel, using Claude Code. I’m
-              the only developer. The repository includes 18 test files, CI and
-              written agent guardrails requiring browser checks after interface
-              changes.
+              the only developer. The repository includes 18 test files and CI.
+              Its AGENTS.md prohibits schema changes and new endpoints, and
+              requires a browser check of every interface change.
             </p>
             <p>
               The first check-in version was committed the night before the
@@ -424,8 +424,11 @@
               people at the second session had attended the first.
             </p>
             <p>
-              Coaching and attendee records stay private. The product
-              screenshots here use fictional data in an isolated environment.
+              The system tracks attendance, feedback and subsequent
+              program-interest registrations with consent. The source
+              repository, coaching and attendee records stay private. The
+              product screenshots here use fictional data in an isolated
+              environment.
             </p>
           </div>
         </details>
@@ -433,18 +436,102 @@
       <section class="experiments wrap" aria-labelledby="experiments-title">
         <div class="section-heading reveal">
           <h2 id="experiments-title">
-            Build it.<br /><span>Question it.</span>
+            Build it.<br /><span>Learn from it.</span>
           </h2>
           <p>
-            I build with AI, check the evidence, and change course when the
-            result calls for it.
+            Software built with Claude Code. I learn from real use, check the
+            evidence, and change course when the result calls for it.
           </p>
         </div>
+        <article
+          class="travel-case reveal"
+          id="travel-fox"
+          aria-labelledby="travel-title"
+        >
+          <div class="travel-copy">
+            <p class="project-date">May 25–28, 2026 · Still live</p>
+            <h3 id="travel-title">
+              A trip for me.<br /><span>A tool for friends.</span>
+            </h3>
+            <p class="travel-intro">
+              Travel Fox started as the HTML itinerary for my own Kansai trip. I
+              turned it into an app anyone can sign into, with a daily timeline,
+              maps and expenses in multiple currencies.
+            </p>
+            <dl class="travel-proof">
+              <div>
+                <dt>17 days</dt>
+                <dd>A friend used it for a New Zealand honeymoon.</dd>
+              </div>
+              <div>
+                <dt>Day four</dt>
+                <dd>
+                  Friends asked to share trips and rate each stop. I shipped
+                  both.
+                </dd>
+              </div>
+            </dl>
+            <p>
+              Trips can be private, unlisted or public, with ratings and
+              comments for individual stops.
+            </p>
+            <a
+              class="text-link"
+              href="https://travel-fox-chi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Explore Travel Fox <span aria-hidden="true">↗</span></a
+            >
+            <details class="compact-details travel-details">
+              <summary>What I built <span aria-hidden="true">+</span></summary>
+              <p>
+                Built with Claude Code. The four-day build took a personal
+                itinerary into a signed-in app, then added sharing and per-stop
+                feedback in response to friends' requests. The public Kansai
+                sample is available to explore without signing in.
+              </p>
+            </details>
+          </div>
+          <div class="travel-product">
+            <div class="travel-product-heading">
+              <span>Travel Fox</span
+              ><a
+                href="https://travel-fox-chi.vercel.app/sample"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open public trip ↗</a
+              >
+            </div>
+            <iframe
+              class="travel-frame"
+              src="https://travel-fox-chi.vercel.app/sample"
+              title="Travel Fox live public Kansai itinerary"
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              referrerpolicy="no-referrer"
+            ></iframe>
+            <p class="screenshot-caption">
+              The live public sample. Choose a date, scroll the itinerary, or
+              open it in a new tab.
+            </p>
+            <button
+              type="button"
+              class="media-open travel-capture"
+              data-src="img/travel-fox-itinerary.webp"
+              data-layout="portrait"
+              data-caption="Travel Fox's real public Kansai sample, captured on the Tottori day. The live itinerary above is interactive."
+              aria-label="View the captured Travel Fox itinerary"
+            >
+              View captured screen ↗
+            </button>
+          </div>
+        </article>
         <article class="besci-case reveal" id="besci">
           <div class="besci-copy">
             <div class="besci-intro">
               <p class="project-date">May - July 2026</p>
               <h3>BeSci Wiki</h3>
+              <p class="project-state">Prototype closed July 2026</p>
               <p>
                 An AI-queryable behavioral-science knowledge base. It reached
                 638 claims from 38 sources, with 70 claims checked by hand.
@@ -452,19 +539,22 @@
             </div>
             <div class="besci-learning">
               <p>
-                When an evaluation score jumped to 0.94, I checked the test set.
-                It covered only 12 of the 79 target terms. I narrowed what the
-                metric claimed to measure and stopped the re-extraction.
+                When an evaluation score jumped from 0 to 0.94 after one fix, I
+                checked the test set. It covered only 12 of the 79 terms it
+                scored. I narrowed what the metric claimed to measure and
+                stopped the re-extraction.
               </p>
               <details class="compact-details">
                 <summary>
                   Why I stopped <span aria-hidden="true">+</span>
                 </summary>
                 <p>
-                  At six and a half weeks, I shut the project down. I had built
-                  infrastructure before testing whether consulting reports could
-                  be reliably mapped back to academic research. I should have
-                  started by hand-mapping three articles.
+                  At six and a half weeks, I shut this extraction project down.
+                  I had built infrastructure before testing whether consulting
+                  reports could be reliably mapped back to academic research. I
+                  should have started by hand-mapping three articles. The
+                  repository remains private because it contains copyrighted
+                  research material.
                 </p>
               </details>
             </div>
@@ -522,67 +612,53 @@
               claims from drafts.
             </p>
           </div>
-        </article>
-        <article class="satellite-case reveal" id="satellite">
-          <div class="satellite-copy">
-            <p class="project-date">August 2026</p>
-            <h3>A better test.<br />A negative result.</h3>
-            <p>
-              Next, I set three success criteria before testing satellite
-              imagery in a Taiwan house-price model. Adding imagery made
-              prediction error worse.
-            </p>
-            <p>
-              The experiment met one of three criteria. I published the result.
-            </p>
-            <a
-              class="text-link"
-              href="https://github.com/ravenhsu1995/TW_Housets"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Read the code and findings <span aria-hidden="true">↗</span></a
-            >
-          </div>
-          <div class="result-explorer">
-            <div
-              class="result-toggle"
-              role="group"
-              aria-label="Compare model error"
-            >
-              <button type="button" aria-pressed="true" data-model="baseline">
-                Without imagery</button
-              ><button type="button" aria-pressed="false" data-model="imagery">
-                With imagery
-              </button>
+          <section
+            class="knowledge-continuation"
+            aria-labelledby="knowledge-title"
+          >
+            <div class="knowledge-intro">
+              <p class="project-date">What continued</p>
+              <h4 id="knowledge-title">
+                Separate the source<br />from the interpretation.
+              </h4>
+              <p>
+                BeSci's retrospective became a starting point for Deus Engine. I
+                later separated the shared knowledge from each project's
+                interpretation and outputs.
+              </p>
             </div>
-            <div class="result-value" aria-live="polite">
-              <strong id="model-value">13.15<span>%</span></strong>
-              <p>mean absolute percentage error</p>
-            </div>
-            <div
-              class="model-chart"
-              aria-label="Baseline MAPE 13.15 percent; with imagery 13.73 percent. Lower is better."
-            >
-              <div class="model-chart-row" data-chart="baseline">
-                <span>Baseline</span>
-                <div><i style="--bar-width: 93.93%"></i></div>
-                <b>13.15%</b>
+            <dl class="knowledge-branches">
+              <div>
+                <dt>Second Brain</dt>
+                <dd>
+                  A separate knowledge repository: immutable sources,
+                  source-linked concept pages and a reference checker.
+                  Project-specific interpretations stay outside it.
+                </dd>
               </div>
-              <div class="model-chart-row" data-chart="imagery">
-                <span>+ Imagery</span>
-                <div><i style="--bar-width: 98.07%"></i></div>
-                <b>13.73%</b>
+              <div>
+                <dt>Deus Engine</dt>
+                <dd>
+                  A research-to-content workflow that reads Second Brain,
+                  develops project-specific interpretations and brings proposals
+                  and drafts to me for review.
+                </dd>
               </div>
-              <p>0 <span>14% error</span></p>
-            </div>
-            <p class="result-reading" id="model-reading">
-              The baseline model. Lower error is better.
+              <div>
+                <dt>1→0</dt>
+                <dd>
+                  A separate platform applying humanities and social science to
+                  innovation. It draws on Second Brain and references Deus's
+                  workflow, while keeping its data and runtime independent.
+                </dd>
+              </div>
+            </dl>
+            <p class="knowledge-boundary">
+              The 638 claims and evaluation result describe the May–July BeSci
+              prototype. The related projects have their own purposes and
+              histories.
             </p>
-            <p class="result-note">
-              1,621 test rows. Adding imagery increased MAPE by 0.58 percentage
-              points; p = 0.0016.
-            </p>
-          </div>
+          </section>
         </article>
       </section>
       <section

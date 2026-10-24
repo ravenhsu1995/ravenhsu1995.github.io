@@ -11,12 +11,12 @@ export function initProjectPreview(reducedMotion) {
     besci: [
       "img/besci-concept.webp",
       "BeSci Wiki concepts and source-linked claims",
-      "A claim is only as useful as the evidence behind it.",
+      "A closed prototype. A knowledge workflow that kept evolving.",
     ],
-    satellite: [
-      "img/satellite-comparison.svg",
-      "Chart comparing baseline MAPE of 13.15 percent with imagery MAPE of 13.73 percent",
-      "Adding satellite imagery increased prediction error.",
+    travel: [
+      "img/travel-fox-home.webp",
+      "Travel Fox homepage and public Kansai trip",
+      "From my own itinerary to a trip planner friends use.",
     ],
     earlier: [
       "img/faa-worldcafe.jpg",

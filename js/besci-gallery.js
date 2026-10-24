@@ -1,26 +1,4 @@
-export function initExperiments() {
-  const modelButtons = [...document.querySelectorAll("[data-model]")];
-  modelButtons.forEach((button) =>
-    button.addEventListener("click", () => {
-      modelButtons.forEach((item) =>
-        item.setAttribute("aria-pressed", String(item === button)),
-      );
-      const imagery = button.dataset.model === "imagery";
-      button.closest(".result-explorer").dataset.selected =
-        button.dataset.model;
-      const percent = document.createElement("span");
-      percent.textContent = "%";
-      document
-        .getElementById("model-value")
-        .replaceChildren(
-          document.createTextNode(imagery ? "13.73" : "13.15"),
-          percent,
-        );
-      document.getElementById("model-reading").textContent = imagery
-        ? "Adding imagery increased the error by 0.58 percentage points."
-        : "The baseline model. Lower error is better.";
-    }),
-  );
+export function initBesciGallery() {
   const besciViews = {
     overview: {
       file: "overview",

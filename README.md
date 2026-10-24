@@ -22,18 +22,18 @@ npm run format  # Format authored source
 
 ## Structure
 
-| Path                                                                              | Responsibility                                                                      |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `index.html`                                                                      | Semantic content, navigation, initial theme bootstrap and accessible control markup |
-| `style.css`                                                                       | Theme tokens, layout, components, responsive rules and reduced-motion behavior      |
-| `js/main.js`                                                                      | Composition root; passes shared media preferences and demo frames explicitly        |
-| `js/office-hours.js`                                                              | Demo scene selection, keyboard tabs and submission feedback                         |
-| `js/demo-bridge.js`, `js/demo-state.js`                                           | Same-origin iframe messaging, validated payloads and bounded in-memory state        |
-| `js/frame-layout.js`                                                              | Responsive demo canvases; measurements precede style writes                         |
-| `js/motion.js`, `js/workroom.js`                                                  | Visibility-aware playback, reduced motion and the opening composition               |
-| `js/theme.js`, `js/media-viewer.js`, `js/project-preview.js`, `js/experiments.js` | Independent page enhancements                                                       |
-| `demo/`                                                                           | Vendored product-demo snapshot; separate from the portfolio's authored modules      |
-| `tests/`                                                                          | Message validation/state limits, frame geometry and HTML/resource contracts         |
+| Path                                                                                | Responsibility                                                                      |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `index.html`                                                                        | Semantic content, navigation, initial theme bootstrap and accessible control markup |
+| `style.css`                                                                         | Theme tokens, layout, components, responsive rules and reduced-motion behavior      |
+| `js/main.js`                                                                        | Composition root; passes shared media preferences and demo frames explicitly        |
+| `js/office-hours.js`                                                                | Demo scene selection, keyboard tabs and submission feedback                         |
+| `js/demo-bridge.js`, `js/demo-state.js`                                             | Same-origin iframe messaging, validated payloads and bounded in-memory state        |
+| `js/frame-layout.js`                                                                | Responsive demo canvases; measurements precede style writes                         |
+| `js/motion.js`, `js/workroom.js`                                                    | Visibility-aware playback, reduced motion and the opening composition               |
+| `js/theme.js`, `js/media-viewer.js`, `js/project-preview.js`, `js/besci-gallery.js` | Independent page enhancements                                                       |
+| `demo/`                                                                             | Vendored product-demo snapshot; separate from the portfolio's authored modules      |
+| `tests/`                                                                            | Message validation/state limits, frame geometry and HTML/resource contracts         |
 
 Core copy and project links are present in HTML. JavaScript enhances the page with scene selection, image enlargement and animation. Keep meaningful content available without animation, preserve keyboard access, and use the existing theme tokens when changing colors.
 
@@ -47,6 +47,8 @@ The demo uses fictional records and an in-memory fetch adapter. Its content secu
 
 AI-assisted development is disclosed in the portfolio. Source organization and checks describe the implementation; they do not imply a different authorship history.
 
+The Travel Fox iframe is a separate, live public itinerary hosted on Vercel. It is outside the in-memory Garage demo bridge and may open public map links. The adjacent captured screen remains available as a static reference.
+
 ## Verification and deployment
 
 The GitHub Actions check runs `npm ci` and `npm run check` on pushes to `main` and pull requests. It checks authored code; generated demo assets are excluded from source linting and formatting. Tests do not replace browser verification.
@@ -56,7 +58,7 @@ Before publishing interaction changes, check:
 - Light/dark themes, a narrow phone viewport and desktop layout.
 - The opening slider and reset, with reduced motion respected.
 - All four demo scenes, arrow/Home/End tab navigation, submission feedback and replay.
-- BeSci screenshot selection, image-dialog Escape/focus return, project previews and model comparison.
+- BeSci screenshot selection, image-dialog Escape/focus return, project previews and the live Travel Fox public itinerary.
 
 GitHub Pages publishes the repository's `main` branch root. A passing check and a successful Pages deployment are separate signals; verify both after pushing. For an asset release, update the stylesheet and entry-module query versions in `index.html`, then verify the live page.
 

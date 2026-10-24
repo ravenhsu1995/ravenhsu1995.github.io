@@ -15,7 +15,7 @@ export function initMediaViewer() {
         button.dataset.caption;
       dialog.classList.toggle(
         "is-portrait",
-        /office-hours-(quests|checkin|success)/.test(button.dataset.src),
+        button.dataset.layout === "portrait",
       );
       dialog.showModal();
       previousOverflow = document.body.style.overflow;

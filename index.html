@@ -7,17 +7,26 @@
     <title>Raven Hsu | Programs, people, and useful software</title>
     <meta
       name="description"
-      content="Raven Hsu designs founder programs and builds the software behind them. Selected work at NTU Garage, behavioral science experiments, and earlier ventures."
+      content="Explore NTU Garage, Travel Fox and 1→0: founder tools, travel planning and knowledge systems, with real interfaces and live products."
     />
     <meta property="og:title" content="Raven Hsu | Make room for ideas." />
     <meta
       property="og:description"
-      content="Founder programs and useful software, grounded in sociology and behavioral science."
+      content="A collection of founder tools, shared trips and knowledge systems. Explore NTU Garage, Travel Fox and 1→0."
     />
     <meta
       property="og:image"
-      content="https://ravenhsu1995.github.io/img/office-hours-board.webp"
+      content="https://ravenhsu1995.github.io/img/social-cover-2026.jpg"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta
+      property="og:image:alt"
+      content="Make room for ideas. Raven Hsu's collection of founder tools, travel planning and knowledge systems."
+    />
+    <meta property="og:url" content="https://ravenhsu1995.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://ravenhsu1995.github.io/" />
     <link
@@ -34,7 +43,7 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261024-editorial" />
+    <link rel="stylesheet" href="style.css?v=20261024-exhibition" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -45,7 +54,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261024-editorial"></script>
+    <script type="module" src="js/main.js?v=20261024-exhibition"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -151,10 +160,8 @@
       </section>
       <section class="work-index wrap" id="work" aria-label="Selected projects">
         <div class="work-index-top">
-          <h2>Selected<br /><span>work.</span></h2>
-          <p>
-            Founder tools, travel planning<br />and research into innovation.
-          </p>
+          <h2>Inside the collection.</h2>
+          <p>Three products. Different ways to make room.</p>
         </div>
         <div class="work-index-body">
           <div class="project-preview">
@@ -165,10 +172,10 @@
             >
               <img
                 id="project-preview-image"
-                src="img/office-hours-board.webp"
-                alt="NTU Garage live founder board"
-                width="1690"
-                height="886"
+                src="img/garage-report.webp"
+                alt="NTU Garage progress report with fictional demonstration records"
+                width="1425"
+                height="990"
               />
               <img
                 id="project-preview-detail"
@@ -180,19 +187,23 @@
               />
             </div>
             <p id="project-preview-caption">
-              From arriving alone to finding your people.
+              Program operations, from the next activity to the next
+              conversation.
             </p>
           </div>
           <nav class="project-list" aria-label="Jump to a project">
             <a href="#garage" data-project="garage" data-preview-active="true"
               ><span
                 >NTU Garage<small
-                  >20 teams · 63 office-hours check-ins</small
+                  >Program operations &amp; founder office hours</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
             <a href="#travel-fox" data-project="travel"
-              ><span>Travel Fox<small>Used for a 17-day honeymoon</small></span
+              ><span
+                >Travel Fox<small
+                  >Itineraries, maps &amp; shared trips</small
+                ></span
               ><span aria-hidden="true">↗</span></a
             >
             <a href="#one-zero" data-project="onezero"
@@ -204,7 +215,7 @@
             >
             <a href="#earlier" data-project="earlier"
               ><span
-                >Before the code<small
+                >Earlier projects<small
                   >Venture School &amp; Forget About Age</small
                 ></span
               ><span aria-hidden="true">↗</span></a
@@ -214,7 +225,7 @@
       </section>
       <section class="case wrap" id="garage" aria-labelledby="garage-title">
         <div class="case-heading reveal">
-          <p class="section-label">Selected work</p>
+          <p class="section-label">01 / NTU Garage</p>
           <h2 id="garage-title">
             NTU Garage.<br /><span>Founder tools.</span>
           </h2>
@@ -222,6 +233,98 @@
             An operations dashboard for founder programs, with team progress,
             consultation records, course management and interactive office-hours
             tools in one place.
+          </p>
+        </div>
+        <section
+          class="operations-exhibit reveal"
+          aria-labelledby="operations-title"
+        >
+          <div class="exhibit-heading">
+            <div>
+              <p class="small-label">Behind the program</p>
+              <h3 id="operations-title">Program operations.</h3>
+            </div>
+            <p>
+              Team goals, consultations, courses and follow-up share one working
+              view. Explore the progress report, activity pipeline and team
+              directory.
+            </p>
+          </div>
+          <div
+            class="operations-gallery"
+            data-artifact-gallery
+            data-gallery-id="garage"
+          >
+            <div class="artifact-toolbar">
+              <p data-artifact-count aria-live="polite">01 / 03</p>
+              <div
+                class="screenshot-tabs"
+                role="group"
+                aria-label="Explore Garage operations screens"
+              >
+                <button
+                  type="button"
+                  data-artifact-key="report"
+                  data-artifact-src="img/garage-report.webp"
+                  data-artifact-caption="Progress report: completed and upcoming activities, discussion points, follow-up and a shared timeline. Original interface with fictional records."
+                  aria-pressed="true"
+                >
+                  Progress report
+                </button>
+                <button
+                  type="button"
+                  data-artifact-key="pipeline"
+                  data-artifact-src="img/garage-operations.webp"
+                  data-artifact-caption="Activity management: four stages from preparation to follow-up, with registration, assignments and the next action visible on each card. Fictional records."
+                  aria-pressed="false"
+                >
+                  Activity pipeline
+                </button>
+                <button
+                  type="button"
+                  data-artifact-key="teams"
+                  data-artifact-src="img/garage-teams.webp"
+                  data-artifact-caption="Team directory: search and filter teams across programs, fields and consultation groups. All people and records shown here are fictional."
+                  aria-pressed="false"
+                >
+                  Team directory
+                </button>
+              </div>
+            </div>
+            <button
+              class="media-open artifact-screen operations-screen"
+              type="button"
+              data-src="img/garage-report.webp"
+              data-caption="NTU Garage progress report. Original product interface, fictional demonstration records."
+              aria-label="Enlarge the selected Garage operations screen"
+            >
+              <img
+                src="img/garage-report.webp"
+                width="1425"
+                height="990"
+                loading="lazy"
+                alt="Progress report: completed and upcoming activities, discussion points, follow-up and a shared timeline. Original interface with fictional records."
+              /><span class="screenshot-zoom" aria-hidden="true"
+                >Inspect the interface ↗</span
+              >
+            </button>
+            <p
+              class="screenshot-caption"
+              data-artifact-caption
+              aria-live="polite"
+            >
+              Progress report: completed and upcoming activities, discussion
+              points, follow-up and a shared timeline. Original interface with
+              fictional records.
+            </p>
+          </div>
+        </section>
+        <div class="office-heading reveal">
+          <p class="small-label">Out in the room</p>
+          <h3>From checking in<br />to finding each other.</h3>
+          <p>
+            A live board for partners and product testers. A question box for
+            the conversations that need a little more privacy.
           </p>
         </div>
         <div class="experience reveal" data-gallery>
@@ -329,15 +432,10 @@
         </div>
         <div class="case-overview reveal">
           <div class="overview-copy">
-            <h3>One view of every team.</h3>
+            <h3>In daily use.</h3>
             <p>
-              The dashboard brings together team goals, consultation records,
-              next steps, registration and follow-up. Shared progress replaces
-              rosters scattered across Google Forms and Excel.
-            </p>
-            <p>
-              It supports the 2026 Garage program's individual OKRs, four
-              validation workshops and recurring consultations by field.
+              The system supports individual goals, validation workshops and
+              consultations across Garage and the accelerator.
             </p>
           </div>
           <dl class="program-facts">
@@ -409,7 +507,7 @@
           aria-labelledby="travel-title"
         >
           <div class="travel-copy">
-            <p class="project-date">May 25–28, 2026 · Still live</p>
+            <p class="project-date">02 / Travel Fox · Live product</p>
             <h3 id="travel-title">
               Travel Fox.<br /><span>A trip in one place.</span>
             </h3>
@@ -441,7 +539,7 @@
           </div>
           <div class="travel-product">
             <div class="travel-product-heading">
-              <span>Travel Fox</span
+              <span>The trip, before and during.</span
               ><a
                 href="https://travel-fox-chi.vercel.app/sample"
                 target="_blank"
@@ -449,36 +547,72 @@
                 >Open public trip ↗</a
               >
             </div>
-            <iframe
-              class="travel-frame"
-              src="https://travel-fox-chi.vercel.app/sample"
-              title="Travel Fox live public Kansai itinerary"
-              loading="lazy"
-              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-              referrerpolicy="no-referrer"
-            ></iframe>
+            <p class="swipe-hint" id="travel-swipe-hint">
+              Swipe for the live itinerary →
+            </p>
+            <div
+              class="travel-prints"
+              role="region"
+              aria-label="Travel Fox product views"
+              aria-describedby="travel-swipe-hint"
+              tabindex="0"
+            >
+              <figure>
+                <button
+                  class="media-open"
+                  type="button"
+                  data-src="img/travel-fox-home-portrait.webp"
+                  data-layout="portrait"
+                  data-caption="Travel Fox's real public homepage."
+                  aria-label="Enlarge the Travel Fox homepage"
+                >
+                  <img
+                    src="img/travel-fox-home-portrait.webp"
+                    width="480"
+                    height="840"
+                    loading="lazy"
+                    alt="Travel Fox homepage with its illustrated identity and public trip"
+                  />
+                </button>
+                <figcaption>Find a trip.</figcaption>
+              </figure>
+              <figure>
+                <div class="travel-phone-window">
+                  <iframe
+                    class="travel-frame"
+                    src="https://travel-fox-chi.vercel.app/sample"
+                    title="Travel Fox live public Kansai itinerary"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                    referrerpolicy="no-referrer"
+                  ></iframe>
+                </div>
+                <figcaption>
+                  <span class="live-dot" aria-hidden="true"></span> Follow the
+                  day. Live.
+                </figcaption>
+              </figure>
+            </div>
             <p class="screenshot-caption">
-              The live public sample. Choose a date, scroll the itinerary, or
-              open it in a new tab.
+              The day-by-day itinerary is live. Choose a date, explore the stops
+              or open the trip in a new tab.
             </p>
             <button
               type="button"
               class="media-open travel-capture"
               data-src="img/travel-fox-itinerary-portrait.webp"
               data-layout="portrait"
-              data-caption="Travel Fox's real public Kansai sample, captured on the Tottori day. The live itinerary above is interactive."
+              data-caption="Travel Fox's public Kansai itinerary, captured on the Tottori day."
               aria-label="View the captured Travel Fox itinerary"
             >
-              View captured screen ↗
+              View captured itinerary ↗
             </button>
           </div>
         </article>
         <article class="onezero-case reveal" id="one-zero">
           <div class="product-heading">
             <div>
-              <p class="project-date">
-                Human judgement × innovation · Live product
-              </p>
+              <p class="project-date">03 / 1→0 · Live product</p>
               <h3>1→0</h3>
             </div>
             <div class="product-intro">
@@ -500,9 +634,16 @@
               >
             </div>
           </div>
-          <div class="product-gallery" data-artifact-gallery>
+          <div
+            class="product-gallery"
+            data-artifact-gallery
+            data-gallery-id="onezero"
+          >
             <div class="artifact-toolbar">
-              <p>01 / The public product</p>
+              <p>
+                <span data-artifact-count aria-live="polite">01 / 03</span> ·
+                The public product
+              </p>
               <div
                 class="screenshot-tabs"
                 role="group"
@@ -510,6 +651,7 @@
               >
                 <button
                   type="button"
+                  data-artifact-key="product"
                   data-artifact-src="img/one-zero-home.webp"
                   data-artifact-caption="1→0 introduces its central question: how can human judgement shape innovation alongside AI?"
                   aria-pressed="true"
@@ -518,11 +660,21 @@
                 </button>
                 <button
                   type="button"
+                  data-artifact-key="vision"
                   data-artifact-src="img/one-zero-vision.webp"
                   data-artifact-caption="The dual-track framework connects business and technology with humanities and social science."
                   aria-pressed="false"
                 >
                   AI × HI
+                </button>
+                <button
+                  type="button"
+                  data-artifact-key="library"
+                  data-artifact-src="img/one-zero-library.webp"
+                  data-artifact-caption="The learning-library interface: topic filters, search and sorting. Article cards are illustrative content from the live product, not published research or client cases."
+                  aria-pressed="false"
+                >
+                  Learning library
                 </button>
               </div>
             </div>
@@ -551,6 +703,50 @@
               1→0 introduces its central question: how can human judgement shape
               innovation alongside AI?
             </p>
+          </div>
+          <div class="onezero-contact-sheet">
+            <figure>
+              <button
+                class="media-open"
+                type="button"
+                data-src="img/one-zero-capabilities.webp"
+                data-caption="1→0: the complete five-capability interface."
+                aria-label="Enlarge all five human capabilities"
+              >
+                <img
+                  src="img/one-zero-capabilities.webp"
+                  width="1440"
+                  height="1263"
+                  loading="lazy"
+                  alt="Complete five-capability section with its original illustrations and connecting path"
+                />
+              </button>
+              <figcaption>
+                <span>01 / Human capabilities</span>Five lenses for a difficult
+                decision.
+              </figcaption>
+            </figure>
+            <figure>
+              <button
+                class="media-open"
+                type="button"
+                data-src="img/one-zero-intervention.webp"
+                data-caption="1→0: the complete three-stage intervention interface."
+                aria-label="Enlarge the complete intervention process"
+              >
+                <img
+                  src="img/one-zero-intervention.webp"
+                  width="1440"
+                  height="1579"
+                  loading="lazy"
+                  alt="Complete three-step intervention section, including the original pruning and reframing graphics"
+                />
+              </button>
+              <figcaption>
+                <span>02 / Strategic intervention</span>From diagnosis to a
+                different path.
+              </figcaption>
+            </figure>
           </div>
           <details class="product-live">
             <summary>
@@ -629,7 +825,11 @@
                   snapshot, not product usage.
                 </p>
               </div>
-              <div class="knowledge-gallery" data-artifact-gallery>
+              <div
+                class="knowledge-gallery"
+                data-artifact-gallery
+                data-gallery-id="knowledge"
+              >
                 <div
                   class="screenshot-tabs"
                   role="group"
@@ -637,6 +837,7 @@
                 >
                   <button
                     type="button"
+                    data-artifact-key="sources"
                     data-artifact-src="img/knowledge-sources.webp"
                     data-artifact-caption="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
                     aria-pressed="true"
@@ -644,6 +845,7 @@
                     Sources</button
                   ><button
                     type="button"
+                    data-artifact-key="concepts"
                     data-artifact-src="img/knowledge-vision.webp"
                     data-artifact-caption="Concept coverage: 121 pages across three domains, with nine contradiction flags kept visible."
                     aria-pressed="false"

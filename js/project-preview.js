@@ -1,15 +1,16 @@
 const projects = {
   garage: {
-    src: "img/office-hours-board.webp",
-    alt: "NTU Garage live founder board",
-    caption: "From arriving alone to finding your people.",
+    src: "img/garage-report.webp",
+    alt: "NTU Garage progress report, with fictional demonstration records",
+    caption:
+      "Program operations, from the next activity to the next conversation.",
   },
   travel: {
     src: "img/travel-fox-home-portrait.webp",
     alt: "Travel Fox's complete mobile homepage",
     detail: "img/travel-fox-itinerary-portrait.webp",
     detailAlt: "Travel Fox public itinerary, with dates, stops and map links",
-    caption: "From my own itinerary to a trip planner friends use.",
+    caption: "A daily timeline, maps and expenses, in one shared trip.",
   },
   onezero: {
     src: "img/one-zero-home.webp",
@@ -19,7 +20,7 @@ const projects = {
   earlier: {
     src: "img/faa-worldcafe.jpg",
     alt: "Co-designing the intergenerational camp with participants",
-    caption: "The work started with people, long before the code.",
+    caption: "A nature-connection concept and an intergenerational camp.",
   },
 };
 

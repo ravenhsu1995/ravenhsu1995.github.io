@@ -47,9 +47,9 @@ The demo uses fictional records and an in-memory fetch adapter. Its content secu
 
 AI-assisted development is disclosed in the portfolio. Source organization and checks describe the implementation; they do not imply a different authorship history.
 
-The Travel Fox iframe is a separate, live public itinerary hosted on Vercel. It is outside the in-memory Garage demo bridge and may open public map links. The adjacent captured screen remains available as a static reference.
+The Travel Fox exhibit pairs its captured homepage with a separate, live public itinerary hosted on Vercel. On phones, the original views sit in a keyboard-focusable horizontal scroll container. It is outside the in-memory Garage demo bridge and may open public map links. The adjacent captured screen remains available as a static reference.
 
-The 1→0 case leads with the deployed product for human judgement in innovation. Its live iframe loads only when the visitor expands it and unloads on collapse. Screenshot galleries preserve the source images and support enlargement. The separate Deus Studio captures document the local research tools reading Second Brain; their library counts are a snapshot, not product usage metrics. BeSci remains an archived experiment, with its original `#besci` link preserved.
+The 1→0 case leads with the deployed product for human judgement in innovation. Its live iframe loads only when the visitor expands it and unloads on collapse. Screenshot galleries preserve the source images, show the selected view count and support enlargement. Two complete 1→0 sections remain visible below the gallery, rather than being hidden behind tabs. The separate Deus Studio captures document the local research tools reading Second Brain; their library counts are a snapshot, not product usage metrics. BeSci remains an archived experiment, with its original `#besci` link preserved.
 
 ## Verification and deployment
 
@@ -65,5 +65,9 @@ Before publishing interaction changes, check:
 GitHub Pages publishes the repository's `main` branch root. A passing check and a successful Pages deployment are separate signals; verify both after pushing. For an asset release, update the stylesheet and entry-module query versions in `index.html`, version any changed imported modules as well, then verify the live page.
 
 ## Assets
+
+`img/garage-report.webp`, `garage-operations.webp` and `garage-teams.webp` capture the original management UI in an isolated, local client harness with fictional records. Only the resulting images are included here; production records, source modules and backend access are not shipped. The source UI is preserved, with a visible Demo label. These are demonstrations, not historical operational screenshots.
+
+The 1→0 capabilities and intervention images capture complete DOM sections of the live public product. Its learning-library image contains the live site's illustrative article cards; captions explicitly distinguish them from published research or client cases.
 
 Project images document the work shown. Do not replace them with invented product screens or imply that concepts were launched. Font license files are included in `fonts/`; bundled demo license notices remain in `demo/`. No general license is granted for the portfolio text or project photographs.

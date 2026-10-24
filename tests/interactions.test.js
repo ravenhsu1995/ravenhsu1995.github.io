@@ -155,7 +155,11 @@ test("artifact selection remains current when image decoding finishes out of ord
   const gallery = {
     querySelectorAll: () => buttons,
     querySelector: (selector) =>
-      selector === ".media-open" ? trigger : caption,
+      selector === ".media-open"
+        ? trigger
+        : selector === "p[data-artifact-caption]"
+          ? caption
+          : null,
   };
   const pending = [];
   stubGlobal(t, "document", {

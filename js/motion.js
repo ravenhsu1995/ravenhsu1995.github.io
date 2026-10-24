@@ -58,7 +58,8 @@ export function initMotion(reducedMotion, frames) {
             revealObserver.unobserve(entry.target);
           });
         },
-        { threshold: 0.08 },
+        // Long product sections should reveal as soon as their opening enters.
+        { threshold: 0.01 },
       );
       document
         .querySelectorAll(".reveal")

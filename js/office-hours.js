@@ -22,7 +22,7 @@ export function initOfficeHours(scheduleFrameLayout) {
       kicker: "Two ways to participate",
       title: "Find a partner. Ask for help.",
       description:
-        "Explore the public Quest Board form and private question box. You can type and try the controls; this demo keeps everything in memory.",
+        "Explore the public Quest Board form and private question box. You can type and try the controls; this preview keeps everything in memory.",
     },
     featured: {
       scene: "featured",
@@ -47,8 +47,8 @@ export function initOfficeHours(scheduleFrameLayout) {
     if (focus) button.focus();
     galleryStage.dataset.mode = view.mode;
     scheduleFrameLayout();
-    demo.src = `demo/index.html?view=${view.scene}`;
-    demo.title = `Interactive ${view.scene} demo with fictional data`;
+    demo.src = `demo/index.html?v=20261024-sample&view=${view.scene}`;
+    demo.title = `Interactive ${view.scene} interface with sample data`;
     document.getElementById("demo-open").href = demo.src;
     document
       .getElementById("experience-panel")
@@ -90,7 +90,7 @@ export function initOfficeHours(scheduleFrameLayout) {
       kind === "mailbox" ? "featured" : "board";
     document.getElementById("demo-feedback-text").textContent =
       kind === "mailbox"
-        ? "Your demo question is ready to appear anonymously."
-        : "Your demo post is now part of the shared board.";
+        ? "Your question is ready to appear anonymously."
+        : "Your post is now part of the shared board.";
   };
 }

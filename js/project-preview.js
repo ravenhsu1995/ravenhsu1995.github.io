@@ -1,6 +1,6 @@
 const projects = {
   garage: {
-    src: "img/garage-report.webp",
+    src: "img/garage-progress-report.webp",
     alt: "NTU Garage progress report, with fictional demonstration records",
     caption:
       "Program operations, from the next activity to the next conversation.",

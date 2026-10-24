@@ -66,7 +66,7 @@ GitHub Pages publishes the repository's `main` branch root. A passing check and 
 
 ## Assets
 
-`img/garage-report.webp`, `garage-operations.webp` and `garage-teams.webp` capture the original management UI in an isolated, local client harness with fictional records. Only the resulting images are included here; production records, source modules and backend access are not shipped. The source UI is preserved, with a visible Demo label. These are demonstrations, not historical operational screenshots.
+`img/garage-progress-report.webp`, `garage-activity-pipeline.webp` and `garage-team-directory.webp` capture the original management UI in an isolated, local client harness with fictional records. Only the resulting images are included here; production records, source modules and backend access are not shipped. The source UI is preserved, with a compact 示範資料 notice. These are demonstrations, not historical operational screenshots.
 
 The 1→0 capabilities and intervention images capture complete DOM sections of the live public product. Its learning-library image contains the live site's illustrative article cards; captions explicitly distinguish them from published research or client cases.
 

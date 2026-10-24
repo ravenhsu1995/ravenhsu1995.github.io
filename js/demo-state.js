@@ -34,8 +34,8 @@ export function applyDemoPost(state, post, { id, createdAt }) {
       {
         id,
         createdAt,
-        name: "Demo Visitor",
-        teamName: "Demo",
+        name: "訪客",
+        teamName: "現場交流",
         category: post.category,
         body: post.body,
         url: null,

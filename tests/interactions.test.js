@@ -100,7 +100,7 @@ test("a delayed preview cannot replace the project the visitor returned to", asy
     addEventListener: (event, listener) =>
       handlers.set(`${key}:${event}`, listener),
   });
-  const links = [link("garage"), link("travel"), link("besci")];
+  const links = [link("garage"), link("travel"), link("onezero")];
   const stage = { dataset: { preview: "garage" } };
   const image = { src: "original" };
   const detail = { hidden: true };
@@ -138,4 +138,47 @@ test("a delayed preview cannot replace the project the visitor returned to", asy
   assert.equal(stage.dataset.preview, "travel");
   assert.equal(detail.hidden, false);
   assert.equal(links[1].dataset.previewActive, "true");
+});
+
+test("artifact selection remains current when image decoding finishes out of order", async (t) => {
+  const { initArtifactGalleries } = await import("../js/artifact-gallery.js");
+  const handlers = new Map();
+  const button = (key) => ({
+    dataset: { artifactSrc: key, artifactCaption: key },
+    setAttribute: () => {},
+    addEventListener: (_, listener) => handlers.set(key, listener),
+  });
+  const buttons = [button("first"), button("latest")];
+  const image = { src: "original" };
+  const trigger = { dataset: {}, querySelector: () => image };
+  const caption = {};
+  const gallery = {
+    querySelectorAll: () => buttons,
+    querySelector: (selector) =>
+      selector === ".media-open" ? trigger : caption,
+  };
+  const pending = [];
+  stubGlobal(t, "document", {
+    querySelectorAll: (selector) =>
+      selector === "[data-artifact-gallery]" ? [gallery] : [],
+  });
+  stubGlobal(
+    t,
+    "Image",
+    class {
+      decode() {
+        return new Promise((resolve) => pending.push(resolve));
+      }
+    },
+  );
+  initArtifactGalleries();
+  const first = handlers.get("first")();
+  const latest = handlers.get("latest")();
+  pending[1]();
+  await latest;
+  pending[0]();
+  await first;
+  assert.equal(image.src, "latest");
+  assert.equal(trigger.dataset.src, "latest");
+  assert.equal(caption.textContent, "latest");
 });

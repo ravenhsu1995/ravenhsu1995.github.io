@@ -34,7 +34,7 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261024-artifacts" />
+    <link rel="stylesheet" href="style.css?v=20261024-onezero" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -45,7 +45,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261024-artifacts"></script>
+    <script type="module" src="js/main.js?v=20261024-onezero"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -104,14 +104,14 @@
                 >NTU Garage <span aria-hidden="true">↗</span></span
               >
             </a>
-            <a class="room-piece room-besci" href="#besci"
+            <a class="room-piece room-onezero" href="#one-zero"
               ><img
-                src="img/besci-concept.webp"
-                alt="BeSci Wiki concept with source-linked claims"
-                width="1280"
-                height="720"
+                src="img/one-zero-home.webp"
+                alt="1→0, a deployed AI and human intelligence product"
+                width="1440"
+                height="1000"
               /><span class="room-piece-label"
-                >BeSci Wiki <span aria-hidden="true">↗</span></span
+                >1→0 <span aria-hidden="true">↗</span></span
               ></a
             >
             <a class="room-piece room-travel" href="#travel-fox"
@@ -205,10 +205,10 @@
               ><span>Travel Fox<small>A trip planner friends use</small></span
               ><span aria-hidden="true">↗</span></a
             >
-            <a href="#besci" data-project="besci"
+            <a href="#one-zero" data-project="onezero"
               ><span
-                >BeSci Wiki<small
-                  >Knowledge systems &amp; what followed</small
+                >1→0<small
+                  >A live product &amp; its knowledge systems</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
@@ -540,139 +540,310 @@
             </button>
           </div>
         </article>
-        <article class="besci-case reveal" id="besci">
-          <div class="besci-copy">
-            <div class="besci-intro">
-              <p class="project-date">May - July 2026</p>
-              <h3>BeSci Wiki</h3>
-              <p class="project-state">Prototype closed July 2026</p>
-              <p>
-                An AI-queryable behavioral-science knowledge base. It reached
-                638 claims from 38 sources, with 70 claims checked by hand.
+        <article class="onezero-case reveal" id="one-zero">
+          <div class="product-heading">
+            <div>
+              <p class="project-date">
+                Independent product · Live in Chinese &amp; English
               </p>
+              <h3>1→0</h3>
             </div>
-            <div class="besci-learning">
-              <p>
-                When an evaluation score jumped from 0 to 0.94 after one fix, I
-                checked the test set. It covered only 12 of the 79 terms it
-                scored. I narrowed what the metric claimed to measure and
-                stopped the re-extraction.
+            <div class="product-intro">
+              <p class="product-deck">
+                Human judgement.<br />Built into innovation.
               </p>
-              <details class="compact-details">
-                <summary>
-                  Why I stopped <span aria-hidden="true">+</span>
-                </summary>
-                <p>
-                  At six and a half weeks, I shut this extraction project down.
-                  I had built infrastructure before testing whether consulting
-                  reports could be reliably mapped back to academic research. I
-                  should have started by hand-mapping three articles. The
-                  repository remains private because it contains copyrighted
-                  research material.
-                </p>
-              </details>
+              <p>
+                I built and deployed 1→0 to bring humanities and social science
+                into innovation decisions. Its public experience connects an AI
+                × HI framework, five human capabilities and a three-step
+                intervention process.
+              </p>
+              <a
+                class="text-link"
+                href="https://1-0-project.vercel.app/en"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Explore the live product ↗</a
+              >
             </div>
           </div>
-          <div class="besci-media screenshot-gallery">
-            <div
-              class="screenshot-tabs"
-              role="group"
-              aria-label="Explore BeSci Wiki screenshots"
-            >
-              <button
-                type="button"
-                data-besci-view="overview"
-                aria-pressed="true"
+          <div class="product-gallery" data-artifact-gallery>
+            <div class="artifact-toolbar">
+              <p>01 / The public product</p>
+              <div
+                class="screenshot-tabs"
+                role="group"
+                aria-label="Explore 1→0 product screens"
               >
-                Overview
-              </button>
-              <button
-                type="button"
-                data-besci-view="concept"
-                aria-pressed="false"
-              >
-                Concept &amp; claims
-              </button>
-              <button
-                type="button"
-                data-besci-view="source"
-                aria-pressed="false"
-              >
-                Source &amp; evidence
-              </button>
+                <button
+                  type="button"
+                  data-artifact-src="img/one-zero-home.webp"
+                  data-artifact-caption="The live Chinese homepage. Geometric motion and an AI × HI identity introduce the product."
+                  aria-pressed="true"
+                >
+                  中文首頁
+                </button>
+                <button
+                  type="button"
+                  data-artifact-src="img/one-zero-vision.webp"
+                  data-artifact-caption="The dual-track framework connects business and technology with humanities and social science."
+                  aria-pressed="false"
+                >
+                  AI × HI
+                </button>
+                <button
+                  type="button"
+                  data-artifact-src="img/one-zero-english.webp"
+                  data-artifact-caption="The English product experience, with its own copy and navigation."
+                  aria-pressed="false"
+                >
+                  English
+                </button>
+              </div>
             </div>
             <button
-              class="media-open screenshot-open"
-              id="besci-screenshot"
-              data-src="img/besci-overview.webp"
-              data-caption="BeSci Wiki overview: 638 claims, 38 sources, and explicit review states. Only 70 claims were human-verified."
+              class="media-open artifact-screen"
               type="button"
-              aria-label="Enlarge the BeSci Wiki overview"
+              data-src="img/one-zero-home.webp"
+              data-caption="1→0 — the deployed Chinese homepage."
+              aria-label="Enlarge the selected 1→0 product screen"
             >
               <img
-                id="besci-image"
-                src="img/besci-overview.webp"
-                alt="BeSci Wiki overview showing the full navigation, corpus totals and review-state breakdown"
-                width="1280"
-                height="720"
+                src="img/one-zero-home.webp"
+                width="1440"
+                height="1000"
                 loading="lazy"
-              />
-              <span class="screenshot-zoom" aria-hidden="true"
+                alt="The live Chinese homepage. Geometric motion and an AI × HI identity introduce the product."
+              /><span class="screenshot-zoom" aria-hidden="true"
                 >View full image ↗</span
               >
             </button>
-            <p class="screenshot-caption" id="besci-caption" aria-live="polite">
-              The corpus at a glance. Review states distinguish human-verified
-              claims from drafts.
+            <p
+              class="screenshot-caption"
+              data-artifact-caption
+              aria-live="polite"
+            >
+              The live Chinese homepage. Geometric motion and an AI × HI
+              identity introduce the product.
             </p>
           </div>
-          <section
-            class="knowledge-continuation"
-            aria-labelledby="knowledge-title"
-          >
-            <div class="knowledge-intro">
-              <p class="project-date">What continued</p>
-              <h4 id="knowledge-title">
-                Separate the source<br />from the interpretation.
-              </h4>
+          <details class="product-live">
+            <summary>
+              Experience the motion &amp; navigation
+              <span aria-hidden="true">↗</span>
+            </summary>
+            <p>
+              This is the live 1→0 website. Scroll inside to explore its
+              animated interface, or
+              <a
+                href="https://1-0-project.vercel.app/en/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                >open it in a new tab ↗</a
+              >.
+            </p>
+            <iframe
+              data-live-src="https://1-0-project.vercel.app/en/about"
+              title="Live 1→0 product: framework, human capabilities and intervention process"
+              loading="lazy"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+            ></iframe>
+          </details>
+          <section class="knowledge-system" aria-labelledby="knowledge-title">
+            <div class="knowledge-system-heading">
+              <div>
+                <p class="project-date">02 / The knowledge behind it</p>
+                <h4 id="knowledge-title">
+                  A product on the surface.<br />A research system underneath.
+                </h4>
+              </div>
               <p>
-                BeSci's retrospective became a starting point for Deus Engine. I
-                later separated the shared knowledge from each project's
-                interpretation and outputs.
+                BeSci Wiki, Second Brain and Deus Engine all serve the
+                longer-term work of 1→0: turning research into useful human
+                judgement. They developed the knowledge base and workflows
+                behind the product.
               </p>
             </div>
-            <dl class="knowledge-branches">
+            <dl class="knowledge-route">
               <div>
-                <dt>Second Brain</dt>
+                <dt><span>01</span> Second Brain</dt>
+                <dd>Keep the evidence traceable.</dd>
                 <dd>
-                  A separate knowledge repository: immutable sources,
-                  source-linked concept pages and a reference checker.
-                  Project-specific interpretations stay outside it.
+                  Immutable sources, source-linked concepts, reference checks
+                  and explicit contradictions.
                 </dd>
               </div>
               <div>
-                <dt>Deus Engine</dt>
+                <dt><span>02</span> Deus Engine</dt>
+                <dd>Develop an interpretation.</dd>
                 <dd>
-                  A research-to-content workflow that reads Second Brain,
-                  develops project-specific interpretations and brings proposals
-                  and drafts to me for review.
+                  Read the shared knowledge, build project-specific proposals
+                  and drafts, then bring them to me for review.
                 </dd>
               </div>
               <div>
-                <dt>1→0</dt>
+                <dt><span>03</span> 1→0</dt>
+                <dd>Make the thinking usable.</dd>
                 <dd>
-                  A separate platform applying humanities and social science to
-                  innovation. It draws on Second Brain and references Deus's
-                  workflow, while keeping its data and runtime independent.
+                  Apply that work to innovation through a deployed, bilingual
+                  product. Its application data and runtime remain independent.
                 </dd>
               </div>
             </dl>
-            <p class="knowledge-boundary">
-              The 638 claims and evaluation result describe the May–July BeSci
-              prototype. The related projects have their own purposes and
-              histories.
-            </p>
+            <div class="knowledge-evidence">
+              <div class="knowledge-evidence-copy">
+                <p class="project-date">Inside the research tools</p>
+                <p class="knowledge-number">
+                  114 <span>sources</span><br />121 <span>concept pages</span>
+                </p>
+                <p>
+                  Deus Studio reads the Second Brain repository. The console
+                  makes source composition, domain coverage and unresolved
+                  contradictions visible.
+                </p>
+                <p class="knowledge-note">
+                  These captures show the local research console, not the public
+                  1→0 interface. Counts describe this knowledge-library
+                  snapshot.
+                </p>
+              </div>
+              <div class="knowledge-gallery" data-artifact-gallery>
+                <div
+                  class="screenshot-tabs"
+                  role="group"
+                  aria-label="Explore knowledge management screens"
+                >
+                  <button
+                    type="button"
+                    data-artifact-src="img/knowledge-sources.webp"
+                    data-artifact-caption="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
+                    aria-pressed="true"
+                  >
+                    Sources</button
+                  ><button
+                    type="button"
+                    data-artifact-src="img/knowledge-vision.webp"
+                    data-artifact-caption="Concept coverage: 121 pages across three domains, with nine contradiction flags kept visible."
+                    aria-pressed="false"
+                  >
+                    Concepts &amp; checks
+                  </button>
+                </div>
+                <button
+                  class="media-open artifact-screen"
+                  type="button"
+                  data-src="img/knowledge-sources.webp"
+                  data-caption="Deus Studio source management, reading Second Brain."
+                  aria-label="Enlarge the selected knowledge management screen"
+                >
+                  <img
+                    src="img/knowledge-sources.webp"
+                    width="1140"
+                    height="900"
+                    loading="lazy"
+                    alt="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
+                  /><span class="screenshot-zoom" aria-hidden="true"
+                    >Inspect the system ↗</span
+                  >
+                </button>
+                <p
+                  class="screenshot-caption"
+                  data-artifact-caption
+                  aria-live="polite"
+                >
+                  Source management: 114 records, with domain and document-type
+                  filters and a bibliographic inventory.
+                </p>
+              </div>
+            </div>
           </section>
+          <details class="besci-archive" id="besci">
+            <summary>
+              <span
+                ><small>03 / Earlier experiment · May–July 2026</small>BeSci
+                Wiki — what I learned to change</span
+              ><span aria-hidden="true">+</span>
+            </summary>
+            <div class="besci-copy">
+              <div class="besci-intro">
+                <h4>Start with the premise.</h4>
+                <p>
+                  An AI-queryable behavioral-science knowledge base: 638 claims
+                  from 38 sources, with 70 claims checked by hand.
+                </p>
+              </div>
+              <div class="besci-learning">
+                <p>
+                  When a score jumped from 0 to 0.94, I checked its coverage:
+                  just 12 of the 79 terms it scored. I narrowed the metric and
+                  stopped the re-extraction.
+                </p>
+                <p>
+                  At six and a half weeks, I closed this extraction project. I
+                  had built the infrastructure before testing the premise by
+                  hand. Its retrospective informed the later knowledge workflow;
+                  the corpus totals belong to this earlier prototype.
+                </p>
+              </div>
+            </div>
+            <div class="besci-media screenshot-gallery">
+              <div
+                class="screenshot-tabs"
+                role="group"
+                aria-label="Explore BeSci Wiki screenshots"
+              >
+                <button
+                  type="button"
+                  data-besci-view="overview"
+                  aria-pressed="true"
+                >
+                  Overview
+                </button>
+                <button
+                  type="button"
+                  data-besci-view="concept"
+                  aria-pressed="false"
+                >
+                  Concept &amp; claims
+                </button>
+                <button
+                  type="button"
+                  data-besci-view="source"
+                  aria-pressed="false"
+                >
+                  Source &amp; evidence
+                </button>
+              </div>
+              <button
+                class="media-open screenshot-open"
+                id="besci-screenshot"
+                data-src="img/besci-overview.webp"
+                data-caption="BeSci Wiki overview: 638 claims, 38 sources, and explicit review states. Only 70 claims were human-verified."
+                type="button"
+                aria-label="Enlarge the BeSci Wiki overview"
+              >
+                <img
+                  id="besci-image"
+                  src="img/besci-overview.webp"
+                  alt="BeSci Wiki overview showing the full navigation, corpus totals and review-state breakdown"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                />
+                <span class="screenshot-zoom" aria-hidden="true"
+                  >View full image ↗</span
+                >
+              </button>
+              <p
+                class="screenshot-caption"
+                id="besci-caption"
+                aria-live="polite"
+              >
+                The corpus at a glance. Review states distinguish human-verified
+                claims from drafts.
+              </p>
+            </div>
+          </details>
         </article>
       </section>
       <section

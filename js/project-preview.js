@@ -11,10 +11,10 @@ const projects = {
     detailAlt: "Travel Fox public itinerary, with dates, stops and map links",
     caption: "From my own itinerary to a trip planner friends use.",
   },
-  besci: {
-    src: "img/besci-concept.webp",
-    alt: "BeSci Wiki concepts and source-linked claims",
-    caption: "A closed prototype. A knowledge workflow that kept evolving.",
+  onezero: {
+    src: "img/one-zero-home.webp",
+    alt: "1→0 — the live AI and human intelligence product",
+    caption: "A deployed product. A research system behind it.",
   },
   earlier: {
     src: "img/faa-worldcafe.jpg",

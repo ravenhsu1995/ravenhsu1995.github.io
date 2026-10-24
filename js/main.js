@@ -3,9 +3,10 @@ import { initMotion } from "./motion.js";
 import { initFrameLayout } from "./frame-layout.js";
 import { initOfficeHours } from "./office-hours.js";
 import { initDemoBridge } from "./demo-bridge.js";
+import { initArtifactGalleries } from "./artifact-gallery.js";
 import { initBesciGallery } from "./besci-gallery.js";
 import { initMediaViewer } from "./media-viewer.js";
-import { initProjectPreview } from "./project-preview.js?v=20261024-artifacts";
+import { initProjectPreview } from "./project-preview.js?v=20261024-onezero";
 import { initWorkroom } from "./workroom.js";
 
 // Shared browser state is passed explicitly; features own their DOM and events.
@@ -18,6 +19,7 @@ const scheduleFrameLayout = initFrameLayout();
 const showDemoFeedback = initOfficeHours(scheduleFrameLayout);
 initDemoBridge(frames, showDemoFeedback);
 initBesciGallery();
+initArtifactGalleries();
 initMediaViewer();
 initProjectPreview(reducedMotion);
 initWorkroom(reducedMotion);

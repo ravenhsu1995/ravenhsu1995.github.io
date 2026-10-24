@@ -30,7 +30,7 @@ npm run format  # Format authored source
 | `js/office-hours.js`                                                                                          | Demo scene selection, keyboard tabs and submission feedback                         |
 | `js/demo-bridge.js`, `js/demo-state.js`                                                                       | Same-origin iframe messaging, validated payloads and bounded in-memory state        |
 | `js/frame-layout.js`                                                                                          | Responsive demo canvases; measurements precede style writes                         |
-| `js/motion.js`, `js/workroom.js`                                                                              | Visibility-aware playback, reduced motion and the opening composition               |
+| `js/motion.js`                                                                                                | Visibility-aware playback and reduced motion                                        |
 | `js/theme.js`, `js/media-viewer.js`, `js/project-preview.js`, `js/besci-gallery.js`, `js/artifact-gallery.js` | Independent page enhancements                                                       |
 | `demo/`                                                                                                       | Vendored product-demo snapshot; separate from the portfolio's authored modules      |
 | `tests/`                                                                                                      | Message validation/state limits, frame geometry and HTML/resource contracts         |
@@ -58,7 +58,7 @@ The GitHub Actions check runs `npm ci` and `npm run check` on pushes to `main` a
 Before publishing interaction changes, check:
 
 - Light/dark themes, a narrow phone viewport and desktop layout.
-- The opening slider and reset, with reduced motion respected.
+- Homepage project links and motion pause, with reduced motion respected.
 - All four demo scenes, arrow/Home/End tab navigation, submission feedback and replay.
 - Product and knowledge screenshot selection, BeSci archive selection, image-dialog Escape/focus return, project previews and both live product embeds.
 

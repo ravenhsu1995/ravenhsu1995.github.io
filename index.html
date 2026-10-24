@@ -34,7 +34,7 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261024-judgement" />
+    <link rel="stylesheet" href="style.css?v=20261024-editorial" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -45,7 +45,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261024-judgement"></script>
+    <script type="module" src="js/main.js?v=20261024-editorial"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -79,15 +79,16 @@
           <p class="hero-eyebrow">Programs, people &amp; useful software</p>
           <h1 id="hero-title">Make room<br /><span>for ideas.</span></h1>
           <p class="hero-description">
-            I’m Raven. I design founder programs and build the software behind
-            them, grounded in sociology and behavioral science.
+            I’m Raven. At National Taiwan University’s entrepreneurship center,
+            I design founder programs and build the software that runs them,
+            grounded in sociology and behavioral science.
           </p>
           <a class="hero-cta" href="#garage"
             >Step inside the work <span aria-hidden="true">↗</span></a
           >
         </div>
-        <div class="room" aria-label="An interactive space for selected work">
-          <div class="room-canvas" id="room-canvas" style="--room-space: 1">
+        <div class="room" aria-label="Selected work">
+          <div class="room-canvas">
             <a
               class="hero-board room-piece room-board"
               href="#garage"
@@ -140,20 +141,8 @@
               />
             </button>
           </div>
-          <div class="room-controls">
-            <label for="room-space">Make room</label
-            ><input
-              id="room-space"
-              type="range"
-              min="0"
-              max="100"
-              value="100"
-              aria-label="Spread the project artifacts"
-              aria-valuetext="Fully spread"
-            /><button id="room-reset" type="button">Reset ↺</button>
-          </div>
           <p class="room-note">
-            <span>Slide to make space. Select a piece to explore.</span
+            <span>Explore a project.</span
             ><button class="motion-toggle" type="button" aria-pressed="false">
               Pause motion
             </button>
@@ -164,8 +153,7 @@
         <div class="work-index-top">
           <h2>Selected<br /><span>work.</span></h2>
           <p>
-            A selection of programs, products<br />and experiments I took into
-            the world.
+            Founder tools, travel planning<br />and research into innovation.
           </p>
         </div>
         <div class="work-index-body">
@@ -198,17 +186,19 @@
           <nav class="project-list" aria-label="Jump to a project">
             <a href="#garage" data-project="garage" data-preview-active="true"
               ><span
-                >NTU Garage<small>Founder programs &amp; software</small></span
+                >NTU Garage<small
+                  >20 teams · 63 office-hours check-ins</small
+                ></span
               ><span aria-hidden="true">↗</span></a
             >
             <a href="#travel-fox" data-project="travel"
-              ><span>Travel Fox<small>A trip planner friends use</small></span
+              ><span>Travel Fox<small>Used for a 17-day honeymoon</small></span
               ><span aria-hidden="true">↗</span></a
             >
             <a href="#one-zero" data-project="onezero"
               ><span
                 >1→0<small
-                  >A live product &amp; its knowledge systems</small
+                  >Innovation judgement &amp; its research system</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
@@ -222,25 +212,16 @@
           </nav>
         </div>
       </section>
-      <div class="intro-strip wrap reveal">
-        <p>
-          I’m Raven. At National Taiwan University’s entrepreneurship center, I
-          lead NTU Garage and turn problems I see firsthand into programs and
-          tools.
-        </p>
-        <a class="quiet-link" href="#earlier"
-          >A little more about me <span aria-hidden="true">↗</span></a
-        >
-      </div>
       <section class="case wrap" id="garage" aria-labelledby="garage-title">
         <div class="case-heading reveal">
           <p class="section-label">Selected work</p>
           <h2 id="garage-title">
-            A room to meet.<br /><span>Room to begin.</span>
+            NTU Garage.<br /><span>Founder tools.</span>
           </h2>
           <p class="section-intro">
-            NTU Garage combines the founder program I designed with the software
-            I built to run it.
+            An operations dashboard for founder programs, with team progress,
+            consultation records, course management and interactive office-hours
+            tools in one place.
           </p>
         </div>
         <div class="experience reveal" data-gallery>
@@ -348,18 +329,15 @@
         </div>
         <div class="case-overview reveal">
           <div class="overview-copy">
-            <h3>Design the program. Build what it needs.</h3>
+            <h3>One view of every team.</h3>
             <p>
-              After interviewing experienced startup practitioners, I adopted
-              OKRs for the 2026 program: individual goals, four validation
-              workshops, and recurring consultations by field.
+              The dashboard brings together team goals, consultation records,
+              next steps, registration and follow-up. Shared progress replaces
+              rosters scattered across Google Forms and Excel.
             </p>
             <p>
-              I initiated and independently built the dashboard. Before it,
-              records lived in Google Forms and Excel sheets, and we matched
-              rosters by hand. Now the team shares live progress, consultation
-              records and next steps, with registration, follow-up and KPIs in
-              the same system.
+              It supports the 2026 Garage program's individual OKRs, four
+              validation workshops and recurring consultations by field.
             </p>
           </div>
           <dl class="program-facts">
@@ -379,27 +357,21 @@
         </div>
         <div class="decisions-grid reveal">
           <div>
-            <h3>Open the door before the application.</h3>
+            <h3>Open founder office hours.</h3>
             <p>
-              I proposed and launched free monthly office hours to expand our
-              prospective-team pool and help founders prepare to apply. I led
-              the strategy, resource coordination, outreach, software and
-              on-site experience.
+              Free monthly sessions help founders explore ideas and prepare to
+              apply to Garage. Check-in connects attendance with follow-up; the
+              live board helps people find partners and product testers.
             </p>
             <p>No company, pitch deck or university affiliation required.</p>
           </div>
           <div class="decision-detail">
-            <p class="small-label">A deliberate design decision</p>
-            <h3>Public connections. Private attribution.</h3>
+            <p class="small-label">Inside the session</p>
+            <h3>A public board. A private question box.</h3>
             <p>
               Networking posts go on the public board. Requests for help go to a
               separate question box: anonymous on the big screen, identified to
               the host.
-            </p>
-            <p>
-              I added game-style interactions for the second session to
-              encourage participation. Their effect on future return visits is
-              still a question to test.
             </p>
           </div>
         </div>
@@ -420,41 +392,15 @@
             </p>
           </div>
         </div>
-        <details class="case-details reveal">
-          <summary>
-            More about the build <span aria-hidden="true">+</span>
-          </summary>
-          <div class="details-body">
-            <p>
-              Built with Next.js, Supabase and Vercel, using Claude Code. I’m
-              the only developer. The repository includes 18 test files and CI.
-              Its AGENTS.md prohibits schema changes and new endpoints, and
-              requires a browser check of every interface change.
-            </p>
-            <p>
-              The first check-in version was committed the night before the
-              first session. I added cross-session profiles afterward, then the
-              live board and question box for session two. Seven of the 32
-              people at the second session had attended the first.
-            </p>
-            <p>
-              The system tracks attendance, feedback and subsequent
-              program-interest registrations with consent. The source
-              repository, coaching and attendee records stay private. The
-              product screenshots here use fictional data in an isolated
-              environment.
-            </p>
-          </div>
-        </details>
       </section>
       <section class="experiments wrap" aria-labelledby="experiments-title">
         <div class="section-heading reveal">
           <h2 id="experiments-title">
-            Build it.<br /><span>Learn from it.</span>
+            Products &amp;<br /><span>research tools.</span>
           </h2>
           <p>
-            Software built with Claude Code. I learn from real use, check the
-            evidence, and change course when the result calls for it.
+            Explore the live products and the knowledge systems behind them.
+            Software built with Claude Code.
           </p>
         </div>
         <article
@@ -465,12 +411,12 @@
           <div class="travel-copy">
             <p class="project-date">May 25–28, 2026 · Still live</p>
             <h3 id="travel-title">
-              A trip for me.<br /><span>A tool for friends.</span>
+              Travel Fox.<br /><span>A trip in one place.</span>
             </h3>
             <p class="travel-intro">
-              Travel Fox started as the HTML itinerary for my own Kansai trip. I
-              turned it into an app anyone can sign into, with a daily timeline,
-              maps and expenses in multiple currencies.
+              A trip planner with a daily timeline, maps and expenses in
+              multiple currencies. Start with the public Kansai itinerary or
+              sign in to create a trip.
             </p>
             <dl class="travel-proof">
               <div>
@@ -478,17 +424,13 @@
                 <dd>A friend used it for a New Zealand honeymoon.</dd>
               </div>
               <div>
-                <dt>Day four</dt>
+                <dt>Share a trip</dt>
                 <dd>
-                  Friends asked to share trips and rate each stop. I shipped
-                  both.
+                  Keep trips private, unlisted or public, with ratings and
+                  comments for each stop.
                 </dd>
               </div>
             </dl>
-            <p>
-              Trips can be private, unlisted or public, with ratings and
-              comments for individual stops.
-            </p>
             <a
               class="text-link"
               href="https://travel-fox-chi.vercel.app/"
@@ -496,15 +438,6 @@
               rel="noopener noreferrer"
               >Explore Travel Fox <span aria-hidden="true">↗</span></a
             >
-            <details class="compact-details travel-details">
-              <summary>What I built <span aria-hidden="true">+</span></summary>
-              <p>
-                Built with Claude Code. The four-day build took a personal
-                itinerary into a signed-in app, then added sharing and per-stop
-                feedback in response to friends' requests. The public Kansai
-                sample is available to explore without signing in.
-              </p>
-            </details>
           </div>
           <div class="travel-product">
             <div class="travel-product-heading">
@@ -553,11 +486,10 @@
                 Human judgement.<br />Built into innovation.
               </p>
               <p>
-                I built 1→0 to turn humanities and social science into practical
-                tools for innovation: reframing problems, questioning metrics
-                and anticipating consequences. The product brings that thinking
-                into an AI × HI framework and a three-step intervention process;
-                the research systems below keep its evidence traceable.
+                A platform bringing humanities and social science into
+                innovation decisions. Explore an AI × HI framework, five human
+                capabilities and a three-step process for reframing problems,
+                questioning metrics and anticipating consequences.
               </p>
               <a
                 class="text-link"
@@ -622,7 +554,7 @@
           </div>
           <details class="product-live">
             <summary>
-              Experience the motion &amp; navigation
+              Explore 1→0 here
               <span aria-hidden="true">↗</span>
             </summary>
             <p>
@@ -646,15 +578,12 @@
             <div class="knowledge-system-heading">
               <div>
                 <p class="project-date">02 / The knowledge behind it</p>
-                <h4 id="knowledge-title">
-                  A product on the surface.<br />A research system underneath.
-                </h4>
+                <h4 id="knowledge-title">From source<br />to judgement.</h4>
               </div>
               <p>
-                BeSci Wiki, Second Brain and Deus Engine all serve the
-                longer-term work of 1→0: turning research into useful human
-                judgement. They developed the knowledge base and workflows
-                behind the product.
+                BeSci Wiki, Second Brain and Deus Engine all serve the work of
+                1→0: turning research into useful human judgement. Sources stay
+                separate from project-specific interpretations.
               </p>
             </div>
             <dl class="knowledge-route">
@@ -670,17 +599,17 @@
                 <dt><span>02</span> Deus Engine</dt>
                 <dd>Develop an interpretation.</dd>
                 <dd>
-                  Read the shared knowledge, build project-specific proposals
-                  and drafts, then bring them to me for review.
+                  A workflow for reading shared knowledge, developing
+                  project-specific proposals and drafts, and reviewing them
+                  before publication.
                 </dd>
               </div>
               <div>
                 <dt><span>03</span> 1→0</dt>
                 <dd>Make the thinking usable.</dd>
                 <dd>
-                  Turn research into frameworks for innovation decisions. The
-                  product keeps its application data and runtime independent
-                  from the research tools.
+                  Apply the research to problem framing, metrics and the
+                  consequences of innovation decisions.
                 </dd>
               </div>
             </dl>
@@ -696,9 +625,8 @@
                   contradictions visible.
                 </p>
                 <p class="knowledge-note">
-                  These captures show the local research console, not the public
-                  1→0 interface. Counts describe this knowledge-library
-                  snapshot.
+                  Local research-console captures. Library counts describe this
+                  snapshot, not product usage.
                 </p>
               </div>
               <div class="knowledge-gallery" data-artifact-gallery>
@@ -755,12 +683,12 @@
             <summary>
               <span
                 ><small>03 / Earlier experiment · May–July 2026</small>BeSci
-                Wiki — what I learned to change</span
+                Wiki — archived extraction prototype</span
               ><span aria-hidden="true">+</span>
             </summary>
             <div class="besci-copy">
               <div class="besci-intro">
-                <h4>Start with the premise.</h4>
+                <h4>Claims linked to sources.</h4>
                 <p>
                   An AI-queryable behavioral-science knowledge base: 638 claims
                   from 38 sources, with 70 claims checked by hand.
@@ -768,15 +696,14 @@
               </div>
               <div class="besci-learning">
                 <p>
-                  When a score jumped from 0 to 0.94, I checked its coverage:
-                  just 12 of the 79 terms it scored. I narrowed the metric and
-                  stopped the re-extraction.
+                  Concept pages connect claims to their conditions, quotations,
+                  page numbers and source records. Review states distinguish
+                  drafts from human-verified claims.
                 </p>
                 <p>
-                  At six and a half weeks, I closed this extraction project. I
-                  had built the infrastructure before testing the premise by
-                  hand. Its retrospective informed the later knowledge workflow;
-                  the corpus totals belong to this earlier prototype.
+                  Archived in July 2026. The evaluation covered 12 of the 79
+                  terms it scored; extraction stopped. Corpus totals describe
+                  this earlier prototype.
                 </p>
               </div>
             </div>
@@ -846,67 +773,37 @@
         aria-labelledby="earlier-title"
       >
         <div class="section-heading reveal">
-          <h2 id="earlier-title">The work started<br />before the software.</h2>
-          <p>
-            My background is in sociology, behavioral science, and making ideas
-            work with real people.
-          </p>
+          <h2 id="earlier-title">Earlier<br />projects.</h2>
+          <p>A nature-connection app concept and an intergenerational camp.</p>
         </div>
         <div class="earlier-grid reveal">
           <article class="earlier-venture">
             <button
               class="media-open photo"
-              data-src="img/durham-venture-school.webp"
-              data-caption="Durham Venture School, 2022. Original cohort photograph from my archive."
+              data-src="img/eco-concept.jpg"
+              data-caption="E:CO concept screens from the Durham Venture School pitch, 2022. A concept, not a launched app."
               type="button"
-              aria-label="Enlarge the Durham Venture School photograph"
+              aria-label="Enlarge the E:CO concept screens"
             >
               <img
-                src="img/durham-venture-school.webp"
-                alt="The Durham Venture School cohort together outside the university building"
-                width="1800"
-                height="1350"
+                src="img/eco-concept.jpg"
+                alt="E:CO concept screens showing a daily nature-connection task and a photo task"
+                width="1200"
+                height="675"
                 loading="lazy"
               />
             </button>
             <div class="earlier-copy">
               <p class="project-date">Durham, 2022</p>
-              <h3>Research into a venture concept.</h3>
+              <h3>E:CO</h3>
               <p>
-                At Durham Venture School, I developed E:CO with one teammate: a
-                nature-connection app concept informed by my MSc research and
-                six user interviews.
+                A nature-connection app concept from Durham Venture School:
+                daily activities and photo tasks informed by behavioral-science
+                research and six user interviews.
               </p>
-              <figure class="concept-artifact">
-                <button
-                  class="media-open concept-preview"
-                  data-src="img/eco-concept.jpg"
-                  data-caption="E:CO concept screens from our final pitch, November 2022. A design concept, not a launched app."
-                  type="button"
-                  aria-label="Enlarge the E:CO concept screens"
-                >
-                  <img
-                    src="img/eco-concept.jpg"
-                    alt="E:CO concept screens showing a daily nature-connection task and a photo task"
-                    width="1200"
-                    height="675"
-                    loading="lazy"
-                  />
-                </button>
-                <figcaption>
-                  E:CO concept screens, 2022. A concept, not a launched app.
-                </figcaption>
-              </figure>
-              <details class="compact-details">
-                <summary>
-                  The program and outcome <span aria-hidden="true">+</span>
-                </summary>
-                <p>
-                  A full-time founder program with a £1,000 monthly stipend. We
-                  pitched at the end of phase one and did not advance. My MSc
-                  Behavioural Science at Durham was awarded Merit.
-                </p>
-              </details>
+              <p class="screenshot-caption">
+                A venture concept, not a launched app.
+              </p>
             </div>
           </article>
           <article class="earlier-faa">
@@ -929,35 +826,18 @@
               <p class="project-date">Taiwan, 2016 - 2018</p>
               <h3>Forget About Age</h3>
               <p>
-                I co-founded an intergenerational program with a 15-person team.
-                NSYSU’s senior university paid for a two-day camp for 21
-                members, designed with them through a World Café.
+                A two-day intergenerational camp for 21 members of NSYSU’s
+                senior university, commissioned by the university and designed
+                with participants through a World Café.
               </p>
-              <details class="compact-details">
-                <summary>
-                  What the users taught us <span aria-hidden="true">+</span>
-                </summary>
-                <p>
-                  In the survey I ran, 19 of 20 would come again. Student
-                  helpers scored highest at 4.95 out of 5; our signature drama
-                  sessions scored lowest. Our next planned format was shorter
-                  and centered on trained student hosts.
-                </p>
-              </details>
+              <p>
+                Activities paired senior participants with student hosts. In the
+                post-camp survey, 19 of 20 would return; student hosts scored
+                4.95 out of 5.
+              </p>
             </div>
           </article>
         </div>
-      </section>
-      <section class="closing wrap reveal" aria-labelledby="closing-title">
-        <p>Observe closely. Build something useful. Check what happens.</p>
-        <h2 id="closing-title">Let’s make<br /><span>room.</span></h2>
-        <a
-          class="text-link"
-          href="https://www.linkedin.com/in/raven-hsu-701963207/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Let’s connect on LinkedIn <span aria-hidden="true">↗</span></a
-        >
       </section>
     </main>
     <footer class="site-footer wrap">

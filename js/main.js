@@ -7,7 +7,6 @@ import { initArtifactGalleries } from "./artifact-gallery.js";
 import { initBesciGallery } from "./besci-gallery.js";
 import { initMediaViewer } from "./media-viewer.js";
 import { initProjectPreview } from "./project-preview.js?v=20261024-onezero";
-import { initWorkroom } from "./workroom.js";
 
 // Shared browser state is passed explicitly; features own their DOM and events.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -22,4 +21,3 @@ initBesciGallery();
 initArtifactGalleries();
 initMediaViewer();
 initProjectPreview(reducedMotion);
-initWorkroom(reducedMotion);

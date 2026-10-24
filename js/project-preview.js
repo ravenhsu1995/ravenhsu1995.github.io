@@ -1,13 +1,13 @@
 const projects = {
   garage: {
-    src: "img/garage-progress-report-2x.webp",
+    src: "img/garage-report-2x.webp",
     alt: "NTU Garage progress report, with fictional demonstration records",
     caption: "The founder pipeline, from open monthly meetups to NTU Garage.",
   },
   travel: {
-    src: "img/travel-fox-home-portrait-3x.webp",
+    src: "img/travel-fox-homepage-3x.webp",
     alt: "Travel Fox's complete mobile homepage",
-    detail: "img/travel-fox-itinerary-portrait-3x.webp",
+    detail: "img/travel-fox-itinerary-3x.webp",
     detailAlt: "Travel Fox public itinerary, with dates, stops and map links",
     caption: "An itinerary that becomes the trip budget.",
   },

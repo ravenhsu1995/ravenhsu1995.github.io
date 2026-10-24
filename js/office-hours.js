@@ -47,7 +47,7 @@ export function initOfficeHours(scheduleFrameLayout) {
     if (focus) button.focus();
     galleryStage.dataset.mode = view.mode;
     scheduleFrameLayout();
-    demo.src = `demo/index.html?v=20261024-sample&view=${view.scene}`;
+    demo.src = `demo/index.html?v=20261024-hires&view=${view.scene}`;
     demo.title = `Interactive ${view.scene} interface with sample data`;
     document.getElementById("demo-open").href = demo.src;
     document

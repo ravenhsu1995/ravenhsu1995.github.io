@@ -2437,3 +2437,20 @@ details[open] > summary > span[aria-hidden="true"] {
     content: none;
   }
 }
+
+/* Detail mode keeps dense interface text readable without leaving the gallery. */
+.image-dialog.is-zoomed .dialog-image-wrap {
+  display: block;
+  text-align: left;
+}
+
+.image-dialog.is-zoomed .dialog-image-wrap img {
+  width: max(100%, 1440px);
+  max-width: none;
+  max-height: none;
+  height: auto;
+}
+
+.image-dialog.is-zoomed.is-portrait .dialog-image-wrap img {
+  width: max(100%, 480px);
+}

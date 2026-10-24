@@ -66,8 +66,10 @@ GitHub Pages publishes the repository's `main` branch root. A passing check and 
 
 ## Assets
 
-`img/garage-progress-report.webp`, `garage-activity-pipeline.webp` and `garage-team-directory.webp` capture the original management UI in an isolated, local client harness with fictional records. Only the resulting images are included here; production records, source modules and backend access are not shipped. The source UI is preserved, with a compact 示範資料 notice. These are demonstrations, not historical operational screenshots.
+`img/garage-progress-report-2x.webp`, `garage-activity-pipeline-2x.webp` and `garage-team-directory-2x.webp` capture the original management UI in an isolated, local client harness with fictional records. Only the resulting images are included here; production records, source modules and backend access are not shipped. The source UI is preserved, with a compact 示範資料 notice. These are demonstrations, not historical operational screenshots.
 
 The 1→0 capabilities and intervention images capture complete DOM sections of the live public product. Its learning-library image contains the live site's illustrative article cards; captions explicitly distinguish them from published research or client cases.
 
 Project images document the work shown. Do not replace them with invented product screens or imply that concepts were launched. Font license files are included in `fonts/`; bundled demo license notices remain in `demo/`. No general license is granted for the portfolio text or project photographs.
+
+Product captures use 2× rendering (Travel Fox uses 3×), encoded as lossless WebP. Original photography and the existing complete intervention capture retain their source resolution. No AI sharpening or bitmap upscaling is used. The image viewer offers a scrollable detail view.

@@ -2,11 +2,26 @@ export function initMediaViewer() {
   const dialog = document.getElementById("image-dialog");
   const dialogImage = document.getElementById("dialog-image");
   if (!dialog) return;
+  const zoom = document.getElementById("dialog-zoom");
+  const imageWrap = dialog.querySelector(".dialog-image-wrap");
+  function resetZoom() {
+    dialog.classList.remove("is-zoomed");
+    zoom.setAttribute("aria-pressed", "false");
+    zoom.textContent = "Read details";
+    imageWrap.scrollTop = 0;
+    imageWrap.scrollLeft = 0;
+  }
+  zoom.addEventListener("click", () => {
+    const enlarged = dialog.classList.toggle("is-zoomed");
+    zoom.setAttribute("aria-pressed", String(enlarged));
+    zoom.textContent = enlarged ? "Fit image" : "Read details";
+  });
   let lastTrigger;
   let previousOverflow;
   document.querySelectorAll(".media-open").forEach((button) =>
     button.addEventListener("click", () => {
       lastTrigger = button;
+      resetZoom();
       dialogImage.src = button.dataset.src;
       document.getElementById("dialog-original").href = button.dataset.src;
       dialogImage.alt =
@@ -37,6 +52,7 @@ export function initMediaViewer() {
       dialog.close();
   });
   dialog.addEventListener("close", () => {
+    resetZoom();
     document.body.style.overflow = previousOverflow;
     lastTrigger?.focus();
   });

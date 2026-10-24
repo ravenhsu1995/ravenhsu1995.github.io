@@ -34,7 +34,7 @@ export function initBesciGallery() {
       screenshotButtons.forEach((item) =>
         item.setAttribute("aria-pressed", String(item === button)),
       );
-      image.src = `img/besci-${view.file}.webp`;
+      image.src = `img/besci-${view.file}-2x.webp`;
       image.alt = view.alt;
       trigger.dataset.src = image.src;
       trigger.dataset.caption = view.detail;

@@ -6,7 +6,7 @@ export function initOfficeHours(applyFrameLayout) {
       kicker: "A room in motion",
       title: "Make it easier to find each other.",
       description:
-        "Two streams of founder posts move in opposite directions. Read the requests, pause the board, or switch to an anonymous question.",
+        "Two streams of founder posts move in opposite directions. Posts with a link carry a QR code, so anyone in the room can open it on their phone.",
     },
     checkin: {
       scene: "arrival",
@@ -22,7 +22,7 @@ export function initOfficeHours(applyFrameLayout) {
       kicker: "Two ways to participate",
       title: "Find a partner. Ask for help.",
       description:
-        "Explore the public Quest Board form and the anonymous question box. You can type and try the controls; this preview keeps everything in memory.",
+        "Explore the public Quest Board form and the anonymous question box. Add a link and it appears as a QR code on the board; this preview keeps everything in memory.",
     },
     featured: {
       scene: "featured",
@@ -47,7 +47,7 @@ export function initOfficeHours(applyFrameLayout) {
     if (focus) button.focus();
     galleryStage.dataset.mode = view.mode;
     applyFrameLayout();
-    demo.src = `demo/index.html?v=20261024-copy&view=${view.scene}`;
+    demo.src = `demo/index.html?v=20261024-qr&view=${view.scene}`;
     demo.title = `Interactive ${view.scene} interface with sample data`;
     document.getElementById("demo-open").href = demo.src;
     document

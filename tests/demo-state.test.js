@@ -27,7 +27,12 @@ test("rejects unsupported messages and malformed form fields", () => {
 test("normalizes only allowed fields and enforces each form's length limit", () => {
   assert.deepEqual(
     parseDemoPost({ ...exchange, token: "discard", name: "discard" }),
-    { kind: "exchange", body: "Find a partner", category: "partner" },
+    {
+      kind: "exchange",
+      body: "Find a partner",
+      category: "partner",
+      url: null,
+    },
   );
   assert.equal(
     parseDemoPost({ ...exchange, body: "x".repeat(400) }).body.length,
@@ -67,4 +72,39 @@ test("keeps only the five newest posts without mutating existing state", () => {
   );
   assert.equal(next.question, "New question");
   assert.equal(next.posts, state.posts);
+});
+test("turns a quest-board link into a safe http(s) URL, as the product does", () => {
+  const link = (url) => parseDemoPost({ ...exchange, url });
+  assert.equal(
+    link("teamflow.example/trial").url,
+    "https://teamflow.example/trial",
+  );
+  assert.equal(link(" http://booking.example ").url, "http://booking.example/");
+  for (const empty of [undefined, null, "", "   "])
+    assert.equal(link(empty).url, null);
+  for (const unsafe of [
+    "javascript:alert(1)",
+    "mailto:someone@example.com",
+    "ftp://files.example",
+    "not a link",
+    "https://localhost",
+    `https://example.com/${"x".repeat(500)}`,
+    { href: "https://teamflow.example" },
+  ]) {
+    assert.equal(link(unsafe), null, `accepted ${String(unsafe)}`);
+  }
+  assert.equal(
+    parseDemoPost({ ...exchange, kind: "mailbox", url: "teamflow.example" })
+      .url,
+    null,
+  );
+  const state = applyDemoPost(
+    { posts: [], question: "" },
+    link("teamflow.example"),
+    {
+      id: "1",
+      createdAt: "2026-10-24T00:00:00Z",
+    },
+  );
+  assert.equal(state.posts[0].url, "https://teamflow.example/");
 });

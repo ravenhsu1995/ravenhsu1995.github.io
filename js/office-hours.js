@@ -1,4 +1,4 @@
-export function initOfficeHours(scheduleFrameLayout) {
+export function initOfficeHours(applyFrameLayout) {
   const views = {
     board: {
       scene: "board",
@@ -22,7 +22,7 @@ export function initOfficeHours(scheduleFrameLayout) {
       kicker: "Two ways to participate",
       title: "Find a partner. Ask for help.",
       description:
-        "Explore the public Quest Board form and private question box. You can type and try the controls; this preview keeps everything in memory.",
+        "Explore the public Quest Board form and the anonymous question box. You can type and try the controls; this preview keeps everything in memory.",
     },
     featured: {
       scene: "featured",
@@ -46,8 +46,8 @@ export function initOfficeHours(scheduleFrameLayout) {
     });
     if (focus) button.focus();
     galleryStage.dataset.mode = view.mode;
-    scheduleFrameLayout();
-    demo.src = `demo/index.html?v=20261024-hires&view=${view.scene}`;
+    applyFrameLayout();
+    demo.src = `demo/index.html?v=20261024-copy&view=${view.scene}`;
     demo.title = `Interactive ${view.scene} interface with sample data`;
     document.getElementById("demo-open").href = demo.src;
     document

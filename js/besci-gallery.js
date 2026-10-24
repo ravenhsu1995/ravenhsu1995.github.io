@@ -6,7 +6,7 @@ export function initBesciGallery() {
       caption:
         "The corpus at a glance. Review states distinguish human-verified claims from drafts.",
       detail:
-        "BeSci Wiki overview: 638 claims, 38 sources, and explicit review states. Only 70 claims were human-verified.",
+        "BeSci Wiki overview: 638 claims from 38 sources, with review states that separate drafts from human-verified claims.",
     },
     concept: {
       file: "concept",

@@ -18,34 +18,40 @@ export function initFrameLayout() {
   ].filter(({ stage }) => stage?.querySelector("iframe"));
   let pendingFrame;
 
+  function layout() {
+    cancelAnimationFrame(pendingFrame);
+    // Measure every stage before writing styles to avoid forced layout per frame.
+    const updates = canvases.map(
+      ({ stage, sourceWidth, ratio, alwaysBoard }) => ({
+        frame: stage.querySelector("iframe"),
+        styles: frameStyles(
+          stage.clientWidth,
+          sourceWidth,
+          ratio,
+          narrowLayout.matches &&
+            (alwaysBoard || stage.dataset.mode === "board"),
+        ),
+      }),
+    );
+    updates.forEach(({ frame, styles }) => Object.assign(frame.style, styles));
+  }
+
   function schedule() {
     cancelAnimationFrame(pendingFrame);
-    pendingFrame = requestAnimationFrame(() => {
-      // Measure every stage before writing styles to avoid forced layout per frame.
-      const updates = canvases.map(
-        ({ stage, sourceWidth, ratio, alwaysBoard }) => ({
-          frame: stage.querySelector("iframe"),
-          styles: frameStyles(
-            stage.clientWidth,
-            sourceWidth,
-            ratio,
-            narrowLayout.matches &&
-              (alwaysBoard || stage.dataset.mode === "board"),
-          ),
-        }),
-      );
-      updates.forEach(({ frame, styles }) =>
-        Object.assign(frame.style, styles),
-      );
-    });
+    pendingFrame = requestAnimationFrame(layout);
   }
   if ("ResizeObserver" in window) {
-    const observer = new ResizeObserver(schedule);
+    const observer = new ResizeObserver(() => schedule());
     canvases.forEach(({ stage }) => observer.observe(stage));
   } else {
     window.addEventListener("resize", schedule);
   }
   narrowLayout.addEventListener("change", schedule);
-  schedule();
-  return schedule;
+  layout();
+  // WebKit keeps a frame's first viewport-unit layout, so demos load only at their final canvas size.
+  canvases.forEach(({ stage }) => {
+    const frame = stage.querySelector("iframe");
+    if (frame.dataset.src) frame.src = frame.dataset.src;
+  });
+  return layout;
 }

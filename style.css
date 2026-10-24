@@ -718,6 +718,10 @@ details[open] > summary > span[aria-hidden="true"] {
   margin-top: 25px;
 }
 
+.text-link + .text-link {
+  margin-left: 28px;
+}
+
 .earlier {
   padding-top: 95px;
 }
@@ -1094,7 +1098,8 @@ details[open] > summary > span[aria-hidden="true"] {
   }
 
   .outcomes {
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 22px;
     padding: 24px 0;
   }
 
@@ -1103,8 +1108,9 @@ details[open] > summary > span[aria-hidden="true"] {
   }
 
   .outcomes p {
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.5;
+    margin-top: 8px;
   }
 
   .outcomes strong span {
@@ -1877,7 +1883,7 @@ details[open] > summary > span[aria-hidden="true"] {
   margin-bottom: 20px;
 }
 
-/* 1→0: deployed product first, research infrastructure second. */
+/* 1→0: the public site first, its research knowledge base second. */
 .onezero-case {
   margin-top: 100px;
   border-top: 1px solid var(--ink);

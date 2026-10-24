@@ -7,7 +7,7 @@
     <title>Raven Hsu | Programs, people, and useful software</title>
     <meta
       name="description"
-      content="Explore NTU Garage, Travel Fox and 1→0: founder tools, travel planning and knowledge systems, with real interfaces and live products."
+      content="Explore NTU Garage, Travel Fox and 1→0: founder tools, travel planning and knowledge systems, with original interfaces and working demos."
     />
     <meta property="og:title" content="Raven Hsu | Make room for ideas." />
     <meta
@@ -43,7 +43,7 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261024-hires" />
+    <link rel="stylesheet" href="style.css?v=20261024-copy" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -54,7 +54,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261024-hires"></script>
+    <script type="module" src="js/main.js?v=20261024-copy"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -101,10 +101,10 @@
             <a
               class="hero-board room-piece room-board"
               href="#garage"
-              aria-label="Try the founder office-hours experience"
+              aria-label="Try the Innovation Support meetup tools"
             >
               <iframe
-                src="demo/index.html?v=20261024-hires&amp;view=board"
+                data-src="demo/index.html?v=20261024-copy&amp;view=board"
                 title="Live Quest Board with sample posts"
                 tabindex="-1"
                 aria-hidden="true"
@@ -117,7 +117,7 @@
             <a class="room-piece room-onezero" href="#one-zero"
               ><img
                 src="img/one-zero-home-2x.webp"
-                alt="1→0, a deployed AI and human intelligence product"
+                alt="1→0 homepage: human judgement in innovation, alongside AI"
                 width="2880"
                 height="2000"
               /><span class="room-piece-label"
@@ -187,29 +187,28 @@
               />
             </div>
             <p id="project-preview-caption">
-              Program operations, from the next activity to the next
-              conversation.
+              The founder pipeline, from open monthly meetups to NTU Garage.
             </p>
           </div>
           <nav class="project-list" aria-label="Jump to a project">
             <a href="#garage" data-project="garage" data-preview-active="true"
               ><span
                 >NTU Garage<small
-                  >Program operations &amp; founder office hours</small
+                  >Founder pipeline &amp; open monthly meetups</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
             <a href="#travel-fox" data-project="travel"
               ><span
                 >Travel Fox<small
-                  >Itineraries, maps &amp; shared trips</small
+                  >Trip plans that become the budget</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
             <a href="#one-zero" data-project="onezero"
               ><span
                 >1→0<small
-                  >Innovation judgement &amp; its research system</small
+                  >Innovation judgement &amp; its research knowledge base</small
                 ></span
               ><span aria-hidden="true">↗</span></a
             >
@@ -227,12 +226,14 @@
         <div class="case-heading reveal">
           <p class="section-label">01 / NTU Garage</p>
           <h2 id="garage-title">
-            NTU Garage.<br /><span>Founder tools.</span>
+            NTU Garage.<br /><span>Founder Pipeline.</span>
           </h2>
           <p class="section-intro">
-            An operations dashboard for founder programs, with team progress,
-            consultation records, course management and interactive office-hours
-            tools in one place.
+            The software our staff use to run NTU Garage, our early-stage
+            founder program, and NTUTEC Innovation Support (創創相談室), the
+            open monthly meetups that feed founders into Garage. I built it
+            alone, without being asked, so our staff no longer match names by
+            hand across Google Forms and spreadsheets.
           </p>
         </div>
         <section
@@ -242,12 +243,13 @@
           <div class="exhibit-heading">
             <div>
               <p class="small-label">Behind the program</p>
-              <h3 id="operations-title">Program operations.</h3>
+              <h3 id="operations-title">Running NTU Garage.</h3>
             </div>
             <p>
-              Team goals, consultations, courses and follow-up share one working
-              view. Explore the progress report, activity pipeline and team
-              directory.
+              Our staff see each Garage team’s live progress, consultation
+              records and next steps in one place. A rules engine manages every
+              course and consultation, closes tasks automatically and flags
+              teams that miss three sessions in a row.
             </p>
           </div>
           <div
@@ -278,7 +280,7 @@
                   data-artifact-caption="Activity management: four stages from preparation to follow-up, with registration, assignments and the next action visible on each card. Fictional records."
                   aria-pressed="false"
                 >
-                  Activity pipeline
+                  Activities
                 </button>
                 <button
                   type="button"
@@ -320,20 +322,21 @@
           </div>
         </section>
         <div class="office-heading reveal">
-          <p class="small-label">Out in the room</p>
+          <p class="small-label">Upstream: Innovation Support</p>
           <h3>From checking in<br />to finding each other.</h3>
           <p>
-            A live board for partners and product testers. A question box for
-            the conversations that need a little more privacy.
+            Free monthly meetups, open to anyone. A live board for partners and
+            product testers. A question box for the conversations that need a
+            little more privacy.
           </p>
         </div>
         <div class="experience reveal" data-gallery>
           <div class="experience-top">
-            <h3>Inside the open founder office hours</h3>
+            <h3>Inside Innovation Support</h3>
             <div
               class="gallery-tabs"
               role="tablist"
-              aria-label="Explore the office-hours interface"
+              aria-label="Explore the Innovation Support meetup tools"
             >
               <button
                 role="tab"
@@ -387,7 +390,7 @@
             >
               <iframe
                 id="experience-demo"
-                src="demo/index.html?v=20261024-hires&amp;view=board"
+                data-src="demo/index.html?v=20261024-copy&amp;view=board"
                 title="Interactive Quest Board interface with sample data"
                 loading="lazy"
                 sandbox="allow-scripts allow-same-origin"
@@ -397,8 +400,9 @@
               <p class="small-label" id="gallery-kicker">A room in motion</p>
               <h4 id="gallery-title">Make it easier to find each other.</h4>
               <p id="gallery-description">
-                Two streams of founder posts move in opposite directions. Pause
-                the board to read a request, or switch to an anonymous question.
+                Two streams of founder posts move in opposite directions. Read
+                the requests, pause the board, or switch to an anonymous
+                question.
               </p>
               <p class="image-note">
                 Original interface with sample data. Nothing you enter is saved
@@ -415,7 +419,7 @@
                   Restart this scene ↻</button
                 ><a
                   id="demo-open"
-                  href="demo/index.html?v=20261024-hires&amp;view=board"
+                  href="demo/index.html?v=20261024-copy&amp;view=board"
                   target="_blank"
                   rel="noopener"
                   >Open interface ↗</a
@@ -432,10 +436,10 @@
         </div>
         <div class="case-overview reveal">
           <div class="overview-copy">
-            <h3>In daily use.</h3>
+            <h3>At a glance.</h3>
             <p>
-              The system supports individual goals, validation workshops and
-              consultations across Garage and the accelerator.
+              Dashboards show the numbers and trends behind attendance,
+              satisfaction and conversion for quick decisions.
             </p>
           </div>
           <dl class="program-facts">
@@ -444,49 +448,53 @@
               <dd>teams in the 2026 Garage program</dd>
             </div>
             <div>
-              <dt>15</dt>
-              <dd>courses and group consultations managed</dd>
-            </div>
-            <div>
               <dt>42</dt>
-              <dd>teams and 68 people across Garage and the accelerator</dd>
+              <dd>
+                teams across Garage and our accelerator, managed by one rules
+                engine
+              </dd>
             </div>
           </dl>
         </div>
         <div class="decisions-grid reveal">
           <div>
-            <h3>Open founder office hours.</h3>
+            <h3>One record that grows over time.</h3>
             <p>
-              Free monthly sessions help founders explore ideas and prepare to
-              apply to Garage. Check-in connects attendance with follow-up; the
-              live board helps people find partners and product testers.
+              Innovation Support is built to grow the pool of founders who apply
+              to Garage, so no company, pitch deck or university affiliation is
+              required.
             </p>
-            <p>No company, pitch deck or university affiliation required.</p>
+            <p>
+              With consent, each attendee gets one record that merges
+              background, needs, attendance and feedback across forms, so we can
+              see who moves on.
+            </p>
           </div>
           <div class="decision-detail">
-            <p class="small-label">Inside the session</p>
-            <h3>A public board. A private question box.</h3>
+            <p class="small-label">Inside the meetup</p>
+            <h3>A public board. An anonymous question box.</h3>
             <p>
-              Networking posts go on the public board. Requests for help go to a
-              separate question box: anonymous on the big screen, identified to
-              the host.
+              Founders often worry that asking for help looks like weakness.
+              Networking posts go on the public board; requests for help go to a
+              separate question box, shown anonymously on the big screen and
+              named only to the host.
             </p>
           </div>
         </div>
-        <div class="outcomes reveal" aria-label="Office-hours outcomes">
+        <div class="outcomes reveal" aria-label="Innovation Support outcomes">
           <div>
-            <strong>63</strong>
-            <p>people used check-in across two sessions</p>
+            <strong>1<span>st</span></strong>
+            <p>time in NTUTEC’s 13 years that the center opened to anyone</p>
           </div>
           <div>
-            <strong>11<span>/32</span></strong>
-            <p>attendees contributed 12 posts at the second session</p>
+            <strong><span>Nearly </span>100</strong>
+            <p>sign-ups so far for the open monthly meetups</p>
           </div>
           <div>
-            <strong>13<span>/65</span></strong>
+            <strong><span>About </span>1<span> in 5</span></strong>
             <p>
-              people on the 2027 interest list attended office hours before
-              registering
+              attendees has since registered interest in applying to our 2027
+              programs
             </p>
           </div>
         </div>
@@ -497,8 +505,8 @@
             Products &amp;<br /><span>research tools.</span>
           </h2>
           <p>
-            Explore the live products and the knowledge systems behind them.
-            Software built with Claude Code.
+            Two more things I built with Claude Code: a trip-planning web app,
+            and a site with the research knowledge base its writing draws on.
           </p>
         </div>
         <article
@@ -509,23 +517,34 @@
           <div class="travel-copy">
             <p class="project-date">02 / Travel Fox · Live product</p>
             <h3 id="travel-title">
-              Travel Fox.<br /><span>A trip in one place.</span>
+              Travel Fox.<br /><span>The plan is the budget.</span>
             </h3>
             <p class="travel-intro">
-              A trip planner with a daily timeline, maps and expenses in
-              multiple currencies. Start with the public Kansai itinerary or
-              sign in to create a trip.
+              A trip-planning web app I built for my own Kansai trip and opened
+              to anyone who signs up. Costs entered while planning roll straight
+              into the trip budget alongside expenses logged during the trip,
+              converted at daily exchange rates, so the plan and the spending
+              never drift apart.
             </p>
             <dl class="travel-proof">
               <div>
                 <dt>17 days</dt>
-                <dd>A friend used it for a New Zealand honeymoon.</dd>
+                <dd>A couple planned their New Zealand honeymoon on it.</dd>
               </div>
               <div>
                 <dt>Share a trip</dt>
                 <dd>
-                  Keep trips private, unlisted or public, with ratings and
-                  comments for each stop.
+                  Trips can be private, link-only or public, and the database
+                  itself enforces who sees what, so a shared link shows only
+                  what the owner chose to share.
+                </dd>
+              </div>
+              <div>
+                <dt>From LINE</dt>
+                <dd>
+                  It detects LINE’s and other in-app browsers, where Google
+                  blocks sign-in, and guides users to a full browser, with one
+                  tap from LINE.
                 </dd>
               </div>
             </dl>
@@ -535,6 +554,13 @@
               target="_blank"
               rel="noopener noreferrer"
               >Explore Travel Fox <span aria-hidden="true">↗</span></a
+            >
+            <a
+              class="text-link"
+              href="https://github.com/ravenhsu1995/travel-fox"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Read the code <span aria-hidden="true">↗</span></a
             >
           </div>
           <div class="travel-product">
@@ -563,7 +589,7 @@
                   type="button"
                   data-src="img/travel-fox-home-portrait-3x.webp"
                   data-layout="portrait"
-                  data-caption="Travel Fox's real public homepage."
+                  data-caption="Travel Fox's public homepage."
                   aria-label="Enlarge the Travel Fox homepage"
                 >
                   <img
@@ -612,7 +638,7 @@
         <article class="onezero-case reveal" id="one-zero">
           <div class="product-heading">
             <div>
-              <p class="project-date">03 / 1→0 · Live product</p>
+              <p class="project-date">03 / 1→0 · Public site</p>
               <h3>1→0</h3>
             </div>
             <div class="product-intro">
@@ -620,7 +646,7 @@
                 Human judgement.<br />Built into innovation.
               </p>
               <p>
-                A platform bringing humanities and social science into
+                A site that brings humanities and social-science judgement into
                 innovation decisions. Explore an AI × HI framework, five human
                 capabilities and a three-step process for reframing problems,
                 questioning metrics and anticipating consequences.
@@ -630,7 +656,7 @@
                 href="https://1-0-project.vercel.app/en"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Explore the live product ↗</a
+                >Explore the site ↗</a
               >
             </div>
           </div>
@@ -642,7 +668,7 @@
             <div class="artifact-toolbar">
               <p>
                 <span data-artifact-count aria-live="polite">01 / 03</span> ·
-                The public product
+                The public site
               </p>
               <div
                 class="screenshot-tabs"
@@ -671,7 +697,7 @@
                   type="button"
                   data-artifact-key="library"
                   data-artifact-src="img/one-zero-library-2x.webp"
-                  data-artifact-caption="The learning-library interface: topic filters, search and sorting. Article cards are illustrative content from the live product, not published research or client cases."
+                  data-artifact-caption="The learning-library interface: topic filters, search and sorting. Article cards show illustrative sample content."
                   aria-pressed="false"
                 >
                   Learning library
@@ -754,8 +780,8 @@
               <span aria-hidden="true">↗</span>
             </summary>
             <p>
-              This is the live 1→0 website. Scroll inside to explore its
-              animated interface, or
+              This is the 1→0 website. Scroll inside to explore its animated
+              interface, or
               <a
                 href="https://1-0-project.vercel.app/en/about"
                 target="_blank"
@@ -765,7 +791,7 @@
             </p>
             <iframe
               data-live-src="https://1-0-project.vercel.app/en/about"
-              title="Live 1→0 product: framework, human capabilities and intervention process"
+              title="1→0 site: framework, human capabilities and intervention process"
               loading="lazy"
               sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
             ></iframe>
@@ -773,39 +799,39 @@
           <section class="knowledge-system" aria-labelledby="knowledge-title">
             <div class="knowledge-system-heading">
               <div>
-                <p class="project-date">02 / The knowledge behind it</p>
+                <p class="project-date">The knowledge behind it</p>
                 <h4 id="knowledge-title">From source<br />to judgement.</h4>
               </div>
               <p>
-                BeSci Wiki, Second Brain and Deus Engine all serve the work of
-                1→0: turning research into useful human judgement. Sources stay
-                separate from project-specific interpretations.
+                I built 1→0 and, with AI agents, the research knowledge base its
+                writing draws on. The knowledge base began as BeSci Wiki; the
+                current version is Second Brain.
               </p>
             </div>
             <dl class="knowledge-route">
               <div>
-                <dt><span>01</span> Second Brain</dt>
-                <dd>Keep the evidence traceable.</dd>
+                <dt><span>01</span> BeSci Wiki</dt>
+                <dd>Extract claims from research.</dd>
                 <dd>
-                  Immutable sources, source-linked concepts, reference checks
-                  and explicit contradictions.
+                  Claims extracted from papers and reports, each linked to its
+                  source.
                 </dd>
               </div>
               <div>
-                <dt><span>02</span> Deus Engine</dt>
-                <dd>Develop an interpretation.</dd>
+                <dt><span>02</span> Second Brain</dt>
+                <dd>Keep the evidence traceable.</dd>
                 <dd>
-                  A workflow for reading shared knowledge, developing
-                  project-specific proposals and drafts, and reviewing them
-                  before publication.
+                  Every claim must cite a registered source, and a model from a
+                  different AI company cross-checks full-text readings against
+                  the originals, catching misattributed claims.
                 </dd>
               </div>
               <div>
                 <dt><span>03</span> 1→0</dt>
                 <dd>Make the thinking usable.</dd>
                 <dd>
-                  Apply the research to problem framing, metrics and the
-                  consequences of innovation decisions.
+                  Its writing draws on the knowledge base for problem framing,
+                  metrics and the consequences of innovation decisions.
                 </dd>
               </div>
             </dl>
@@ -816,13 +842,12 @@
                   114 <span>sources</span><br />121 <span>concept pages</span>
                 </p>
                 <p>
-                  Deus Studio reads the Second Brain repository. The console
-                  makes source composition, domain coverage and unresolved
-                  contradictions visible.
+                  A local research console reads Second Brain and makes source
+                  composition, domain coverage and unresolved contradictions
+                  visible.
                 </p>
                 <p class="knowledge-note">
-                  Local research-console captures. Library counts describe this
-                  snapshot, not product usage.
+                  Local research-console captures. Counts reflect this snapshot.
                 </p>
               </div>
               <div
@@ -857,13 +882,13 @@
                   class="media-open artifact-screen"
                   type="button"
                   data-src="img/knowledge-sources-2x.webp"
-                  data-caption="Deus Studio source management, reading Second Brain."
+                  data-caption="Source management in a local research console that reads Second Brain."
                   aria-label="Enlarge the selected knowledge management screen"
                 >
                   <img
                     src="img/knowledge-sources-2x.webp"
-                    width="2280"
-                    height="1800"
+                    width="1840"
+                    height="1500"
                     loading="lazy"
                     alt="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
                   /><span class="screenshot-zoom" aria-hidden="true"
@@ -884,28 +909,31 @@
           <details class="besci-archive" id="besci">
             <summary>
               <span
-                ><small>03 / Earlier experiment · May–July 2026</small>BeSci
-                Wiki — archived extraction prototype</span
+                ><small>First version · May–July 2026</small>BeSci Wiki — where
+                the knowledge base began</span
               ><span aria-hidden="true">+</span>
             </summary>
             <div class="besci-copy">
               <div class="besci-intro">
                 <h4>Claims linked to sources.</h4>
                 <p>
-                  An AI-queryable behavioral-science knowledge base: 638 claims
-                  from 38 sources, with 70 claims checked by hand.
+                  A behavioral-science knowledge base: 638 claims from 38
+                  sources, each traceable to its source.
                 </p>
               </div>
               <div class="besci-learning">
                 <p>
-                  Concept pages connect claims to their conditions, quotations,
-                  page numbers and source records. Review states distinguish
-                  drafts from human-verified claims.
+                  I paired the extracting model with a second model as reviewer
+                  and measured the extraction against a 25-document gold set I
+                  checked by hand. Concept pages connect claims to their
+                  conditions, quotations, page numbers and source records.
                 </p>
                 <p>
-                  Archived in July 2026. The evaluation covered 12 of the 79
-                  terms it scored; extraction stopped. Corpus totals describe
-                  this earlier prototype.
+                  When the extraction’s term-tagging score jumped from 0 to
+                  0.94, I found the gold set covered only 12 of the 79 terms, so
+                  I stopped treating it as a quality score and halted a full
+                  re-extraction that relied on it. Its sources and lessons
+                  carried into Second Brain.
                 </p>
               </div>
             </div>
@@ -941,7 +969,7 @@
                 class="media-open screenshot-open"
                 id="besci-screenshot"
                 data-src="img/besci-overview-2x.webp"
-                data-caption="BeSci Wiki overview: 638 claims, 38 sources, and explicit review states. Only 70 claims were human-verified."
+                data-caption="BeSci Wiki overview: 638 claims from 38 sources, with review states that separate drafts from human-verified claims."
                 type="button"
                 aria-label="Enlarge the BeSci Wiki overview"
               >
@@ -983,7 +1011,7 @@
             <button
               class="media-open photo"
               data-src="img/eco-concept.jpg"
-              data-caption="E:CO concept screens from the Durham Venture School pitch, 2022. A concept, not a launched app."
+              data-caption="E:CO concept screens from the Durham Venture School final pitch, 2022."
               type="button"
               aria-label="Enlarge the E:CO concept screens"
             >
@@ -999,12 +1027,13 @@
               <p class="project-date">Durham, 2022</p>
               <h3>E:CO</h3>
               <p>
-                A nature-connection app concept from Durham Venture School:
-                daily activities and photo tasks informed by behavioral-science
-                research and six user interviews.
+                At Durham Venture School, a teammate and I developed E:CO, a
+                nature-connection app concept built around daily nature
+                activities and photo tasks, from my MSc research and our user
+                interviews.
               </p>
               <p class="screenshot-caption">
-                A venture concept, not a launched app.
+                Concept screens from the program’s final pitch.
               </p>
             </div>
           </article>
@@ -1025,17 +1054,18 @@
               />
             </button>
             <div class="earlier-copy">
-              <p class="project-date">Taiwan, 2016 - 2018</p>
+              <p class="project-date">Taiwan, 2016–2018</p>
               <h3>Forget About Age</h3>
               <p>
-                A two-day intergenerational camp for 21 members of NSYSU’s
-                senior university, commissioned by the university and designed
+                As CEO, I led a 6-person core team building an intergenerational
+                camp service that pairs college students with older adults. We
+                sold a two-day camp to NSYSU’s senior university and designed it
                 with participants through a World Café.
               </p>
               <p>
-                Activities paired senior participants with student hosts. In the
-                post-camp survey, 19 of 20 would return; student hosts scored
-                4.95 out of 5.
+                In the post-camp survey, 95% would return and participants rated
+                the camp 4.55/5 overall. They rated the student hosts 4.95/5,
+                the highest score they gave.
               </p>
             </div>
           </article>

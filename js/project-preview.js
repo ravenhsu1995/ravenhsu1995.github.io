@@ -2,20 +2,19 @@ const projects = {
   garage: {
     src: "img/garage-progress-report-2x.webp",
     alt: "NTU Garage progress report, with fictional demonstration records",
-    caption:
-      "Program operations, from the next activity to the next conversation.",
+    caption: "The founder pipeline, from open monthly meetups to NTU Garage.",
   },
   travel: {
     src: "img/travel-fox-home-portrait-3x.webp",
     alt: "Travel Fox's complete mobile homepage",
     detail: "img/travel-fox-itinerary-portrait-3x.webp",
     detailAlt: "Travel Fox public itinerary, with dates, stops and map links",
-    caption: "A daily timeline, maps and expenses, in one shared trip.",
+    caption: "An itinerary that becomes the trip budget.",
   },
   onezero: {
     src: "img/one-zero-home-2x.webp",
-    alt: "1→0 — the live AI and human intelligence product",
-    caption: "A deployed product. A research system behind it.",
+    alt: "1→0 homepage: human judgement in innovation, alongside AI",
+    caption: "A site, and the research knowledge base its writing draws on.",
   },
   earlier: {
     src: "img/faa-worldcafe.jpg",

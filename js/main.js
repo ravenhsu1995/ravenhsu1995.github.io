@@ -1,21 +1,21 @@
 import { initTheme } from "./theme.js";
-import { initMotion } from "./motion.js?v=20261024-hires";
-import { initFrameLayout } from "./frame-layout.js";
-import { initOfficeHours } from "./office-hours.js?v=20261024-hires";
-import { initDemoBridge } from "./demo-bridge.js?v=20261024-hires";
-import { initArtifactGalleries } from "./artifact-gallery.js?v=20261024-hires";
-import { initBesciGallery } from "./besci-gallery.js?v=20261024-hires";
-import { initMediaViewer } from "./media-viewer.js?v=20261024-hires";
-import { initProjectPreview } from "./project-preview.js?v=20261024-hires";
+import { initMotion } from "./motion.js?v=20261024-copy";
+import { initFrameLayout } from "./frame-layout.js?v=20261024-copy";
+import { initOfficeHours } from "./office-hours.js?v=20261024-copy";
+import { initDemoBridge } from "./demo-bridge.js?v=20261024-copy";
+import { initArtifactGalleries } from "./artifact-gallery.js?v=20261024-copy";
+import { initBesciGallery } from "./besci-gallery.js?v=20261024-copy";
+import { initMediaViewer } from "./media-viewer.js?v=20261024-copy";
+import { initProjectPreview } from "./project-preview.js?v=20261024-copy";
 
 // Shared browser state is passed explicitly; features own their DOM and events.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const frames = [...document.querySelectorAll('iframe[src^="demo/"]')];
+const frames = [...document.querySelectorAll('iframe[data-src^="demo/"]')];
 
 initTheme();
 initMotion(reducedMotion, frames);
-const scheduleFrameLayout = initFrameLayout();
-const showDemoFeedback = initOfficeHours(scheduleFrameLayout);
+const applyFrameLayout = initFrameLayout();
+const showDemoFeedback = initOfficeHours(applyFrameLayout);
 initDemoBridge(frames, showDemoFeedback);
 initBesciGallery();
 initArtifactGalleries();

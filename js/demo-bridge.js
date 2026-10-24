@@ -1,4 +1,4 @@
-import { applyDemoPost, parseDemoPost } from "./demo-state.js?v=20261024-hires";
+import { applyDemoPost, parseDemoPost } from "./demo-state.js?v=20261024-copy";
 
 export function initDemoBridge(frames, onPost) {
   let state = { posts: [], question: "" };

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { initDemoBridge } from "../js/demo-bridge.js";
 import { initMotion } from "../js/motion.js";
+import { initFrameLayout } from "../js/frame-layout.js";
 
 function stubGlobal(context, name, value) {
   const descriptor = Object.getOwnPropertyDescriptor(globalThis, name);
@@ -186,3 +187,57 @@ test("artifact selection remains current when image decoding finishes out of ord
   assert.equal(trigger.dataset.src, "latest");
   assert.equal(caption.textContent, "latest");
 });
+
+// WebKit keeps a frame's first viewport-unit layout, so a demo must not load before its canvas size is set.
+test("demo frames start loading only after their narrow canvas size is applied", (t) => {
+  function stage(clientWidth, mode) {
+    const frame = {
+      style: {},
+      dataset: { src: `demo/index.html?view=${mode}` },
+      loadedAt: null,
+      set src(value) {
+        this.loadedAt = { src: value, ...this.style };
+      },
+    };
+    return {
+      clientWidth,
+      dataset: { mode },
+      querySelector: () => frame,
+      frame,
+    };
+  }
+  const hero = stage(279, "board");
+  const gallery = stage(342, "board");
+  class ResizeObserver {
+    observe() {}
+  }
+  stubGlobal(t, "window", {
+    matchMedia: () => ({ matches: true, addEventListener: () => {} }),
+    ResizeObserver,
+  });
+  stubGlobal(t, "document", {
+    querySelector: () => hero,
+    getElementById: () => gallery,
+  });
+  stubGlobal(t, "ResizeObserver", ResizeObserver);
+  stubGlobal(t, "requestAnimationFrame", () => 0);
+  stubGlobal(t, "cancelAnimationFrame", () => {});
+  initFrameLayout();
+  assert.deepEqual(hero.frame.loadedAt, {
+    src: "demo/index.html?view=board",
+    ...frameStylesFor(279, 900, 1.4),
+  });
+  assert.deepEqual(gallery.frame.loadedAt, {
+    src: "demo/index.html?view=board",
+    ...frameStylesFor(342, 1000, 1.15),
+  });
+});
+
+function frameStylesFor(stageWidth, sourceWidth, ratio) {
+  return {
+    width: `${sourceWidth}px`,
+    height: `${sourceWidth / ratio}px`,
+    transform: `scale(${stageWidth / sourceWidth})`,
+    transformOrigin: "top left",
+  };
+}

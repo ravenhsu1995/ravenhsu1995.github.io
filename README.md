@@ -49,7 +49,7 @@ AI-assisted development is disclosed in the portfolio. Source organization and c
 
 The Travel Fox iframe is a separate, live public itinerary hosted on Vercel. It is outside the in-memory Garage demo bridge and may open public map links. The adjacent captured screen remains available as a static reference.
 
-The 1→0 case leads with the deployed bilingual product. Its live iframe loads only when the visitor expands it and unloads on collapse. Screenshot galleries preserve the source images and support enlargement. The separate Deus Studio captures document the local research tools reading Second Brain; their library counts are a snapshot, not product usage metrics. BeSci remains an archived experiment, with its original `#besci` link preserved.
+The 1→0 case leads with the deployed product for human judgement in innovation. Its live iframe loads only when the visitor expands it and unloads on collapse. Screenshot galleries preserve the source images and support enlargement. The separate Deus Studio captures document the local research tools reading Second Brain; their library counts are a snapshot, not product usage metrics. BeSci remains an archived experiment, with its original `#besci` link preserved.
 
 ## Verification and deployment
 

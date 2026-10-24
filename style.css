@@ -157,9 +157,11 @@ p + p {
 .site-header::before {
   content: "";
   position: absolute;
-  inset: 0 calc((100vw - 100%) / -2);
+  inset: 0;
   z-index: -1;
   background: var(--paper);
+  box-shadow: 0 0 0 100vmax var(--paper);
+  clip-path: inset(0 -100vmax);
 }
 
 .wordmark {
@@ -223,16 +225,41 @@ p + p {
   gap: 8%;
 }
 
-.project-preview img {
+.project-preview-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  aspect-ratio: 16/10;
-  object-fit: cover;
+  aspect-ratio: 5 / 4;
+  padding: 5%;
+  gap: 5%;
+  background: var(--panel);
   border: 1px solid var(--line);
-  transition:
-    opacity 0.18s,
-    transform 0.45s;
-  transform: rotateY(-8deg);
-  box-shadow: 10px 16px 30px -20px #0006;
+  overflow: hidden;
+}
+
+.project-preview-stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  object-fit: contain;
+}
+
+.project-preview-stage img[hidden] {
+  display: none;
+}
+
+.project-preview-stage[data-preview="travel"] {
+  background: #fcf9f4;
+}
+
+.project-preview-stage[data-preview="travel"] img {
+  width: 45%;
+  height: auto;
+  max-height: 100%;
+  border: 1px solid #d9d7d1;
+  box-shadow: 0 8px 20px -12px #302a2266;
 }
 
 .project-preview p {
@@ -271,7 +298,8 @@ p + p {
 }
 
 .project-list a:hover,
-.project-list a:focus-visible {
+.project-list a:focus-visible,
+.project-list a[data-preview-active="true"] {
   color: var(--accent);
   padding-left: 14px;
 }
@@ -1020,13 +1048,8 @@ details[open] > summary span {
   }
 
   .project-preview {
-    width: 85%;
-    align-self: end;
-    transform: none;
-  }
-
-  .project-preview img {
-    aspect-ratio: 16/9;
+    width: 100%;
+    align-self: stretch;
   }
 
   .project-preview p {
@@ -1415,7 +1438,7 @@ details[open] > summary span {
 }
 
 .hero h1 {
-  font-size: clamp(75px, 8.1vw, 140px);
+  font-size: clamp(75px, 7.5vw, 140px);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.065em;
@@ -1532,7 +1555,7 @@ details[open] > summary span {
 .room-besci {
   width: 46%;
   left: 1%;
-  top: 53%;
+  top: 47%;
   transform: translate(
       calc((1 - var(--room-space)) * 58%),
       calc((1 - var(--room-space)) * -58%)
@@ -1547,9 +1570,9 @@ details[open] > summary span {
 }
 
 .room-travel {
-  width: 34%;
-  left: 65%;
-  top: 55%;
+  width: 22%;
+  left: 75%;
+  top: 22%;
   transform: translate(
       calc((1 - var(--room-space)) * -75%),
       calc((1 - var(--room-space)) * -35%)
@@ -1632,7 +1655,6 @@ details[open] > summary span {
 .project-preview {
   align-self: center;
   transform: none;
-  perspective: 1000px;
 }
 
 .besci-case {
@@ -1707,7 +1729,7 @@ details[open] > summary span {
   }
 
   .hero h1 {
-    font-size: 7.6vw;
+    font-size: 7.2vw;
   }
 
   .hero-description {
@@ -1812,7 +1834,18 @@ details[open] > summary span {
   }
 
   .room-travel {
-    top: 58%;
+    top: 40%;
+  }
+
+  .room-travel .room-piece-label {
+    justify-content: center;
+    padding-inline: 4px;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .room-travel .room-piece-label span {
+    display: none;
   }
 
   .room-note {
@@ -1826,10 +1859,6 @@ details[open] > summary span {
 
   .work-index h2 {
     font-size: 48px;
-  }
-
-  .project-preview img {
-    transform: none;
   }
 
   .earlier-venture,

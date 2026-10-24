@@ -34,7 +34,7 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="style.css?v=20261024-travel" />
+    <link rel="stylesheet" href="style.css?v=20261024-artifacts" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -45,7 +45,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261024-travel"></script>
+    <script type="module" src="js/main.js?v=20261024-artifacts"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -116,10 +116,10 @@
             >
             <a class="room-piece room-travel" href="#travel-fox"
               ><img
-                src="img/travel-fox-home.webp"
+                src="img/travel-fox-home-portrait.webp"
                 alt="Travel Fox homepage and public Kansai trip"
                 width="480"
-                height="760"
+                height="840"
               /><span class="room-piece-label"
                 >Travel Fox <span aria-hidden="true">↗</span></span
               ></a
@@ -170,19 +170,33 @@
         </div>
         <div class="work-index-body">
           <div class="project-preview">
-            <img
-              id="project-preview-image"
-              src="img/office-hours-board.webp"
-              alt="NTU Garage live founder board"
-              width="1690"
-              height="886"
-            />
+            <div
+              class="project-preview-stage"
+              id="project-preview-stage"
+              data-preview="garage"
+            >
+              <img
+                id="project-preview-image"
+                src="img/office-hours-board.webp"
+                alt="NTU Garage live founder board"
+                width="1690"
+                height="886"
+              />
+              <img
+                id="project-preview-detail"
+                src="img/travel-fox-itinerary-portrait.webp"
+                alt=""
+                width="465"
+                height="814"
+                hidden
+              />
+            </div>
             <p id="project-preview-caption">
               From arriving alone to finding your people.
             </p>
           </div>
           <nav class="project-list" aria-label="Jump to a project">
-            <a href="#garage" data-project="garage"
+            <a href="#garage" data-project="garage" data-preview-active="true"
               ><span
                 >NTU Garage<small>Founder programs &amp; software</small></span
               ><span aria-hidden="true">↗</span></a
@@ -517,7 +531,7 @@
             <button
               type="button"
               class="media-open travel-capture"
-              data-src="img/travel-fox-itinerary.webp"
+              data-src="img/travel-fox-itinerary-portrait.webp"
               data-layout="portrait"
               data-caption="Travel Fox's real public Kansai sample, captured on the Tottori day. The live itinerary above is interactive."
               aria-label="View the captured Travel Fox itinerary"

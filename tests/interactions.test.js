@@ -91,3 +91,51 @@ test("system reduced motion takes precedence without discarding a user's pause c
   handlers.get("click")();
   assert.equal(messages.at(-1).paused, false);
 });
+
+test("a delayed preview cannot replace the project the visitor returned to", async (t) => {
+  const { initProjectPreview } = await import("../js/project-preview.js");
+  const handlers = new Map();
+  const link = (key) => ({
+    dataset: { project: key },
+    addEventListener: (event, listener) =>
+      handlers.set(`${key}:${event}`, listener),
+  });
+  const links = [link("garage"), link("travel"), link("besci")];
+  const stage = { dataset: { preview: "garage" } };
+  const image = { src: "original" };
+  const detail = { hidden: true };
+  const caption = { textContent: "original" };
+  const nodes = new Map([
+    ["project-preview-stage", stage],
+    ["project-preview-image", image],
+    ["project-preview-detail", detail],
+    ["project-preview-caption", caption],
+  ]);
+  const pending = [];
+  stubGlobal(t, "document", {
+    getElementById: (id) => nodes.get(id),
+    querySelectorAll: () => links,
+  });
+  stubGlobal(
+    t,
+    "Image",
+    class {
+      decode() {
+        return new Promise((resolve) => pending.push(resolve));
+      }
+    },
+  );
+  initProjectPreview({ matches: true });
+  const travel = handlers.get("travel:focus")();
+  await handlers.get("garage:focus")();
+  pending.splice(0).forEach((resolve) => resolve());
+  await travel;
+  assert.equal(stage.dataset.preview, "garage");
+  assert.equal(image.src, "original");
+
+  const latest = handlers.get("travel:focus")();
+  await latest;
+  assert.equal(stage.dataset.preview, "travel");
+  assert.equal(detail.hidden, false);
+  assert.equal(links[1].dataset.previewActive, "true");
+});

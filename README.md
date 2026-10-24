@@ -60,7 +60,7 @@ Before publishing interaction changes, check:
 - All four demo scenes, arrow/Home/End tab navigation, submission feedback and replay.
 - BeSci screenshot selection, image-dialog Escape/focus return, project previews and the live Travel Fox public itinerary.
 
-GitHub Pages publishes the repository's `main` branch root. A passing check and a successful Pages deployment are separate signals; verify both after pushing. For an asset release, update the stylesheet and entry-module query versions in `index.html`, then verify the live page.
+GitHub Pages publishes the repository's `main` branch root. A passing check and a successful Pages deployment are separate signals; verify both after pushing. For an asset release, update the stylesheet and entry-module query versions in `index.html`, version any changed imported modules as well, then verify the live page.
 
 ## Assets
 

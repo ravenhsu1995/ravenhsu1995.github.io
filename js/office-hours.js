@@ -14,7 +14,7 @@ export function initOfficeHours(applyFrameLayout) {
       kicker: "From check-in to conversation",
       title: "Pick a card. Find your people.",
       description:
-        "Try the three-step arrival: choose a field card, meet the check-in cat, then learn how to join the room. Use the buttons inside the phone to continue.",
+        "The Chinese interface walks through arrival: choose a field card, meet the check-in cat, then join the room. Use the gold confirmation button at the bottom of each tip to continue.",
     },
     quests: {
       scene: "quests",
@@ -22,7 +22,7 @@ export function initOfficeHours(applyFrameLayout) {
       kicker: "Two ways to participate",
       title: "Find a partner. Ask for help.",
       description:
-        "Explore the public Quest Board form and the anonymous question box. Add a link and it appears as a QR code on the board; this preview keeps everything in memory.",
+        "The upper form is a private question to the host, shown anonymously to the room. The lower form is a public post: choose a category, add a message and optionally a link, then use the button below it. This preview keeps entries in memory.",
     },
     featured: {
       scene: "featured",

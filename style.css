@@ -2361,6 +2361,194 @@ details[open] > summary > span[aria-hidden="true"] {
   color: var(--accent);
 }
 
+/* Evidence-led additions retain the portfolio's editorial grid. */
+.program-design,
+.research-example {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  padding-block: 50px;
+}
+
+.program-design h3,
+.research-example h4,
+.research-learning h4,
+.product-learning h4,
+.budget-evidence h4 {
+  font-size: clamp(25px, 2.8vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  font-weight: 550;
+  margin-block: 10px 20px;
+}
+
+.program-design p:not(.small-label),
+.research-example p:not(.small-label),
+.research-learning > p:last-child,
+.product-learning > p:last-child {
+  font-size: 15px;
+  max-width: 65ch;
+  color: var(--muted);
+}
+
+.program-design p + p,
+.research-example p + p {
+  margin-top: 15px;
+}
+
+.meetup-decisions {
+  padding-top: 35px;
+  padding-bottom: 10px;
+}
+
+.evidence-note {
+  font-size: 12px;
+  line-height: 1.7;
+  max-width: 88ch;
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+.budget-evidence > p:not(.small-label) {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.budget-screens {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-block: 24px 18px;
+}
+
+.budget-screens figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.budget-screens button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+}
+
+.budget-screens img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.budget-screens figcaption {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.budget-screens figcaption span {
+  display: block;
+  font-weight: 650;
+}
+
+.travel-live {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+}
+
+.travel-live .travel-prints {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.travel-live .travel-phone-window iframe {
+  height: 100%;
+  margin: 0;
+}
+
+.product-learning {
+  grid-column: 1 / -1;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.research-example {
+  border-top: 1px solid var(--line);
+  margin-top: 35px;
+}
+
+.research-learning {
+  border-left: 3px solid var(--accent);
+  padding-left: 25px;
+  margin-block: 0 45px;
+}
+
+.earlier-learning {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.earlier-learning summary {
+  cursor: pointer;
+  color: var(--ink);
+  text-underline-offset: 4px;
+  text-decoration: underline;
+  padding-block: 10px;
+}
+
+.earlier-learning p {
+  margin-top: 12px;
+}
+
+.contact-note {
+  border-top: 1px solid var(--line);
+  padding-top: 45px;
+  margin-top: 60px;
+}
+
+.contact-note h2 {
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+}
+
+.contact-note p {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.contact-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (width <= 700px) {
+  .program-design,
+  .research-example {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding-block: 30px;
+  }
+
+  .budget-screens {
+    gap: 12px;
+  }
+
+  .budget-screens figcaption {
+    font-size: 10px;
+  }
+
+  .research-learning {
+    padding-left: 18px;
+  }
+}
+
 .earlier .section-heading h2 {
   font-size: clamp(38px, 5vw, 72px);
 }

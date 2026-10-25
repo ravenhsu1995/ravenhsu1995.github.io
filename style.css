@@ -502,6 +502,7 @@ p + p {
   grid-template-columns: 1fr 1fr;
   gap: 10%;
   padding: 90px 0 65px;
+  padding-block: 55px 35px;
 }
 
 .overview-copy h3,
@@ -1731,12 +1732,13 @@ details[open] > summary > span[aria-hidden="true"] {
   display: grid;
   grid-template-columns: 0.85fr 1.3fr;
   align-items: start;
-  gap: 7%;
+  gap: 24px 7%;
   padding-block: 65px 100px;
+  padding-bottom: 60px;
 }
 
 .travel-copy {
-  padding-top: 30px;
+  padding-top: 0;
 }
 
 .travel-copy h3 {
@@ -2398,7 +2400,8 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .meetup-decisions {
   padding-top: 35px;
-  padding-bottom: 10px;
+  padding-bottom: 25px;
+  align-items: start;
 }
 
 .evidence-note {
@@ -2456,6 +2459,7 @@ details[open] > summary > span[aria-hidden="true"] {
   grid-column: 1 / -1;
   width: 100%;
   margin: 0;
+  margin-top: 10px;
 }
 
 .travel-live .travel-prints {
@@ -2470,7 +2474,7 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .product-learning {
   grid-column: 1 / -1;
-  padding-top: 30px;
+  padding-top: 0;
   border-top: 1px solid var(--line);
 }
 
@@ -2647,4 +2651,147 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .image-dialog.is-zoomed.is-portrait .dialog-image-wrap img {
   width: max(100%, 480px);
+}
+
+/* Keep the edited copy intact; separate the main story from optional depth. */
+.case-notes {
+  border-top: 1px solid var(--line);
+}
+
+.case-notes > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-block: 22px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.case-notes > summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-notes > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-size: 25px;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.case-notes[open] > summary::after {
+  content: "−";
+}
+
+.case-notes > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.case-notes > summary h3,
+.case-notes > summary h4 {
+  margin: 5px 0 0;
+  font-size: clamp(21px, 2.1vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.case-notes > summary .small-label {
+  margin: 0;
+}
+
+.program-design {
+  display: block;
+  padding: 0;
+  margin-block: 35px 45px;
+}
+
+.program-design > div {
+  max-width: 65ch;
+  margin-left: auto;
+  padding-block: 5px 25px;
+}
+
+.record-notes > p {
+  padding-block: 5px 22px;
+}
+
+.product-learning > p {
+  margin-block: 5px 25px;
+}
+
+.travel-secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7%;
+  margin-block: 0 25px;
+}
+
+.knowledge-system.case-notes {
+  margin-top: 30px;
+}
+
+.knowledge-system > .knowledge-system-heading {
+  margin-bottom: 0;
+}
+
+.knowledge-body {
+  padding-top: 15px;
+}
+
+.knowledge-body > p {
+  max-width: 65ch;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.knowledge-body .besci-archive {
+  margin-top: 35px;
+  border-bottom: 0;
+}
+
+@media (width <= 700px) {
+  .program-design {
+    margin-block: 25px 30px;
+  }
+
+  .program-design > div {
+    margin-left: 0;
+  }
+
+  .case-notes > summary {
+    padding-block: 20px;
+  }
+
+  .meetup-decisions {
+    gap: 25px;
+  }
+
+  .travel-case {
+    gap: 28px;
+  }
+
+  .travel-secondary {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .budget-screens {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding-bottom: 12px;
+  }
+
+  .budget-screens figure {
+    flex: 0 0 88%;
+    scroll-snap-align: start;
+  }
+
+  .budget-screens figcaption {
+    font-size: 12px;
+  }
 }

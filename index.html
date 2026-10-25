@@ -236,11 +236,13 @@
             software our staff use to run both.
           </p>
         </div>
-        <div class="program-design reveal">
-          <div>
-            <p class="small-label">Designing the support</p>
-            <h3>A program with a way in.</h3>
-          </div>
+        <details class="program-design case-notes reveal">
+          <summary>
+            <div>
+              <p class="small-label">Designing the support</p>
+              <h3>A program with a way in.</h3>
+            </div>
+          </summary>
           <div>
             <p>
               I interviewed experienced startup practitioners to test the
@@ -256,7 +258,7 @@
               founders for Garage and our accelerator.
             </p>
           </div>
-        </div>
+        </details>
         <section
           class="operations-exhibit reveal"
           aria-labelledby="operations-title"
@@ -363,16 +365,20 @@
               while the host can see who asked and follow up.
             </p>
           </div>
-          <div>
-            <p class="small-label">Beyond one afternoon</p>
-            <h3>One record that grows over time.</h3>
+          <details class="case-notes record-notes">
+            <summary>
+              <div>
+                <p class="small-label">Beyond one afternoon</p>
+                <h3>One record that grows over time.</h3>
+              </div>
+            </summary>
             <p>
               With consent, each attendee’s background, needs, attendance and
               feedback build into a record across sessions. It lets us follow
               their journey through the program pool and see who later registers
               interest in applying.
             </p>
-          </div>
+          </details>
         </div>
         <div class="experience reveal" data-gallery>
           <div class="experience-top">
@@ -556,21 +562,6 @@
                 <dt>17 days</dt>
                 <dd>A couple planned their New Zealand honeymoon on it.</dd>
               </div>
-              <div>
-                <dt>Share a trip</dt>
-                <dd>
-                  Trips can be private, link-only or public. A persistent
-                  sharing link respects the owner’s current visibility choice.
-                </dd>
-              </div>
-              <div>
-                <dt>From LINE</dt>
-                <dd>
-                  It detects LINE’s and other in-app browsers, where Google
-                  blocks sign-in, and guides users to a full browser, with one
-                  tap from LINE.
-                </dd>
-              </div>
             </dl>
             <a
               class="text-link"
@@ -724,9 +715,13 @@
               View captured itinerary ↗
             </button>
           </details>
-          <div class="product-learning">
-            <p class="small-label">Changed after feedback · May 2026</p>
-            <h4>A private trip should not mean a broken link.</h4>
+          <details class="product-learning case-notes">
+            <summary>
+              <div>
+                <p class="small-label">Changed after feedback · May 2026</p>
+                <h4>A private trip should not mean a broken link.</h4>
+              </div>
+            </summary>
             <p>
               Users wanted to change a trip’s visibility without losing its
               sharing link. I changed the link to stay with the trip: when it is
@@ -734,7 +729,24 @@
               reopened, the same link works again. The contents still follow the
               owner’s visibility setting.
             </p>
-          </div>
+            <dl class="travel-proof travel-secondary">
+              <div>
+                <dt>Share a trip</dt>
+                <dd>
+                  Trips can be private, link-only or public. A persistent
+                  sharing link respects the owner’s current visibility choice.
+                </dd>
+              </div>
+              <div>
+                <dt>From LINE</dt>
+                <dd>
+                  It detects LINE’s and other in-app browsers, where Google
+                  blocks sign-in, and guides users to a full browser, with one
+                  tap from LINE.
+                </dd>
+              </div>
+            </dl>
+          </details>
         </article>
         <article class="onezero-case reveal" id="one-zero">
           <div class="product-heading">
@@ -902,242 +914,248 @@
               sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
             ></iframe>
           </details>
-          <section class="knowledge-system" aria-labelledby="knowledge-title">
-            <div class="knowledge-system-heading">
+          <details
+            class="knowledge-system case-notes"
+            aria-labelledby="knowledge-title"
+          >
+            <summary class="knowledge-system-heading">
               <div>
                 <p class="project-date">The knowledge behind it</p>
                 <h4 id="knowledge-title">From source<br />to judgement.</h4>
               </div>
+            </summary>
+            <div class="knowledge-body">
               <p>
                 I built 1→0 and, with AI agents, the research knowledge base its
                 writing draws on. BeSci Wiki was an earlier extraction
                 experiment; Second Brain is the independent knowledge base used
                 by 1→0.
               </p>
-            </div>
-            <dl class="knowledge-route">
-              <div>
-                <dt><span>01</span> BeSci Wiki</dt>
-                <dd>Extract claims from research.</dd>
-                <dd>
-                  Claims extracted from papers and reports, each linked to its
-                  source.
-                </dd>
-              </div>
-              <div>
-                <dt><span>02</span> Second Brain</dt>
-                <dd>Keep the evidence traceable.</dd>
-                <dd>
-                  Notes cite registered sources. A model from a different AI
-                  company reviews full-paper notes against the originals to help
-                  detect misattributed claims.
-                </dd>
-              </div>
-              <div>
-                <dt><span>03</span> 1→0</dt>
-                <dd>Make the thinking usable.</dd>
-                <dd>
-                  Its writing draws on the knowledge base for problem framing,
-                  metrics and the consequences of innovation decisions.
-                </dd>
-              </div>
-            </dl>
-            <div class="research-example">
-              <div>
-                <p class="small-label">Research into writing · August 2026</p>
-                <h4>Faster answers. More judgement.</h4>
-              </div>
-              <div>
-                <p>
-                  Two Second Brain concept pages, on the jagged technological
-                  frontier and the ironies of automation, reshaped my first 1→0
-                  article draft for engineers. They shifted its focus from
-                  faster output to the judgement still needed to assess it.
-                </p>
-                <p>
-                  The draft connects an AI study with consultants to earlier
-                  work on automation, while making the limits of applying those
-                  findings to engineers explicit.
-                </p>
-                <p class="image-note">
-                  Editorial example from an unpublished August 2026 draft.
-                </p>
-              </div>
-            </div>
-            <div class="research-learning">
-              <p class="small-label">
-                A lesson from BeSci Wiki · May–July 2026
-              </p>
-              <h4>Check the check.</h4>
-              <p>
-                When a key-term tagging score jumped from 0 to 0.94, I checked
-                the test: its gold set covered only 12 of 79 terms. I stopped
-                treating that score as evidence of overall quality and halted
-                the full re-extraction that depended on it. That earlier
-                experiment is why I examine what an evaluation actually covers.
-              </p>
-            </div>
-            <div class="knowledge-evidence">
-              <div class="knowledge-evidence-copy">
-                <p class="project-date">Inside the research tools</p>
-                <p class="knowledge-number">
-                  114 <span>sources</span><br />121 <span>concept pages</span>
-                </p>
-                <p>
-                  A local research console reads Second Brain and makes source
-                  composition, domain coverage and unresolved contradictions
-                  visible.
-                </p>
-                <p class="knowledge-note">
-                  Local research-console captures, 24 October 2026. Counts
-                  reflect this snapshot.
-                </p>
-              </div>
-              <div
-                class="knowledge-gallery"
-                data-artifact-gallery
-                data-gallery-id="knowledge"
-              >
-                <div
-                  class="screenshot-tabs"
-                  role="group"
-                  aria-label="Explore knowledge management screens"
-                >
-                  <button
-                    type="button"
-                    data-artifact-key="sources"
-                    data-artifact-src="img/knowledge-sources-2x.webp"
-                    data-artifact-caption="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
-                    aria-pressed="true"
-                  >
-                    Sources</button
-                  ><button
-                    type="button"
-                    data-artifact-key="concepts"
-                    data-artifact-src="img/knowledge-vision-2x.webp"
-                    data-artifact-caption="Concept coverage: 121 pages across three domains, with nine contradiction flags kept visible."
-                    aria-pressed="false"
-                  >
-                    Concepts &amp; checks
-                  </button>
+              <dl class="knowledge-route">
+                <div>
+                  <dt><span>01</span> BeSci Wiki</dt>
+                  <dd>Extract claims from research.</dd>
+                  <dd>
+                    Claims extracted from papers and reports, each linked to its
+                    source.
+                  </dd>
                 </div>
-                <button
-                  class="media-open artifact-screen"
-                  type="button"
-                  data-src="img/knowledge-sources-2x.webp"
-                  data-caption="Source management in a local research console that reads Second Brain."
-                  aria-label="Enlarge the selected knowledge management screen"
+                <div>
+                  <dt><span>02</span> Second Brain</dt>
+                  <dd>Keep the evidence traceable.</dd>
+                  <dd>
+                    Notes cite registered sources. A model from a different AI
+                    company reviews full-paper notes against the originals to
+                    help detect misattributed claims.
+                  </dd>
+                </div>
+                <div>
+                  <dt><span>03</span> 1→0</dt>
+                  <dd>Make the thinking usable.</dd>
+                  <dd>
+                    Its writing draws on the knowledge base for problem framing,
+                    metrics and the consequences of innovation decisions.
+                  </dd>
+                </div>
+              </dl>
+              <div class="research-example">
+                <div>
+                  <p class="small-label">Research into writing · August 2026</p>
+                  <h4>Faster answers. More judgement.</h4>
+                </div>
+                <div>
+                  <p>
+                    Two Second Brain concept pages, on the jagged technological
+                    frontier and the ironies of automation, reshaped my first
+                    1→0 article draft for engineers. They shifted its focus from
+                    faster output to the judgement still needed to assess it.
+                  </p>
+                  <p>
+                    The draft connects an AI study with consultants to earlier
+                    work on automation, while making the limits of applying
+                    those findings to engineers explicit.
+                  </p>
+                  <p class="image-note">
+                    Editorial example from an unpublished August 2026 draft.
+                  </p>
+                </div>
+              </div>
+              <div class="research-learning">
+                <p class="small-label">
+                  A lesson from BeSci Wiki · May–July 2026
+                </p>
+                <h4>Check the check.</h4>
+                <p>
+                  When a key-term tagging score jumped from 0 to 0.94, I checked
+                  the test: its gold set covered only 12 of 79 terms. I stopped
+                  treating that score as evidence of overall quality and halted
+                  the full re-extraction that depended on it. That earlier
+                  experiment is why I examine what an evaluation actually
+                  covers.
+                </p>
+              </div>
+              <div class="knowledge-evidence">
+                <div class="knowledge-evidence-copy">
+                  <p class="project-date">Inside the research tools</p>
+                  <p class="knowledge-number">
+                    114 <span>sources</span><br />121 <span>concept pages</span>
+                  </p>
+                  <p>
+                    A local research console reads Second Brain and makes source
+                    composition, domain coverage and unresolved contradictions
+                    visible.
+                  </p>
+                  <p class="knowledge-note">
+                    Local research-console captures, 24 October 2026. Counts
+                    reflect this snapshot.
+                  </p>
+                </div>
+                <div
+                  class="knowledge-gallery"
+                  data-artifact-gallery
+                  data-gallery-id="knowledge"
                 >
-                  <img
-                    src="img/knowledge-sources-2x.webp"
-                    width="1840"
-                    height="1500"
-                    loading="lazy"
-                    alt="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
-                  /><span class="screenshot-zoom" aria-hidden="true"
-                    >Inspect the system ↗</span
+                  <div
+                    class="screenshot-tabs"
+                    role="group"
+                    aria-label="Explore knowledge management screens"
                   >
-                </button>
-                <p
-                  class="screenshot-caption"
-                  data-artifact-caption
-                  aria-live="polite"
-                >
-                  Source management: 114 records, with domain and document-type
-                  filters and a bibliographic inventory.
-                </p>
+                    <button
+                      type="button"
+                      data-artifact-key="sources"
+                      data-artifact-src="img/knowledge-sources-2x.webp"
+                      data-artifact-caption="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
+                      aria-pressed="true"
+                    >
+                      Sources</button
+                    ><button
+                      type="button"
+                      data-artifact-key="concepts"
+                      data-artifact-src="img/knowledge-vision-2x.webp"
+                      data-artifact-caption="Concept coverage: 121 pages across three domains, with nine contradiction flags kept visible."
+                      aria-pressed="false"
+                    >
+                      Concepts &amp; checks
+                    </button>
+                  </div>
+                  <button
+                    class="media-open artifact-screen"
+                    type="button"
+                    data-src="img/knowledge-sources-2x.webp"
+                    data-caption="Source management in a local research console that reads Second Brain."
+                    aria-label="Enlarge the selected knowledge management screen"
+                  >
+                    <img
+                      src="img/knowledge-sources-2x.webp"
+                      width="1840"
+                      height="1500"
+                      loading="lazy"
+                      alt="Source management: 114 records, with domain and document-type filters and a bibliographic inventory."
+                    /><span class="screenshot-zoom" aria-hidden="true"
+                      >Inspect the system ↗</span
+                    >
+                  </button>
+                  <p
+                    class="screenshot-caption"
+                    data-artifact-caption
+                    aria-live="polite"
+                  >
+                    Source management: 114 records, with domain and
+                    document-type filters and a bibliographic inventory.
+                  </p>
+                </div>
               </div>
-            </div>
-          </section>
-          <details class="besci-archive" id="besci">
-            <summary>
-              <span
-                ><small>First version · May–July 2026</small>BeSci Wiki — where
-                the knowledge base began</span
-              ><span aria-hidden="true">+</span>
-            </summary>
-            <div class="besci-copy">
-              <div class="besci-intro">
-                <h4>Claims linked to sources.</h4>
-                <p>
-                  A behavioral-science knowledge base: 638 claims from 38
-                  sources, each traceable to its source.
-                </p>
-              </div>
-              <div class="besci-learning">
-                <p>
-                  I paired the extracting model with a second model as reviewer
-                  and tested it against a 25-document gold set I checked by
-                  hand. Concept pages connect claims to their conditions,
-                  quotations, page numbers and source records.
-                </p>
-                <p>
-                  The gold set covered only 12 of 79 terms, too few to judge the
-                  whole extraction, so I stopped relying on that score and
-                  closed the experiment. Its 18 source files moved into Second
-                  Brain, and so did the lesson: Second Brain is checked claim by
-                  claim against registered sources, not by one aggregate score.
-                  This archive shows the earlier prototype, not the current
-                  Second Brain system.
-                </p>
-              </div>
-            </div>
-            <div class="besci-media screenshot-gallery">
-              <div
-                class="screenshot-tabs"
-                role="group"
-                aria-label="Explore BeSci Wiki screenshots"
-              >
-                <button
-                  type="button"
-                  data-besci-view="overview"
-                  aria-pressed="true"
-                >
-                  Overview
-                </button>
-                <button
-                  type="button"
-                  data-besci-view="concept"
-                  aria-pressed="false"
-                >
-                  Concept &amp; claims
-                </button>
-                <button
-                  type="button"
-                  data-besci-view="source"
-                  aria-pressed="false"
-                >
-                  Source &amp; evidence
-                </button>
-              </div>
-              <button
-                class="media-open screenshot-open"
-                id="besci-screenshot"
-                data-src="img/besci-overview-2x.webp"
-                data-caption="BeSci Wiki overview: 638 claims from 38 sources, with review states that separate drafts from human-verified claims."
-                type="button"
-                aria-label="Enlarge the BeSci Wiki overview"
-              >
-                <img
-                  id="besci-image"
-                  src="img/besci-overview-2x.webp"
-                  alt="BeSci Wiki overview showing the full navigation, corpus totals and review-state breakdown"
-                  width="2560"
-                  height="1440"
-                  loading="lazy"
-                />
-                <span class="screenshot-zoom" aria-hidden="true"
-                  >View full image ↗</span
-                >
-              </button>
-              <p
-                class="screenshot-caption"
-                id="besci-caption"
-                aria-live="polite"
-              >
-                The corpus at a glance. Review states distinguish human-verified
-                claims from drafts.
-              </p>
+              <details class="besci-archive" id="besci">
+                <summary>
+                  <span
+                    ><small>First version · May–July 2026</small>BeSci Wiki —
+                    where the knowledge base began</span
+                  ><span aria-hidden="true">+</span>
+                </summary>
+                <div class="besci-copy">
+                  <div class="besci-intro">
+                    <h4>Claims linked to sources.</h4>
+                    <p>
+                      A behavioral-science knowledge base: 638 claims from 38
+                      sources, each traceable to its source.
+                    </p>
+                  </div>
+                  <div class="besci-learning">
+                    <p>
+                      I paired the extracting model with a second model as
+                      reviewer and tested it against a 25-document gold set I
+                      checked by hand. Concept pages connect claims to their
+                      conditions, quotations, page numbers and source records.
+                    </p>
+                    <p>
+                      The gold set covered only 12 of 79 terms, too few to judge
+                      the whole extraction, so I stopped relying on that score
+                      and closed the experiment. Its 18 source files moved into
+                      Second Brain, and so did the lesson: Second Brain is
+                      checked claim by claim against registered sources, not by
+                      one aggregate score. This archive shows the earlier
+                      prototype, not the current Second Brain system.
+                    </p>
+                  </div>
+                </div>
+                <div class="besci-media screenshot-gallery">
+                  <div
+                    class="screenshot-tabs"
+                    role="group"
+                    aria-label="Explore BeSci Wiki screenshots"
+                  >
+                    <button
+                      type="button"
+                      data-besci-view="overview"
+                      aria-pressed="true"
+                    >
+                      Overview
+                    </button>
+                    <button
+                      type="button"
+                      data-besci-view="concept"
+                      aria-pressed="false"
+                    >
+                      Concept &amp; claims
+                    </button>
+                    <button
+                      type="button"
+                      data-besci-view="source"
+                      aria-pressed="false"
+                    >
+                      Source &amp; evidence
+                    </button>
+                  </div>
+                  <button
+                    class="media-open screenshot-open"
+                    id="besci-screenshot"
+                    data-src="img/besci-overview-2x.webp"
+                    data-caption="BeSci Wiki overview: 638 claims from 38 sources, with review states that separate drafts from human-verified claims."
+                    type="button"
+                    aria-label="Enlarge the BeSci Wiki overview"
+                  >
+                    <img
+                      id="besci-image"
+                      src="img/besci-overview-2x.webp"
+                      alt="BeSci Wiki overview showing the full navigation, corpus totals and review-state breakdown"
+                      width="2560"
+                      height="1440"
+                      loading="lazy"
+                    />
+                    <span class="screenshot-zoom" aria-hidden="true"
+                      >View full image ↗</span
+                    >
+                  </button>
+                  <p
+                    class="screenshot-caption"
+                    id="besci-caption"
+                    aria-live="polite"
+                  >
+                    The corpus at a glance. Review states distinguish
+                    human-verified claims from drafts.
+                  </p>
+                </div>
+              </details>
             </div>
           </details>
         </article>

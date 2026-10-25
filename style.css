@@ -2814,8 +2814,13 @@ details[open] > summary > span[aria-hidden="true"] {
   margin: 0;
 }
 
+.earlier-media .artifact-screen {
+  border: 0;
+  background: transparent;
+}
+
 .earlier-media .artifact-screen img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: auto;
 }
 
 .earlier-venture .earlier-media {
@@ -2826,10 +2831,6 @@ details[open] > summary > span[aria-hidden="true"] {
 .earlier-faa .earlier-media {
   grid-column: 2;
   grid-row: 1;
-}
-
-.earlier-faa .artifact-screen img {
-  aspect-ratio: 3 / 2;
 }
 
 @media (width <= 700px) {

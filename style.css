@@ -2795,3 +2795,49 @@ details[open] > summary > span[aria-hidden="true"] {
     font-size: 12px;
   }
 }
+
+/* A compact contact sheet exposes the breadth of the original project material. */
+.earlier-media {
+  min-width: 0;
+}
+
+.earlier-media .artifact-toolbar {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.earlier-media .screenshot-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+
+.earlier-media .artifact-screen img {
+  aspect-ratio: 16 / 9;
+}
+
+.earlier-venture .earlier-media {
+  position: sticky;
+  top: 120px;
+}
+
+.earlier-faa .earlier-media {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.earlier-faa .artifact-screen img {
+  aspect-ratio: 3 / 2;
+}
+
+@media (width <= 700px) {
+  .earlier-venture .earlier-media {
+    position: static;
+  }
+
+  .earlier-media .artifact-toolbar {
+    display: flex;
+  }
+}

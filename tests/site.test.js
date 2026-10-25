@@ -40,6 +40,34 @@ test("local media, stylesheet, module and enlargement links exist", async () => 
     }
   }
 });
+
+test("budget captures retain lossless source pixels for high-density enlargement", async () => {
+  const budgetImages = nodes.filter((node) =>
+    attribute(node, "src")?.startsWith("img/travel-budget-"),
+  );
+  assert.equal(budgetImages.length, 2);
+  for (const image of budgetImages) {
+    const path = attribute(image, "src");
+    const source = await readFile(new URL(path, root));
+    assert.equal(
+      source.toString("ascii", 12, 16),
+      "VP8L",
+      `${path}: use lossless WebP`,
+    );
+    const dimensions = source.readUInt32LE(21);
+    const width = (dimensions & 0x3fff) + 1;
+    const height = ((dimensions >>> 14) & 0x3fff) + 1;
+    assert.ok(width >= 1200, `${path}: needs high-density source pixels`);
+    assert.equal(Number(attribute(image, "width")), width);
+    assert.equal(Number(attribute(image, "height")), height);
+    const trigger = image.parentNode;
+    assert.equal(
+      attribute(trigger, "data-src"),
+      path,
+      "enlargement must use the high-resolution source",
+    );
+  }
+});
 test("every DOM ID referenced by an interaction module exists in the page", async () => {
   const { readdir } = await import("node:fs/promises");
   for (const file of await readdir(new URL("js/", root))) {

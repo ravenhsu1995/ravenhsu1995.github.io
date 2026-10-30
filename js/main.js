@@ -8,6 +8,7 @@ import { initBesciGallery } from "./besci-gallery.js?v=20261024-qr";
 import { initMediaViewer } from "./media-viewer.js?v=20261024-qr";
 import { initProjectPreview } from "./project-preview.js?v=20261030-align";
 import { initFragmentDisclosure } from "./fragment-disclosure.js?v=20261030-align";
+import { initRoomStack } from "./room-stack.js?v=20261030-sheet";
 
 // Shared browser state is passed explicitly; features own their DOM and events.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -23,3 +24,4 @@ initArtifactGalleries();
 initMediaViewer();
 initProjectPreview(reducedMotion);
 initFragmentDisclosure();
+initRoomStack();

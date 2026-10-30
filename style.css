@@ -1,46 +1,72 @@
-/* Fonts, theme tokens and document defaults. */
-@font-face {
-  font-family: Manrope;
-  src: url("fonts/manrope.woff2") format("woff2");
-  font-weight: 200 800;
-  font-display: swap;
-}
-
+/* Theme tokens and document defaults. Material: warm stationery on a felt
+   desk, lit from the left; deep coral only for links, focus and live state. */
 :root {
-  --paper: #f7f8f6;
-  --ink: #1e2421;
-  --muted: #59615c;
-  --line: #cbd2cd;
-  --accent: #286a5c;
-  --panel: #edf0ed;
-  --onaccent: #f7f8f6;
-  --stage: #1e2421;
-  --onstage: #f7f8f6;
+  --paper: oklch(97% 0.006 55deg);
+  --ink: oklch(21% 0.012 38deg);
+  --muted: oklch(47% 0.013 45deg);
+  --line: oklch(87% 0.009 55deg);
+  --line-2: oklch(81% 0.011 55deg);
+  --accent: oklch(54% 0.165 29deg);
+  --panel: oklch(94.5% 0.007 55deg);
+  --onaccent: oklch(98.8% 0.0045 80deg);
+  --stage: oklch(22% 0.011 40deg);
+  --onstage: oklch(96.5% 0.006 70deg);
+  --cotton: oklch(98.8% 0.0045 80deg);
+  --desk: oklch(94.3% 0.008 64deg);
+  --paid: oklch(55.5% 0.15 33deg);
+  --shade: 32% 0.03 50;
+  --lit: 100% 0.005 80;
+  --tex-cotton: url("img/cotton.svg");
+  --tex-desk: url("img/felt.svg");
+  --edge-stock:
+    inset 0 1px 0 oklch(var(--lit) / 90%),
+    inset 0 -1px 0 oklch(var(--shade) / 7%),
+    0 0 0 0.5px oklch(var(--shade) / 22%), 0 1px 0 oklch(var(--shade) / 12%);
+  --cast-stock: 6px 5px 10px -6px oklch(var(--shade) / 30%);
+  --cast-stock-lift: 12px 10px 18px -8px oklch(var(--shade) / 30%);
+  --press-groove:
+    inset 1px 1.5px 2px oklch(var(--shade) / 16%),
+    inset -1px -1px 0 oklch(var(--lit) / 90%),
+    0 0 0 0.5px oklch(var(--shade) / 20%);
 
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --paper: #151b18;
-  --ink: #eef2ef;
-  --muted: #acb8b0;
-  --line: #3d4a42;
-  --accent: #a2cbbb;
-  --panel: #202a24;
-  --onaccent: #15221b;
+  --paper: oklch(18% 0.01 40deg);
+  --ink: oklch(95% 0.006 70deg);
+  --muted: oklch(73% 0.012 55deg);
+  --line: oklch(32% 0.012 45deg);
+  --line-2: oklch(38% 0.012 45deg);
+  --accent: oklch(74% 0.125 30deg);
+  --panel: oklch(22% 0.011 40deg);
+  --onaccent: oklch(21% 0.012 38deg);
+  --stage: oklch(13% 0.01 40deg);
+  --cotton: oklch(24% 0.011 42deg);
+  --desk: oklch(15.5% 0.01 40deg);
+  --paid: oklch(70% 0.13 33deg);
+  --shade: 3% 0.01 40;
+  --lit: 40% 0.012 55;
 
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #151b18;
-    --ink: #eef2ef;
-    --muted: #acb8b0;
-    --line: #3d4a42;
-    --accent: #a2cbbb;
-    --panel: #202a24;
-    --onaccent: #15221b;
+    --paper: oklch(18% 0.01 40deg);
+    --ink: oklch(95% 0.006 70deg);
+    --muted: oklch(73% 0.012 55deg);
+    --line: oklch(32% 0.012 45deg);
+    --line-2: oklch(38% 0.012 45deg);
+    --accent: oklch(74% 0.125 30deg);
+    --panel: oklch(22% 0.011 40deg);
+    --onaccent: oklch(21% 0.012 38deg);
+    --stage: oklch(13% 0.01 40deg);
+    --cotton: oklch(24% 0.011 42deg);
+    --desk: oklch(15.5% 0.01 40deg);
+    --paid: oklch(70% 0.13 33deg);
+    --shade: 3% 0.01 40;
+    --lit: 40% 0.012 55;
 
     color-scheme: dark;
   }
@@ -59,7 +85,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Manrope, Arial, sans-serif;
+  font-family: "General Sans", ui-sans-serif, system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   overflow-x: clip;
@@ -188,10 +214,12 @@ p + p {
 }
 
 .theme-toggle {
-  border: 1px solid var(--line);
-  padding: 6px 15px;
-  border-radius: 100px;
+  padding: 7px 15px;
+  border-radius: 8px;
   font-size: 12px;
+  background-color: var(--cotton);
+  background-image: var(--tex-cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
 }
 
 .work-index {
@@ -225,7 +253,8 @@ p + p {
   aspect-ratio: 3 / 2;
   padding: 5%;
   gap: 5%;
-  background: var(--panel);
+  background-color: var(--desk);
+  background-image: var(--tex-desk);
   border: 1px solid var(--line);
   overflow: hidden;
 }
@@ -243,15 +272,14 @@ p + p {
 }
 
 .project-preview-stage[data-preview="travel"] {
-  background: #fcf9f4;
+  background: var(--desk);
 }
 
 .project-preview-stage[data-preview="travel"] img {
   width: 45%;
   height: auto;
   max-height: 100%;
-  border: 1px solid #d9d7d1;
-  box-shadow: 0 8px 20px -12px #302a2266;
+  box-shadow: var(--edge-stock), var(--cast-stock);
 }
 
 .project-preview p {
@@ -273,7 +301,7 @@ p + p {
   border-bottom: 1px solid var(--line);
   font-size: clamp(22px, 2.3vw, 38px);
   line-height: 1.2;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.03em;
   transition:
     color 0.25s,
     padding 0.25s;
@@ -290,7 +318,7 @@ p + p {
 .project-list a:hover,
 .project-list a:focus-visible,
 .project-list a[data-preview-active="true"] {
-  color: var(--accent);
+  color: var(--ink);
   padding-left: 14px;
 }
 
@@ -309,7 +337,7 @@ p + p {
   font-size: clamp(48px, 5.5vw, 88px);
   font-weight: 600;
   line-height: 1.04;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   grid-column: 1;
 }
 
@@ -317,7 +345,7 @@ p + p {
   font-size: clamp(50px, 7.5vw, 120px);
   font-weight: 600;
   line-height: 1.04;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   grid-column: 1/-1;
 }
 
@@ -351,16 +379,20 @@ p + p {
 .gallery-tabs,
 .screenshot-tabs {
   display: flex;
-  gap: 5px;
+  gap: 2px;
   flex-wrap: wrap;
+  padding: 4px;
+  border-radius: 12px;
+  background-color: var(--cotton);
+  box-shadow: var(--press-groove);
 }
 
 .gallery-tabs button,
 .screenshot-tabs button {
   font-size: 12px;
-  padding: 9px 16px;
-  border: 1px solid var(--line);
-  border-radius: 100px;
+  padding: 8px 15px;
+  color: var(--muted);
+  border-radius: 8px;
   transition:
     background 0.2s,
     color 0.2s,
@@ -369,9 +401,10 @@ p + p {
 
 .gallery-tabs [aria-selected="true"],
 .screenshot-tabs [aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--paper);
-  border-color: var(--ink);
+  color: var(--ink);
+  background-color: var(--cotton);
+  background-image: var(--tex-cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
 }
 
 .experience-panel {
@@ -432,7 +465,7 @@ p + p {
   grid-row: 1/4;
   font-size: clamp(28px, 3.3vw, 48px);
   line-height: 1.15;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.03em;
   max-width: 460px;
 }
 
@@ -475,7 +508,7 @@ p + p {
 .decisions-grid h3 {
   font-size: 27px;
   line-height: 1.25;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -505,7 +538,7 @@ p + p {
   font-size: 60px;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.04em;
   min-width: 90px;
 }
 
@@ -522,9 +555,13 @@ p + p {
   padding-bottom: 75px;
 }
 
-.decision-detail {
-  border-left: 3px solid var(--accent);
-  padding-left: 25px;
+.decision-detail,
+.research-learning {
+  padding: 28px 30px;
+  border-radius: 8px;
+  background-color: var(--cotton);
+  background-image: var(--tex-cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
 }
 
 .outcomes {
@@ -540,12 +577,12 @@ p + p {
   font-size: clamp(55px, 7vw, 110px);
   font-weight: 600;
   line-height: 1.1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
 }
 
 .outcomes strong span {
   font-size: 0.5em;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .outcomes p {
@@ -607,7 +644,7 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .besci-intro h3 {
   font-size: clamp(48px, 7vw, 110px);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   line-height: 1;
   margin-bottom: 25px;
   font-weight: 550;
@@ -657,10 +694,11 @@ details[open] > summary > span[aria-hidden="true"] {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--stage);
+  color: var(--onstage);
   padding: 10px 16px;
-  border-radius: 100px;
+  border-radius: 8px;
+  box-shadow: var(--cast-stock);
   font-size: 11px;
 }
 
@@ -676,6 +714,10 @@ details[open] > summary > span[aria-hidden="true"] {
   border-bottom: 1px solid currentcolor;
   padding-bottom: 5px;
   margin-top: 25px;
+}
+
+.text-link:hover {
+  border-bottom-color: var(--accent);
 }
 
 .text-link + .text-link {
@@ -1048,8 +1090,8 @@ details[open] > summary > span[aria-hidden="true"] {
   }
 
   .decision-detail {
-    margin-top: 40px;
-    padding-left: 20px;
+    margin-block: 40px 30px;
+    padding: 24px 22px;
   }
 
   .outcomes {
@@ -1221,7 +1263,7 @@ details[open] > summary > span[aria-hidden="true"] {
 .demo-feedback button {
   padding: 8px 14px;
   border: 1px solid currentcolor;
-  border-radius: 100px;
+  border-radius: 8px;
   font-size: 12px;
   white-space: nowrap;
 }
@@ -1245,12 +1287,31 @@ details[open] > summary > span[aria-hidden="true"] {
 
 /* An open workroom: actual artifacts, one shared space. */
 .hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 42% 58%;
   align-items: center;
   gap: 0;
   min-height: 660px;
   padding-block: 28px 65px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc(50% - 50vw);
+  z-index: -1;
+  background-color: var(--desk);
+  background-image:
+    radial-gradient(90% 120% at 0% 30%, var(--cotton), transparent 62%),
+    radial-gradient(
+      120% 100% at 100% 100%,
+      oklch(var(--shade) / 7%),
+      transparent 55%
+    ),
+    var(--tex-desk);
 }
 
 .hero-copy {
@@ -1263,7 +1324,7 @@ details[open] > summary > span[aria-hidden="true"] {
   font-size: clamp(75px, 7.5vw, 140px);
   font-weight: 600;
   line-height: 0.98;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
   margin: 0 0 34px;
 }
 
@@ -1296,42 +1357,104 @@ details[open] > summary > span[aria-hidden="true"] {
   isolation: isolate;
 }
 
+/* Each piece is printed on a cotton sheet lying on the desk; the sheet
+   sits behind the print and carries the light and the cast. */
 .room-piece {
+  --sheet: 12px;
+  --sheet-foot: var(--sheet);
+  --sheet-cast:
+    2px 3px 4px -2px oklch(var(--shade) / 18%),
+    10px 16px 26px -8px oklch(var(--shade) / 22%),
+    24px 34px 60px -28px oklch(var(--shade) / 30%);
+
   display: block;
   position: absolute;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: 0 20px 35px -20px #0006;
+  background: var(--cotton);
+}
+
+.room-piece::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--sheet) * -1) calc(var(--sheet) * -1)
+    calc(var(--sheet-foot) * -1);
+  z-index: -1;
+  border-radius: 2px;
+  background-color: var(--cotton);
+  background-image:
+    linear-gradient(100deg, oklch(var(--lit) / 70%), transparent 45%),
+    var(--tex-cotton);
+  box-shadow: var(--edge-stock), var(--sheet-cast);
   transition: box-shadow 0.3s;
 }
 
+.room-piece > img,
+.room-board iframe {
+  outline: 1px solid oklch(var(--shade) / 12%);
+}
+
+.room-piece:has(.room-piece-label) {
+  --sheet-foot: 40px;
+}
+
 .room-piece-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: absolute;
   top: 100%;
-  left: -1px;
-  width: calc(100% + 2px);
-  padding: 8px 11px;
+  left: 0;
+  width: 100%;
+  padding: 11px 0 0;
   font-size: 11px;
-  background: var(--paper);
+  font-weight: 500;
   color: var(--ink);
-  border: 1px solid var(--line);
   line-height: 1.3;
+}
+
+/* The one settled state, pressed into the sheet: the product is live. */
+.room-stamp {
+  font-size: clamp(16px, 1.9vw, 28px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--paid);
+  filter: url("#pressed-ink");
+}
+
+.room-piece.room-travel {
+  --sheet-foot: 48px;
+}
+
+.room-travel .room-piece-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 15px;
+}
+
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .room-piece:hover,
 .room-piece:focus-visible {
   z-index: 10;
-  box-shadow: 0 24px 40px -15px #0006;
-  border-color: var(--accent);
+
+  --sheet-cast:
+    2px 3px 4px -2px oklch(var(--shade) / 18%),
+    16px 24px 34px -8px oklch(var(--shade) / 26%),
+    34px 48px 80px -30px oklch(var(--shade) / 32%);
+}
+
+.room-piece:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .room-board {
-  width: 86%;
-  left: 12%;
-  top: 8%;
+  width: 64%;
+  left: 24%;
+  top: 6%;
   aspect-ratio: 1.9;
   transform: rotate(2deg);
   z-index: 1;
@@ -1398,7 +1521,7 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .work-index h2 {
   line-height: 1.04;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
   font-weight: 600;
   font-size: clamp(26px, 3vw, 44px);
 }
@@ -1447,7 +1570,7 @@ details[open] > summary > span[aria-hidden="true"] {
 .earlier-copy h3 {
   font-size: clamp(30px, 3.2vw, 49px);
   line-height: 1.12;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.03em;
   font-weight: 550;
   margin-bottom: 24px;
 }
@@ -1538,8 +1661,16 @@ details[open] > summary > span[aria-hidden="true"] {
     aspect-ratio: 1.4;
   }
 
+  .room-piece {
+    --sheet: 7px;
+  }
+
+  .room-piece:has(.room-piece-label) {
+    --sheet-foot: 30px;
+  }
+
   .room-piece-label {
-    padding: 7px 8px;
+    padding-top: 8px;
     font-size: 10px;
   }
 
@@ -1555,9 +1686,12 @@ details[open] > summary > span[aria-hidden="true"] {
     top: 40%;
   }
 
+  .room-piece.room-travel {
+    --sheet-foot: 34px;
+  }
+
   .room-travel .room-piece-label {
-    justify-content: center;
-    padding-inline: 4px;
+    padding-top: 9px;
     font-size: 9px;
     white-space: nowrap;
   }
@@ -1643,7 +1777,7 @@ details[open] > summary > span[aria-hidden="true"] {
 .travel-copy h3 {
   font-size: clamp(38px, 4.3vw, 72px);
   line-height: 1.06;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   font-weight: 550;
   margin-bottom: 30px;
 }
@@ -1683,7 +1817,7 @@ details[open] > summary > span[aria-hidden="true"] {
   font-size: 22px;
   line-height: 1.2;
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .travel-proof dd {
@@ -1722,7 +1856,7 @@ details[open] > summary > span[aria-hidden="true"] {
   width: 100%;
   height: 100%;
   border: 1px solid var(--line);
-  background: #fcf9f4;
+  background: var(--cotton);
 }
 
 .travel-capture {
@@ -1806,14 +1940,14 @@ details[open] > summary > span[aria-hidden="true"] {
   font-size: clamp(90px, 13vw, 190px);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.09em;
+  letter-spacing: -0.05em;
   margin: 20px 0 0;
 }
 
 .product-intro .product-deck {
   font-size: clamp(25px, 3vw, 42px);
   line-height: 1.2;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.03em;
   margin: 0 0 23px;
   color: var(--ink);
 }
@@ -1845,9 +1979,10 @@ details[open] > summary > span[aria-hidden="true"] {
   display: block;
   position: relative;
   width: 100%;
-  border: 1px solid var(--line);
   padding: 0;
-  background: #fff;
+  border-radius: 4px;
+  background: var(--cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
   overflow: hidden;
   cursor: zoom-in;
 }
@@ -1907,7 +2042,7 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .knowledge-system-heading h4 {
   font-size: clamp(26px, 3.2vw, 44px);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   font-weight: 500;
   line-height: 1.15;
   margin: 15px 0 0;
@@ -1938,7 +2073,7 @@ details[open] > summary > span[aria-hidden="true"] {
 }
 
 .knowledge-route dt span {
-  color: var(--accent);
+  color: var(--muted);
   font-size: 11px;
   margin-right: 12px;
 }
@@ -1963,7 +2098,7 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .knowledge-evidence-copy .knowledge-number {
   font-size: clamp(38px, 5vw, 66px);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   line-height: 1.2;
   margin-block: 20px;
   color: var(--ink);
@@ -2088,7 +2223,7 @@ details[open] > summary > span[aria-hidden="true"] {
 .exhibit-heading h3,
 .office-heading h3 {
   font-size: clamp(32px, 4vw, 58px);
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
   line-height: 1.08;
   font-weight: 500;
   margin-top: 16px;
@@ -2133,7 +2268,8 @@ details[open] > summary > span[aria-hidden="true"] {
   grid-template-columns: 1fr 1fr;
   gap: 7%;
   align-items: start;
-  background: #f2ece3;
+  background-color: var(--desk);
+  background-image: var(--tex-desk);
   padding: 32px 26px 22px;
 }
 
@@ -2150,8 +2286,7 @@ details[open] > summary > span[aria-hidden="true"] {
   display: block;
   width: 100%;
   padding: 0;
-  border: 1px solid #d8d0c5;
-  box-shadow: 0 15px 20px -18px #3d302b80;
+  box-shadow: var(--edge-stock), var(--cast-stock);
 }
 
 .travel-prints img {
@@ -2162,15 +2297,14 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .travel-prints figcaption {
   font-size: 10px;
-  color: #4b443f;
+  color: var(--muted);
   padding-top: 12px;
 }
 
 .travel-phone-window {
   aspect-ratio: 480 / 840;
   overflow: hidden;
-  border: 1px solid #d8d0c5;
-  box-shadow: 0 15px 20px -18px #3d302b80;
+  box-shadow: var(--edge-stock), var(--cast-stock);
 }
 
 .travel-phone-window .travel-frame {
@@ -2182,30 +2316,19 @@ details[open] > summary > span[aria-hidden="true"] {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #286a5c;
+  background: var(--accent);
   margin-right: 4px;
   vertical-align: middle;
 }
 
 .product-gallery {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--stage);
+  color: var(--onstage);
   padding: clamp(14px, 2.4vw, 34px);
 }
 
-.product-gallery .screenshot-tabs button {
-  color: var(--paper);
-  border-color: color-mix(in srgb, var(--paper) 35%, transparent);
-}
-
-.product-gallery .screenshot-tabs button[aria-pressed="true"] {
-  color: var(--ink);
-  background: var(--paper);
-  border-color: var(--paper);
-}
-
 .product-gallery .screenshot-caption {
-  color: var(--paper);
+  color: var(--onstage);
   opacity: 0.8;
 }
 
@@ -2230,8 +2353,8 @@ details[open] > summary > span[aria-hidden="true"] {
   display: block;
   width: 100%;
   padding: 0;
-  border: 1px solid var(--line);
-  background: #fff;
+  background: var(--cotton);
+  box-shadow: var(--edge-stock), var(--cast-stock);
   cursor: zoom-in;
 }
 
@@ -2258,7 +2381,7 @@ details[open] > summary > span[aria-hidden="true"] {
   position: absolute;
   right: -26px;
   top: 17px;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 /* Evidence-led additions retain the portfolio's editorial grid. */
@@ -2277,7 +2400,7 @@ details[open] > summary > span[aria-hidden="true"] {
 .budget-evidence h4 {
   font-size: clamp(25px, 2.8vw, 40px);
   line-height: 1.15;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   font-weight: 550;
   margin-block: 10px 20px;
 }
@@ -2382,8 +2505,6 @@ details[open] > summary > span[aria-hidden="true"] {
 }
 
 .research-learning {
-  border-left: 3px solid var(--accent);
-  padding-left: 25px;
   margin-block: 0 45px;
 }
 
@@ -2414,7 +2535,7 @@ details[open] > summary > span[aria-hidden="true"] {
 .contact-note h2 {
   font-size: clamp(32px, 4vw, 54px);
   line-height: 1.15;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   margin-bottom: 20px;
 }
 
@@ -2575,7 +2696,7 @@ details[open] > summary > span[aria-hidden="true"] {
   flex: 0 0 auto;
   font-size: 25px;
   font-weight: 400;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .case-notes[open] > summary::after {
@@ -2739,4 +2860,9 @@ details[open] > summary > span[aria-hidden="true"] {
   .earlier-media .artifact-toolbar {
     display: flex;
   }
+}
+
+/* Photographs of people take the paper's light: muted, a touch warm. */
+.earlier-faa .artifact-screen img {
+  filter: saturate(0.88) sepia(0.08);
 }

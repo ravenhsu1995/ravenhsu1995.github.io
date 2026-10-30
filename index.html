@@ -29,14 +29,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://ravenhsu1995.github.io/" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
     <link
-      rel="preload"
-      href="fonts/manrope.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap"
     />
-    <link rel="stylesheet" href="style.css?v=20261030-note" />
+    <link rel="stylesheet" href="style.css?v=20261030-press" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -47,10 +46,57 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261030-plain"></script>
+    <script type="module" src="js/main.js?v=20261030-sheet"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+      <filter
+        id="pressed-ink"
+        x="-15%"
+        y="-25%"
+        width="130%"
+        height="150%"
+        color-interpolation-filters="sRGB"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.07 0.11"
+          numOctaves="2"
+          seed="7"
+          result="noise"
+        />
+        <feColorMatrix
+          in="noise"
+          values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 -0.15"
+          result="speck"
+        />
+        <feComposite
+          in="speck"
+          in2="SourceAlpha"
+          operator="in"
+          result="ink-light"
+        />
+        <feOffset in="SourceAlpha" dx="1.1" dy="1.5" result="shift-down" />
+        <feComposite in="SourceAlpha" in2="shift-down" operator="out" />
+        <feGaussianBlur stdDeviation="0.55" result="near-wall" />
+        <feFlood flood-color="black" flood-opacity="0.5" />
+        <feComposite in2="near-wall" operator="in" />
+        <feComposite in2="SourceAlpha" operator="in" result="shade" />
+        <feOffset in="SourceAlpha" dx="-0.9" dy="-1.2" result="shift-up" />
+        <feComposite in="SourceAlpha" in2="shift-up" operator="out" />
+        <feGaussianBlur stdDeviation="0.5" result="far-wall" />
+        <feFlood flood-color="white" flood-opacity="0.6" />
+        <feComposite in2="far-wall" operator="in" />
+        <feComposite in2="SourceAlpha" operator="in" result="light" />
+        <feMerge>
+          <feMergeNode in="SourceGraphic" />
+          <feMergeNode in="ink-light" />
+          <feMergeNode in="shade" />
+          <feMergeNode in="light" />
+        </feMerge>
+      </filter>
+    </svg>
     <header class="site-header wrap">
       <a class="wordmark" href="#" aria-label="Raven Hsu home">RAVEN HSU</a>
       <nav aria-label="Main navigation">
@@ -116,7 +162,9 @@
                 alt="Travel Fox homepage and public Kansai trip"
                 width="1440"
                 height="2520"
-              /><span class="room-piece-label">Travel Fox</span></a
+              /><span class="room-piece-label"
+                >Travel Fox<span class="room-stamp">Live</span></span
+              ></a
             >
             <button
               class="hero-phone room-piece media-open"

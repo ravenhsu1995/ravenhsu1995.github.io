@@ -13,7 +13,7 @@ const projects = {
     caption: "The plan, the spending and the tips to share, in one itinerary.",
   },
   onezero: {
-    src: "img/one-zero-home-2x.webp",
+    src: "img/one-zero-home-2x.webp?v=20261030",
     alt: "1→0 homepage: human judgement in innovation, alongside AI",
     caption: "The startup I’m preparing, and the research library behind it.",
   },

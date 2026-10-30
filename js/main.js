@@ -6,7 +6,7 @@ import { initDemoBridge } from "./demo-bridge.js?v=20261024-qr";
 import { initArtifactGalleries } from "./artifact-gallery.js?v=20261024-qr";
 import { initBesciGallery } from "./besci-gallery.js?v=20261024-qr";
 import { initMediaViewer } from "./media-viewer.js?v=20261024-qr";
-import { initProjectPreview } from "./project-preview.js?v=20261030-align";
+import { initProjectPreview } from "./project-preview.js?v=20261030-one";
 import { initFragmentDisclosure } from "./fragment-disclosure.js?v=20261030-align";
 import { initRoomStack } from "./room-stack.js?v=20261030-sheet";
 

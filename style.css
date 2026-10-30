@@ -1475,7 +1475,7 @@ details[open] > summary > span[aria-hidden="true"] {
   left: 1%;
   top: 47%;
   transform: rotate(-9deg);
-  z-index: 4;
+  z-index: 6;
 }
 
 .room-onezero img,

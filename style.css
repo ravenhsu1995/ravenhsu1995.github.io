@@ -1383,8 +1383,9 @@ details[open] > summary > span[aria-hidden="true"] {
 
 .room-note {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 20px;
   margin: 22px 0 0 5%;
   font-size: 10px;
   color: var(--muted);

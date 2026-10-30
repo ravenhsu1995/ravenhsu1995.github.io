@@ -3,32 +3,28 @@ export function initOfficeHours(applyFrameLayout) {
     board: {
       scene: "board",
       mode: "board",
-      kicker: "A room in motion",
-      title: "Make it easier to find each other.",
+      title: "Founder posts on the big screen.",
       description:
         "Two streams of founder posts move in opposite directions. Posts with a link carry a QR code, so anyone in the room can open it on their phone.",
     },
     checkin: {
       scene: "arrival",
       mode: "phone",
-      kicker: "From check-in to conversation",
-      title: "Pick a card. Find your people.",
+      title: "Check in by picking a field card.",
       description:
         "The Chinese interface walks through arrival: choose a field card, meet the check-in cat, then join the room. Use the gold confirmation button at the bottom of each tip to continue.",
     },
     quests: {
       scene: "quests",
       mode: "phone",
-      kicker: "Two ways to participate",
-      title: "Find a partner. Ask for help.",
+      title: "Post publicly or ask privately.",
       description:
         "The upper form is a private question to the host, shown anonymously to the room. The lower form is a public post: choose a category, add a message and optionally a link, then use the button below it. This preview keeps entries in memory.",
     },
     featured: {
       scene: "featured",
       mode: "board",
-      kicker: "One question. The whole room.",
-      title: "Give a difficult question space.",
+      title: "One anonymous question for the whole room.",
       description:
         "The host can replace the flowing board with a single anonymous question, giving the whole room a shared problem to work on.",
     },
@@ -53,7 +49,6 @@ export function initOfficeHours(applyFrameLayout) {
     document
       .getElementById("experience-panel")
       .setAttribute("aria-labelledby", button.id);
-    document.getElementById("gallery-kicker").textContent = view.kicker;
     document.getElementById("gallery-title").textContent = view.title;
     document.getElementById("gallery-description").textContent =
       view.description;

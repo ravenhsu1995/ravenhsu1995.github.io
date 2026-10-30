@@ -1,7 +1,7 @@
 import { initTheme } from "./theme.js";
 import { initMotion } from "./motion.js?v=20261024-qr";
 import { initFrameLayout } from "./frame-layout.js?v=20261024-qr";
-import { initOfficeHours } from "./office-hours.js?v=20261025-evidence";
+import { initOfficeHours } from "./office-hours.js?v=20261030-plain";
 import { initDemoBridge } from "./demo-bridge.js?v=20261024-qr";
 import { initArtifactGalleries } from "./artifact-gallery.js?v=20261024-qr";
 import { initBesciGallery } from "./besci-gallery.js?v=20261024-qr";

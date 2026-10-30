@@ -1460,6 +1460,7 @@ details[open] > summary > span[aria-hidden="true"] {
   z-index: 1;
 }
 
+.room-board-poster,
 .room-board iframe {
   position: absolute;
   inset: 0;
@@ -1468,6 +1469,20 @@ details[open] > summary > span[aria-hidden="true"] {
   height: 100%;
   border: 0;
   pointer-events: none;
+}
+
+.room-board-poster {
+  object-fit: cover;
+}
+
+/* A still of the board holds its place until the live demo has painted. */
+.room-board iframe {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.room-board iframe.is-loaded {
+  opacity: 1;
 }
 
 .room-onezero {

@@ -35,7 +35,7 @@
       rel="stylesheet"
       href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&amp;display=swap"
     />
-    <link rel="stylesheet" href="style.css?v=20261030-stack" />
+    <link rel="stylesheet" href="style.css?v=20261030-poster" />
     <script>
       try {
         const theme = localStorage.getItem("raven-theme");
@@ -46,7 +46,7 @@
         // Use the system theme when storage is unavailable.
       }
     </script>
-    <script type="module" src="js/main.js?v=20261030-fast"></script>
+    <script type="module" src="js/main.js?v=20261030-poster"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -139,6 +139,13 @@
               href="#garage"
               aria-label="Try the Innovation Support meetup tools"
             >
+              <img
+                class="room-board-poster"
+                src="img/hero-board.webp"
+                alt=""
+                width="986"
+                height="520"
+              />
               <iframe
                 data-src="demo/index.html?v=20261024-qr&amp;view=board"
                 title="Live Quest Board with sample posts"
@@ -150,18 +157,18 @@
             </a>
             <a class="room-piece room-onezero" href="#one-zero"
               ><img
-                src="img/one-zero-home-2x.webp?v=20261030"
+                src="img/hero-one-zero.webp"
                 alt="1→0 homepage: human judgement in innovation, alongside AI"
-                width="2880"
-                height="2000"
+                width="960"
+                height="667"
               /><span class="room-piece-label">1→0</span></a
             >
             <a class="room-piece room-travel" href="#travel-fox"
               ><img
-                src="img/travel-fox-homepage-3x.webp"
+                src="img/hero-travel-fox.webp"
                 alt="Travel Fox homepage and public Kansai trip"
-                width="1440"
-                height="2520"
+                width="480"
+                height="840"
               /><span class="room-piece-label"
                 >Travel Fox<span class="room-stamp">Live</span></span
               ></a
@@ -175,10 +182,10 @@
               aria-label="Enlarge the check-in success screen"
             >
               <img
-                src="img/office-hours-checkin-success-2x.webp"
+                src="img/hero-checkin.webp"
                 alt="The check-in success screen with the NTUTEC cat mascot"
-                width="780"
-                height="1688"
+                width="390"
+                height="844"
               />
             </button>
           </div>
@@ -208,6 +215,7 @@
                 alt="NTU Garage progress report with fictional demonstration records"
                 width="2880"
                 height="1740"
+                loading="lazy"
               />
               <img
                 id="project-preview-detail"
@@ -215,6 +223,7 @@
                 alt=""
                 width="1440"
                 height="2520"
+                loading="lazy"
                 hidden
               />
             </div>
